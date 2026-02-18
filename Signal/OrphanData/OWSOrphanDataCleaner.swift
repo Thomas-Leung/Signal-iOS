@@ -103,14 +103,8 @@ enum OWSOrphanDataCleaner {
 
         try Task.checkCancellation()
 
-        let groupAvatarFilePaths: Set<String>
-        do {
-            groupAvatarFilePaths = try databaseStorage.read { tx in
-                return try TSGroupModel.allGroupAvatarFilePaths(transaction: tx)
-            }
-        } catch {
-            owsFailDebug("failed to query group avatar file paths: \(error)")
-            throw error
+        let groupAvatarFilePaths = databaseStorage.read { tx in
+            return TSGroupModel.allGroupAvatarFilePaths(transaction: tx)
         }
 
         try Task.checkCancellation()

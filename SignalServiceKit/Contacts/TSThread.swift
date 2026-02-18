@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 //
 
+import GRDB
 public import LibSignalClient
 
 extension TSThread {
@@ -10,6 +11,25 @@ extension TSThread {
 
     public var logString: String {
         return (self as? TSGroupThread)?.groupId.toHex() ?? self.uniqueId
+    }
+
+    // [SDS] TODO: Replace with SDSCodableModel.
+    static func anyEnumerate(
+        transaction: DBReadTransaction,
+        sql: String,
+        arguments: StatementArguments,
+        block: (TSThread, UnsafeMutablePointer<ObjCBool>) -> Void,
+    ) {
+        let cursor = TSThread.grdbFetchCursor(sql: sql, arguments: arguments, transaction: transaction)
+        failIfThrows {
+            var stop: ObjCBool = false
+            while let thread = try cursor.next() {
+                block(thread, &stop)
+                if stop.boolValue {
+                    break
+                }
+            }
+        }
     }
 
     // MARK: - updateWith...

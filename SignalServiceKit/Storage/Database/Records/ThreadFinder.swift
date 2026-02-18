@@ -368,24 +368,20 @@ public class ThreadFinder {
             ORDER BY \(threadColumn: .lastSentStoryTimestamp) DESC
         """
 
-        let cursor = TSThread.grdbFetchCursor(
-            sql: sql,
-            transaction: transaction,
-        )
-
         var threads = [TSThread]()
-        do {
-            while let thread = try cursor.next() {
+        TSThread.anyEnumerate(
+            transaction: transaction,
+            sql: sql,
+            arguments: [],
+            block: { thread, stop in
                 if let groupThread = thread as? TSGroupThread {
-                    guard groupThread.isStorySendEnabled(transaction: transaction) else { continue }
+                    guard groupThread.isStorySendEnabled(transaction: transaction) else {
+                        return
+                    }
                 }
-
                 threads.append(thread)
-            }
-        } catch {
-            owsFailDebug("Failed to query story threads \(error)")
-        }
-
+            },
+        )
         return threads
     }
 
@@ -400,20 +396,15 @@ public class ThreadFinder {
             LIMIT \(limit)
         """
 
-        let cursor = TSThread.grdbFetchCursor(
-            sql: sql,
-            transaction: transaction,
-        )
-
         var threads = [TSThread]()
-        do {
-            while let thread = try cursor.next() {
+        TSThread.anyEnumerate(
+            transaction: transaction,
+            sql: sql,
+            arguments: [],
+            block: { thread, stop in
                 threads.append(thread)
-            }
-        } catch {
-            owsFailDebug("Failed to query recent threads \(error)")
-        }
-
+            },
+        )
         return threads
     }
 

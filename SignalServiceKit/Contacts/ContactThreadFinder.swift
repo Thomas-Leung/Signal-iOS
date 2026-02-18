@@ -31,15 +31,13 @@ public class ContactThreadFinder: NSObject {
     }
 
     private func fetchContactThreads(sql: String, arguments: StatementArguments, tx: DBReadTransaction) -> [TSContactThread] {
-        do {
-            let threads = try TSContactThread.grdbFetchCursor(
-                sql: sql,
-                arguments: arguments,
-                transaction: tx,
-            ).all()
-            return threads.compactMap { $0 as? TSContactThread }
-        } catch {
-            return []
-        }
+        var threads = [TSThread]()
+        TSThread.anyEnumerate(
+            transaction: tx,
+            sql: sql,
+            arguments: arguments,
+            block: { thread, _ in threads.append(thread) },
+        )
+        return threads.compactMap { $0 as? TSContactThread }
     }
 }

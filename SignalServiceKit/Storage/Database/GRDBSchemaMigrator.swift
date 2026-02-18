@@ -5091,12 +5091,11 @@ public class GRDBSchemaMigrator {
         }
 
         migrator.registerMigration(.dataMigration_scheduleStorageServiceUpdateForMutedThreads) { transaction in
-            let cursor = TSThread.grdbFetchCursor(
-                sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .mutedUntilTimestamp) > 0",
+            TSThread.anyEnumerate(
                 transaction: transaction,
-            )
-
-            while let thread = try cursor.next() {
+                sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .mutedUntilTimestamp) > 0",
+                arguments: [],
+            ) { thread, _ in
                 if let thread = thread as? TSContactThread {
                     SSKEnvironment.shared.storageServiceManagerRef.recordPendingUpdates(updatedAddresses: [thread.contactAddress])
                 } else if let thread = thread as? TSGroupThread {
@@ -5109,20 +5108,17 @@ public class GRDBSchemaMigrator {
         }
 
         migrator.registerMigration(.dataMigration_populateGroupMember) { transaction in
-            let cursor = TSThread.grdbFetchCursor(
+            TSThread.anyEnumerate(
+                transaction: transaction,
                 sql: """
                     SELECT *
                     FROM \(ThreadRecord.databaseTableName)
                     WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)
                 """,
-                transaction: transaction,
-            )
-
-            while let thread = try cursor.next() {
-                guard let groupThread = thread as? TSGroupThread else {
-                    owsFail("Unexpected thread type \(thread)")
-                }
-
+                arguments: [],
+            ) { thread, _ in
+                // [SDS] TODO: Fetch TSGroupThreads directly.
+                let groupThread = thread as! TSGroupThread
                 let groupThreadId = groupThread.uniqueId
                 let interactionFinder = InteractionFinder(threadUniqueId: groupThreadId)
 
@@ -5205,13 +5201,14 @@ public class GRDBSchemaMigrator {
         }
 
         migrator.registerMigration(.dataMigration_reindexGroupMembershipAndMigrateLegacyAvatarDataFixed) { transaction in
-            let threadCursor = TSThread.grdbFetchCursor(
-                sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)",
+            TSThread.anyEnumerate(
                 transaction: transaction,
-            )
-
-            while let thread = try threadCursor.next() as? TSGroupThread {
-                try autoreleasepool {
+                sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)",
+                arguments: [],
+            ) { thread, _ in
+                // [SDS] TODO: Fetch TSGroupThreads directly.
+                let thread = thread as! TSGroupThread
+                autoreleasepool {
                     let groupModel = thread.groupModel
 
                     guard
@@ -5224,7 +5221,9 @@ public class GRDBSchemaMigrator {
                         return
                     }
 
-                    try groupModel.persistAvatarData(legacyAvatarData)
+                    failIfThrows {
+                        try groupModel.persistAvatarData(legacyAvatarData)
+                    }
                     groupModel.legacyAvatarData = nil
 
                     thread.anyUpsert(transaction: transaction)

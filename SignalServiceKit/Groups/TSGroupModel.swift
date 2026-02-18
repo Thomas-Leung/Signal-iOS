@@ -525,23 +525,20 @@ extension TSGroupModel {
         return Data(SHA256.hash(data: avatarData)).hexadecimalString
     }
 
-    public static func allGroupAvatarFilePaths(transaction: DBReadTransaction) throws -> Set<String> {
-        let cursor = TSThread.grdbFetchCursor(
-            sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)",
-            transaction: transaction,
-        )
-
+    public static func allGroupAvatarFilePaths(transaction: DBReadTransaction) -> Set<String> {
         var filePaths = Set<String>()
-
-        do {
-            while let thread = try cursor.next() as? TSGroupThread {
-                guard let avatarHash = thread.groupModel.avatarHash else { continue }
+        TSThread.anyEnumerate(
+            transaction: transaction,
+            sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .recordType) = ?",
+            arguments: [SDSRecordType.groupThread.rawValue],
+            block: { thread, stop in
+                // [SDS] TODO: Fetch TSGroupThreads directly.
+                guard let avatarHash = (thread as? TSGroupThread)?.groupModel.avatarHash else {
+                    return
+                }
                 filePaths.insert(avatarFilePath(forHash: avatarHash).path)
-            }
-        } catch {
-            throw error.grdbErrorForLogging
-        }
-
+            },
+        )
         return filePaths
     }
 
