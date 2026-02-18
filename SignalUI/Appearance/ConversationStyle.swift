@@ -425,21 +425,3 @@ extension ConversationStyle: CustomDebugStringConvertible {
             "]"
     }
 }
-
-extension ConversationStyle {
-    public func quotedReplyHighlightColor() -> UIColor {
-        UIColor(rgbHex: 0xB5B5B5)
-    }
-
-    public func quotedReplyAuthorColor() -> UIColor {
-        quotedReplyTextColor()
-    }
-
-    public func quotedReplyTextColor() -> UIColor {
-        isDarkThemeEnabled ? .ows_gray05 : .ows_gray90
-    }
-
-    public func quotedReplyAttachmentColor() -> UIColor {
-        isDarkThemeEnabled ? .ows_gray05 : UIColor.ows_gray90
-    }
-}

@@ -243,7 +243,7 @@ public struct CVComponentState: Equatable {
     let hasRenderableContent: Bool
 
     struct QuotedReply: Equatable {
-        let viewState: QuotedMessageView.State
+        let viewState: CVQuotedMessageView.State
 
         var quotedReplyModel: QuotedReplyModel { viewState.quotedReplyModel }
     }
@@ -1585,7 +1585,7 @@ private extension CVComponentState.Builder {
                 transaction: transaction,
             )
         }
-        let viewState = QuotedMessageView.stateForConversation(
+        let viewState = CVQuotedMessageView.stateForConversation(
             quotedReplyModel: quotedReplyModel,
             displayableQuotedText: displayableQuotedText,
             conversationStyle: conversationStyle,

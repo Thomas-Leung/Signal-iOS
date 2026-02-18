@@ -332,7 +332,7 @@
 		347030C625F66C24006C3BF5 /* PaymentsDeactivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347030C525F66C24006C3BF5 /* PaymentsDeactivateViewController.swift */; };
 		3470518C254B320700A19468 /* CVRenderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470518B254B320700A19468 /* CVRenderState.swift */; };
 		3470518E254B511B00A19468 /* ConversationViewController+CVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470518D254B511B00A19468 /* ConversationViewController+CVC.swift */; };
-		3470C8742554926200F5847C /* QuotedMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470C8732554926200F5847C /* QuotedMessageView.swift */; };
+		3470C8742554926200F5847C /* CVQuotedMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470C8732554926200F5847C /* CVQuotedMessageView.swift */; };
 		3470C8772555883600F5847C /* CVLoadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470C8752555883600F5847C /* CVLoadRequest.swift */; };
 		3470C8782555883600F5847C /* CVLoadContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470C8762555883600F5847C /* CVLoadContext.swift */; };
 		3470C87A2555DE5F00F5847C /* CVComponentContactShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3470C8792555DE5F00F5847C /* CVComponentContactShare.swift */; };
@@ -4323,7 +4323,7 @@
 		347030C525F66C24006C3BF5 /* PaymentsDeactivateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsDeactivateViewController.swift; sourceTree = "<group>"; };
 		3470518B254B320700A19468 /* CVRenderState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVRenderState.swift; sourceTree = "<group>"; };
 		3470518D254B511B00A19468 /* ConversationViewController+CVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConversationViewController+CVC.swift"; sourceTree = "<group>"; };
-		3470C8732554926200F5847C /* QuotedMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotedMessageView.swift; sourceTree = "<group>"; };
+		3470C8732554926200F5847C /* CVQuotedMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVQuotedMessageView.swift; sourceTree = "<group>"; };
 		3470C8752555883600F5847C /* CVLoadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVLoadRequest.swift; sourceTree = "<group>"; };
 		3470C8762555883600F5847C /* CVLoadContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVLoadContext.swift; sourceTree = "<group>"; };
 		3470C8792555DE5F00F5847C /* CVComponentContactShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVComponentContactShare.swift; sourceTree = "<group>"; };
@@ -9253,6 +9253,7 @@
 				34A8B3502190A40E00218A25 /* CVMediaAlbumView.swift */,
 				3488F9352191CC4000E524CC /* CVMediaView.swift */,
 				04A5736A2E4CF1BD0019651F /* CVPollView.swift */,
+				3470C8732554926200F5847C /* CVQuotedMessageView.swift */,
 				34635331257549F1003C5428 /* CVReactionCountsView.swift */,
 				347C381C252CE69400F3D941 /* CVStackView.swift */,
 				3420CF6E2638A01A00E7DCB0 /* CVWallpaperBlurView.swift */,
@@ -9261,7 +9262,6 @@
 				34EB0E712629DC2B00B62DC3 /* MessageSelectionView.swift */,
 				34EB0CEA26289D8800B62DC3 /* MessageTimerView.swift */,
 				0426758A2EC4D5BF00124C5F /* PinnedMessageIconView.swift */,
-				3470C8732554926200F5847C /* QuotedMessageView.swift */,
 				348EE28D25B897BF00814FC2 /* ReusableMediaView.swift */,
 				D968B4972C9E1AC3006B14E1 /* SmsLockIconView.swift */,
 			);
@@ -17900,6 +17900,7 @@
 				3488F9362191CC4000E524CC /* CVMediaView.swift in Sources */,
 				348815C8255346A500D4F4C4 /* CVNode.swift in Sources */,
 				04A5736B2E4CF1BF0019651F /* CVPollView.swift in Sources */,
+				3470C8742554926200F5847C /* CVQuotedMessageView.swift in Sources */,
 				34635332257549F2003C5428 /* CVReactionCountsView.swift in Sources */,
 				348815CA255346A500D4F4C4 /* CVRenderItem.swift in Sources */,
 				3470518C254B320700A19468 /* CVRenderState.swift in Sources */,
@@ -18212,7 +18213,6 @@
 				D9DCFDB02A3BC4A400C73C0B /* QRCodeGenerator.swift in Sources */,
 				D9BF53362D0814A000EC3DF0 /* QRCodeView.swift in Sources */,
 				C1AE7C5A2D7B4451007A618D /* QuickRestoreManager.swift in Sources */,
-				3470C8742554926200F5847C /* QuotedMessageView.swift in Sources */,
 				D9E43C0A2CC194140001536E /* RaisedHandsToast.swift in Sources */,
 				88863A56280CD04B00977F69 /* ReactionFlybyAnimation.swift in Sources */,
 				D9E43C0B2CC194140001536E /* ReactionsBurstView.swift in Sources */,

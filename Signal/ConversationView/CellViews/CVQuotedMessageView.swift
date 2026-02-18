@@ -6,23 +6,20 @@
 import SignalServiceKit
 public import SignalUI
 
-public protocol QuotedMessageViewDelegate: AnyObject {
+public protocol CVQuotedMessageViewDelegate: AnyObject {
 
     func didTapDownloadQuotedReplyAttachment(_ quotedReply: QuotedReplyModel)
-
-    func didCancelQuotedReply()
 }
 
 // MARK: -
 
-public class QuotedMessageView: ManualStackViewWithLayer {
+public class CVQuotedMessageView: ManualStackViewWithLayer {
 
     public struct State: Equatable {
         let quotedReplyModel: QuotedReplyModel
         let displayableQuotedText: DisplayableText?
         let conversationStyle: ConversationStyle
         let isOutgoing: Bool
-        let isForPreview: Bool
         let quotedAuthorName: String
         let memberLabel: String?
 
@@ -39,7 +36,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
     private var state: State?
 
-    private weak var delegate: QuotedMessageViewDelegate?
+    private weak var delegate: CVQuotedMessageViewDelegate?
 
     private let hStack = ManualStackView(name: "hStack")
     private let innerVStack = ManualStackView(name: "innerVStack")
@@ -57,7 +54,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
     // Background
     private let bubbleView = ManualLayoutViewWithLayer(name: "bubbleView")
-    private let chatColorView = CVColorOrGradientView()
     private let tintView = ManualLayoutViewWithLayer(name: "tintView")
 
     static func stateForConversation(
@@ -72,7 +68,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
             displayableQuotedText: displayableQuotedText,
             conversationStyle: conversationStyle,
             isOutgoing: isOutgoing,
-            isForPreview: false,
             quotedAuthorName: SSKEnvironment.shared.contactManagerRef.displayName(
                 for: quotedReplyModel.originalMessageAuthorAddress,
                 tx: transaction,
@@ -93,7 +88,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
         var conversationStyle: ConversationStyle { state.conversationStyle }
         var isOutgoing: Bool { state.isOutgoing }
         var isIncoming: Bool { !isOutgoing }
-        var isForPreview: Bool { state.isForPreview }
         fileprivate var quotedAuthorName: NSAttributedString {
             let padding = " " + String(repeating: SignalSymbol.LeadingCharacter.nonBreakingSpace.rawValue, count: 2)
             if let labelString = state.memberLabel {
@@ -105,12 +99,12 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
         let stripeThickness: CGFloat = 4
         var quotedAuthorFont: UIFont { UIFont.dynamicTypeSubheadlineClamped.semibold() }
-        var quotedAuthorColor: UIColor { conversationStyle.quotedReplyAuthorColor() }
-        var quotedTextColor: UIColor { conversationStyle.quotedReplyTextColor() }
+        var quotedAuthorColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
+        var quotedTextColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
         var quotedTextFont: UIFont { UIFont.dynamicTypeSubheadline }
-        var fileTypeTextColor: UIColor { conversationStyle.quotedReplyAttachmentColor() }
+        var fileTypeTextColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
         var fileTypeFont: UIFont { quotedTextFont.italic() }
-        var filenameTextColor: UIColor { conversationStyle.quotedReplyAttachmentColor() }
+        var filenameTextColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
         var filenameFont: UIFont { quotedTextFont }
         var quotedAuthorHeight: CGFloat { quotedAuthorFont.lineHeight }
         let quotedAttachmentSizeWithoutQuotedText: CGFloat = 64
@@ -129,18 +123,13 @@ public class QuotedMessageView: ManualStackViewWithLayer {
         }
 
         let remotelySourcedContentIconSize: CGFloat = 16
-        let cancelIconSize: CGFloat = 20
-        let cancelIconMargins = UIEdgeInsets(top: 6, leading: 6, bottom: 0, trailing: 6)
 
         var outerStackConfig: CVStackViewConfig {
             CVStackViewConfig(
                 axis: .vertical,
                 alignment: .fill,
                 spacing: 8,
-                layoutMargins: UIEdgeInsets(
-                    hMargin: isForPreview ? 0 : 8,
-                    vMargin: 0,
-                ),
+                layoutMargins: UIEdgeInsets(hMargin: 8, vMargin: 0),
             )
         }
 
@@ -236,10 +225,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
                 return false
             }
             return MimeTypeUtil.isSupportedVideoMimeType(mimeType)
-        }
-
-        var highlightColor: UIColor {
-            conversationStyle.quotedReplyHighlightColor()
         }
 
         var quotedAuthorLabelConfig: CVLabelConfig {
@@ -377,7 +362,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
                 displayConfig: displayConfig,
                 font: quotedTextFont,
                 textColor: quotedTextColor,
-                numberOfLines: isForPreview || hasQuotedThumbnail ? 1 : 2,
+                numberOfLines: hasQuotedThumbnail ? 1 : 2,
                 lineBreakMode: .byTruncatingTail,
                 textAlignment: textAlignment,
             )
@@ -479,24 +464,13 @@ public class QuotedMessageView: ManualStackViewWithLayer {
     ) -> ManualLayoutView {
 
         // Background
-        chatColorView.configure(
-            value: conversationStyle.bubbleChatColorOutgoing,
-            referenceView: componentDelegate.view,
-        )
-        bubbleView.addSubviewToFillSuperviewEdges(chatColorView)
-        tintView.backgroundColor = (
-            conversationStyle.isDarkThemeEnabled
-                ? UIColor(white: 0, alpha: 0.4)
-                : UIColor(white: 1, alpha: 0.6),
-        )
+        tintView.backgroundColor = .Signal.materialTertiaryFill
         bubbleView.addSubviewToFillSuperviewMargins(tintView)
         // For incoming messages, manipulate leading margin
         // to render stripe.
         bubbleView.layoutMargins = UIEdgeInsets(
             top: 0,
-            leading: configurator.isIncoming
-                ? configurator.stripeThickness
-                : 0,
+            leading: configurator.isIncoming ? configurator.stripeThickness : 0,
             bottom: 0,
             trailing: 0,
         )
@@ -527,7 +501,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
     public func configureForRendering(
         state: State,
-        delegate: QuotedMessageViewDelegate?,
+        delegate: CVQuotedMessageViewDelegate?,
         componentDelegate: CVComponentDelegate,
         sharpCorners: OWSDirectionalRectCorner,
         cellMeasurement: CVCellMeasurement,
@@ -541,12 +515,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
         var hStackSubviews = [UIView]()
 
-        if configurator.isForPreview || configurator.isOutgoing {
-            stripeView.backgroundColor = .ows_white
-        } else {
-            // We render the stripe by manipulating the chat color overlay.
-            stripeView.backgroundColor = .clear
-        }
+        stripeView.backgroundColor = .Signal.materialPrimaryFill
         hStackSubviews.append(stripeView)
 
         var innerVStackSubviews = [UIView]()
@@ -611,7 +580,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
                 // For outgoing replies to gift messages, the wrapping image is blue, and
                 // the bubble can be the same shade of blue. This looks odd, so add a 1pt
                 // white border in that case.
-                if configurator.isOutgoing, !configurator.isForPreview {
+                if configurator.isOutgoing {
                     // The gift badge needs to know which corners to round, which depends on
                     // whether or not there's adjacent content in the parent container. We care
                     // about "edges that are against the rounded parent edges", and then we
@@ -669,7 +638,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
                     return wrapper
                 } else if attachment.attachment.asStream() == nil, attachment.attachment.asAnyPointer() != nil {
                     let wrapper = ManualLayoutViewWithLayer(name: "thumbnailDownloadFailedWrapper")
-                    wrapper.backgroundColor = configurator.highlightColor
+                    wrapper.backgroundColor = UIColor(rgbHex: 0xB5B5B5)
 
                     // TODO: design review icon and color
                     quotedImageView.setTemplateImageName("refresh", tintColor: .white)
@@ -741,18 +710,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
         hStackSubviews.append(trailingView)
 
-        if configurator.isForPreview {
-            let cancelButton = UIButton(type: .custom)
-            cancelButton.setImage(UIImage(imageLiteralResourceName: "x-20"), for: .normal)
-            cancelButton.imageView?.tintColor = Theme.secondaryTextAndIconColor
-            cancelButton.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
-
-            let cancelWrapper = ManualLayoutView(name: "cancelWrapper")
-            cancelWrapper.layoutMargins = configurator.cancelIconMargins
-            cancelWrapper.addSubviewToFillSuperviewMargins(cancelButton)
-            hStackSubviews.append(cancelWrapper)
-        }
-
         hStack.configure(
             config: configurator.hStackConfig,
             cellMeasurement: cellMeasurement,
@@ -822,11 +779,11 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
     // MARK: - Measurement
 
-    private static let measurementKey_outerStack = "QuotedMessageView.measurementKey_outerStack"
-    private static let measurementKey_hStack = "QuotedMessageView.measurementKey_hStack"
-    private static let measurementKey_innerVStack = "QuotedMessageView.measurementKey_innerVStack"
-    private static let measurementKey_outerVStack = "QuotedMessageView.measurementKey_outerVStack"
-    private static let measurementKey_remotelySourcedContentStack = "QuotedMessageView.measurementKey_remotelySourcedContentStack"
+    private static let measurementKey_outerStack = "CVQuotedMessageView.measurementKey_outerStack"
+    private static let measurementKey_hStack = "CVQuotedMessageView.measurementKey_hStack"
+    private static let measurementKey_innerVStack = "CVQuotedMessageView.measurementKey_innerVStack"
+    private static let measurementKey_outerVStack = "CVQuotedMessageView.measurementKey_outerVStack"
+    private static let measurementKey_remotelySourcedContentStack = "CVQuotedMessageView.measurementKey_remotelySourcedContentStack"
 
     public static func measure(
         state: State,
@@ -918,12 +875,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
             hStackSubviewInfos.append(CGSize.zero.asManualSubviewInfo(hasFixedWidth: true))
         }
 
-        if configurator.isForPreview {
-            let cancelIconSize = CGSize.square(configurator.cancelIconSize)
-            let cancelWrapperSize = cancelIconSize + configurator.cancelIconMargins.asSize
-            hStackSubviewInfos.append(cancelWrapperSize.asManualSubviewInfo(hasFixedWidth: true))
-        }
-
         let hStackMeasurement = ManualStackView.measure(
             config: hStackConfig,
             measurementBuilder: measurementBuilder,
@@ -1000,11 +951,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
     // MARK: -
 
     @objc
-    private func didTapCancel() {
-        delegate?.didCancelQuotedReply()
-    }
-
-    @objc
     private func didTapFailedThumbnailDownload(_ sender: UITapGestureRecognizer) {
         Logger.debug("in didTapFailedThumbnailDownload")
 
@@ -1015,10 +961,6 @@ public class QuotedMessageView: ManualStackViewWithLayer {
         let quotedReplyModel = state.quotedReplyModel
 
         delegate?.didTapDownloadQuotedReplyAttachment(quotedReplyModel)
-    }
-
-    public func updateAppearance() {
-        chatColorView.updateAppearance()
     }
 
     override public func reset() {
@@ -1042,8 +984,7 @@ public class QuotedMessageView: ManualStackViewWithLayer {
 
         bubbleView.reset()
         bubbleView.removeFromSuperview()
-        chatColorView.reset()
-        chatColorView.removeFromSuperview()
+
         tintView.reset()
         tintView.removeFromSuperview()
     }
