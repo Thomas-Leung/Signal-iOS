@@ -83,7 +83,7 @@ public struct BubbleConfiguration {
         /// Creates a configuration where corner radius is calculated dynamically based on view's dimensions.
         ///
         /// - Parameter maxRadius: Upper limit for corner radius. Pass `0` for no limit.
-        public static func capsule(maxRadius: CGFloat = 0) -> Corners {
+        public static func capsule(maxRadius: CGFloat = 18) -> Corners {
             Corners(style: .capsule(maxRadius: maxRadius))
         }
 
