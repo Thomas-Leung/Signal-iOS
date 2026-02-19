@@ -414,6 +414,7 @@ message CallLink {
   string name = 3;
   Restrictions restrictions = 4;
   uint64 expirationMs = 5;
+  reserved /*epoch*/ 6;
 }
 
 message AdHocCall {

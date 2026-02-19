@@ -2255,7 +2255,6 @@
 		D90AA4BD2CC9616B00021CB0 /* chat_item_simple_updates_04.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA1972CC9616A00021CB0 /* chat_item_simple_updates_04.binproto */; };
 		D90AA4BF2CC9616B00021CB0 /* chat_item_standard_message_special_attachments_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA21C2CC9616A00021CB0 /* chat_item_standard_message_special_attachments_09.txtproto */; };
 		D90AA4C02CC9616B00021CB0 /* chat_item_standard_message_standard_attachments_13.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2412CC9616A00021CB0 /* chat_item_standard_message_standard_attachments_13.binproto */; };
-		D90AA4C12CC9616B00021CB0 /* chat_item_simple_updates_15.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA1AD2CC9616A00021CB0 /* chat_item_simple_updates_15.binproto */; };
 		D90AA4C22CC9616B00021CB0 /* chat_item_standard_message_text_only_00.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2462CC9616A00021CB0 /* chat_item_standard_message_text_only_00.txtproto */; };
 		D90AA4C42CC9616B00021CB0 /* chat_item_payment_notification_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA15C2CC9616A00021CB0 /* chat_item_payment_notification_09.txtproto */; };
 		D90AA4C52CC9616B00021CB0 /* chat_item_sticker_message_00.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2A52CC9616A00021CB0 /* chat_item_sticker_message_00.binproto */; };
@@ -2349,7 +2348,6 @@
 		D90AA5342CC9616B00021CB0 /* chat_08.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA0C02CC9616A00021CB0 /* chat_08.txtproto */; };
 		D90AA5352CC9616B00021CB0 /* chat_item_standard_message_with_link_preview_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA26F2CC9616A00021CB0 /* chat_item_standard_message_with_link_preview_03.binproto */; };
 		D90AA5372CC9616B00021CB0 /* chat_item_standard_message_text_only_10.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA25A2CC9616A00021CB0 /* chat_item_standard_message_text_only_10.txtproto */; };
-		D90AA5382CC9616B00021CB0 /* chat_item_simple_updates_15.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA1AE2CC9616A00021CB0 /* chat_item_simple_updates_15.txtproto */; };
 		D90AA5392CC9616B00021CB0 /* chat_item_standard_message_with_link_preview_08.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2792CC9616A00021CB0 /* chat_item_standard_message_with_link_preview_08.binproto */; };
 		D90AA53A2CC9616B00021CB0 /* chat_item_standard_message_special_attachments_11.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA21F2CC9616A00021CB0 /* chat_item_standard_message_special_attachments_11.binproto */; };
 		D90AA53B2CC9616B00021CB0 /* chat_item_remote_delete_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA1802CC9616A00021CB0 /* chat_item_remote_delete_09.txtproto */; };
@@ -2549,6 +2547,102 @@
 		D90AA6172CC9616B00021CB0 /* chat_item_expiration_timer_update_01.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA1052CC9616A00021CB0 /* chat_item_expiration_timer_update_01.binproto */; };
 		D90AA6192CC961ED00021CB0 /* BackupArchiveIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90AA6182CC961ED00021CB0 /* BackupArchiveIntegrationTests.swift */; };
 		D90D4D842BBB61680097C573 /* BackupArchive+EmptyFrameId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D4D832BBB61680097C573 /* BackupArchive+EmptyFrameId.swift */; };
+		D90FBDDE2F3E5647002B7646 /* recipient_call_link_13.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDDB2F3E5647002B7646 /* recipient_call_link_13.txtproto */; };
+		D90FBDDF2F3E5647002B7646 /* recipient_call_link_01.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDCE2F3E5647002B7646 /* recipient_call_link_01.binproto */; };
+		D90FBDE02F3E5647002B7646 /* recipient_call_link_15.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDDD2F3E5647002B7646 /* recipient_call_link_15.txtproto */; };
+		D90FBDE12F3E5647002B7646 /* recipient_call_link_05.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD32F3E5647002B7646 /* recipient_call_link_05.txtproto */; };
+		D90FBDE22F3E5647002B7646 /* recipient_call_link_07.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD42F3E5647002B7646 /* recipient_call_link_07.binproto */; };
+		D90FBDE32F3E5647002B7646 /* recipient_call_link_09.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD62F3E5647002B7646 /* recipient_call_link_09.binproto */; };
+		D90FBDE42F3E5647002B7646 /* recipient_call_link_13.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDDA2F3E5647002B7646 /* recipient_call_link_13.binproto */; };
+		D90FBDE52F3E5647002B7646 /* recipient_call_link_05.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD22F3E5647002B7646 /* recipient_call_link_05.binproto */; };
+		D90FBDE62F3E5647002B7646 /* recipient_call_link_01.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDCF2F3E5647002B7646 /* recipient_call_link_01.txtproto */; };
+		D90FBDE72F3E5647002B7646 /* recipient_call_link_03.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD12F3E5647002B7646 /* recipient_call_link_03.txtproto */; };
+		D90FBDE82F3E5647002B7646 /* recipient_call_link_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD02F3E5647002B7646 /* recipient_call_link_03.binproto */; };
+		D90FBDE92F3E5647002B7646 /* recipient_call_link_07.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD52F3E5647002B7646 /* recipient_call_link_07.txtproto */; };
+		D90FBDEA2F3E5647002B7646 /* recipient_call_link_15.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDDC2F3E5647002B7646 /* recipient_call_link_15.binproto */; };
+		D90FBDEB2F3E5647002B7646 /* recipient_call_link_11.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD82F3E5647002B7646 /* recipient_call_link_11.binproto */; };
+		D90FBDEC2F3E5647002B7646 /* recipient_call_link_11.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD92F3E5647002B7646 /* recipient_call_link_11.txtproto */; };
+		D90FBDED2F3E5647002B7646 /* recipient_call_link_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDD72F3E5647002B7646 /* recipient_call_link_09.txtproto */; };
+		D90FBDF02F3E57EB002B7646 /* chat_item_simple_updates_05.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDEF2F3E57EB002B7646 /* chat_item_simple_updates_05.txtproto */; };
+		D90FBDF12F3E57EB002B7646 /* chat_item_simple_updates_05.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDEE2F3E57EB002B7646 /* chat_item_simple_updates_05.binproto */; };
+		D90FBE402F3E5904002B7646 /* android_account_data_01.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF42F3E5904002B7646 /* android_account_data_01.binproto */; };
+		D90FBE412F3E5904002B7646 /* notification_profile_00.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE282F3E5904002B7646 /* notification_profile_00.binproto */; };
+		D90FBE422F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE002F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.binproto */; };
+		D90FBE432F3E5904002B7646 /* notification_profile_10.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE3D2F3E5904002B7646 /* notification_profile_10.txtproto */; };
+		D90FBE442F3E5904002B7646 /* notification_profile_08.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE382F3E5904002B7646 /* notification_profile_08.binproto */; };
+		D90FBE452F3E5904002B7646 /* notification_profile_02.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE2D2F3E5904002B7646 /* notification_profile_02.txtproto */; };
+		D90FBE462F3E5904002B7646 /* chat_folder_00.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF72F3E5904002B7646 /* chat_folder_00.txtproto */; };
+		D90FBE472F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE252F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.txtproto */; };
+		D90FBE482F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDFF2F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.txtproto */; };
+		D90FBE492F3E5904002B7646 /* chat_folder_01.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF92F3E5904002B7646 /* chat_folder_01.txtproto */; };
+		D90FBE4A2F3E5904002B7646 /* chat_folder_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDFC2F3E5904002B7646 /* chat_folder_03.binproto */; };
+		D90FBE4B2F3E5904002B7646 /* chat_item_group_change_chat_update_44.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE042F3E5904002B7646 /* chat_item_group_change_chat_update_44.binproto */; };
+		D90FBE4C2F3E5904002B7646 /* notification_profile_06.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE352F3E5904002B7646 /* notification_profile_06.txtproto */; };
+		D90FBE4D2F3E5904002B7646 /* chat_item_group_change_chat_update_44.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE052F3E5904002B7646 /* chat_item_group_change_chat_update_44.txtproto */; };
+		D90FBE4E2F3E5904002B7646 /* chat_folder_01.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF82F3E5904002B7646 /* chat_folder_01.binproto */; };
+		D90FBE4F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE112F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.txtproto */; };
+		D90FBE502F3E5904002B7646 /* android_account_data_01.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF52F3E5904002B7646 /* android_account_data_01.txtproto */; };
+		D90FBE512F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDFE2F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.binproto */; };
+		D90FBE522F3E5904002B7646 /* chat_item_group_change_chat_update_47.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE072F3E5904002B7646 /* chat_item_group_change_chat_update_47.txtproto */; };
+		D90FBE532F3E5904002B7646 /* chat_item_group_change_chat_update_48.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE092F3E5904002B7646 /* chat_item_group_change_chat_update_48.txtproto */; };
+		D90FBE542F3E5904002B7646 /* chat_folder_02.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDFA2F3E5904002B7646 /* chat_folder_02.binproto */; };
+		D90FBE552F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE152F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.txtproto */; };
+		D90FBE562F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE172F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.txtproto */; };
+		D90FBE572F3E5904002B7646 /* notification_profile_10.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE3C2F3E5904002B7646 /* notification_profile_10.binproto */; };
+		D90FBE582F3E5904002B7646 /* notification_profile_07.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE362F3E5904002B7646 /* notification_profile_07.binproto */; };
+		D90FBE592F3E5904002B7646 /* chat_item_group_change_chat_update_48.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE082F3E5904002B7646 /* chat_item_group_change_chat_update_48.binproto */; };
+		D90FBE5A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE1F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.txtproto */; };
+		D90FBE5B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE142F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.binproto */; };
+		D90FBE5C2F3E5904002B7646 /* notification_profile_02.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE2C2F3E5904002B7646 /* notification_profile_02.binproto */; };
+		D90FBE5D2F3E5904002B7646 /* notification_profile_05.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE332F3E5904002B7646 /* notification_profile_05.txtproto */; };
+		D90FBE5E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE212F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.txtproto */; };
+		D90FBE5F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE0A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.binproto */; };
+		D90FBE602F3E5904002B7646 /* notification_profile_01.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE2B2F3E5904002B7646 /* notification_profile_01.txtproto */; };
+		D90FBE612F3E5904002B7646 /* notification_profile_09.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE3A2F3E5904002B7646 /* notification_profile_09.binproto */; };
+		D90FBE622F3E5904002B7646 /* chat_item_group_change_chat_update_47.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE062F3E5904002B7646 /* chat_item_group_change_chat_update_47.binproto */; };
+		D90FBE632F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE132F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.txtproto */; };
+		D90FBE642F3E5904002B7646 /* chat_folder_00.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF62F3E5904002B7646 /* chat_folder_00.binproto */; };
+		D90FBE652F3E5904002B7646 /* chat_item_group_change_chat_update_43.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE032F3E5904002B7646 /* chat_item_group_change_chat_update_43.txtproto */; };
+		D90FBE662F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE222F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.binproto */; };
+		D90FBE672F3E5904002B7646 /* android_account_data_00.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF32F3E5904002B7646 /* android_account_data_00.txtproto */; };
+		D90FBE682F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE0C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.binproto */; };
+		D90FBE692F3E5904002B7646 /* notification_profile_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE2E2F3E5904002B7646 /* notification_profile_03.binproto */; };
+		D90FBE6A2F3E5904002B7646 /* notification_profile_04.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE312F3E5904002B7646 /* notification_profile_04.txtproto */; };
+		D90FBE6B2F3E5904002B7646 /* chat_folder_02.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDFB2F3E5904002B7646 /* chat_folder_02.txtproto */; };
+		D90FBE6C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE102F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.binproto */; };
+		D90FBE6D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE182F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.binproto */; };
+		D90FBE6E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE192F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.txtproto */; };
+		D90FBE6F2F3E5904002B7646 /* notification_profile_04.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE302F3E5904002B7646 /* notification_profile_04.binproto */; };
+		D90FBE702F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE012F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.txtproto */; };
+		D90FBE712F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE122F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.binproto */; };
+		D90FBE722F3E5904002B7646 /* notification_profile_00.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE292F3E5904002B7646 /* notification_profile_00.txtproto */; };
+		D90FBE732F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE162F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.binproto */; };
+		D90FBE742F3E5904002B7646 /* chat_item_group_change_chat_update_43.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE022F3E5904002B7646 /* chat_item_group_change_chat_update_43.binproto */; };
+		D90FBE752F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE1B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.txtproto */; };
+		D90FBE762F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE272F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.txtproto */; };
+		D90FBE772F3E5904002B7646 /* notification_profile_07.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE372F3E5904002B7646 /* notification_profile_07.txtproto */; };
+		D90FBE782F3E5904002B7646 /* notification_profile_08.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE392F3E5904002B7646 /* notification_profile_08.txtproto */; };
+		D90FBE792F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE232F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.txtproto */; };
+		D90FBE7A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE0F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.txtproto */; };
+		D90FBE7B2F3E5904002B7646 /* android_account_data_00.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDF22F3E5904002B7646 /* android_account_data_00.binproto */; };
+		D90FBE7C2F3E5904002B7646 /* chat_folder_03.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBDFD2F3E5904002B7646 /* chat_folder_03.txtproto */; };
+		D90FBE7D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE0E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.binproto */; };
+		D90FBE7E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE1A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.binproto */; };
+		D90FBE7F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE1D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.txtproto */; };
+		D90FBE802F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE202F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.binproto */; };
+		D90FBE812F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE242F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.binproto */; };
+		D90FBE822F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE0D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.txtproto */; };
+		D90FBE832F3E5904002B7646 /* notification_profile_09.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE3B2F3E5904002B7646 /* notification_profile_09.txtproto */; };
+		D90FBE842F3E5904002B7646 /* notification_profile_05.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE322F3E5904002B7646 /* notification_profile_05.binproto */; };
+		D90FBE852F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE262F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.binproto */; };
+		D90FBE862F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE0B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.txtproto */; };
+		D90FBE872F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE1E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.binproto */; };
+		D90FBE882F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE1C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.binproto */; };
+		D90FBE892F3E5904002B7646 /* notification_profile_03.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE2F2F3E5904002B7646 /* notification_profile_03.txtproto */; };
+		D90FBE8A2F3E5904002B7646 /* notification_profile_06.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE342F3E5904002B7646 /* notification_profile_06.binproto */; };
+		D90FBE8B2F3E5904002B7646 /* notification_profile_11.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE3E2F3E5904002B7646 /* notification_profile_11.binproto */; };
+		D90FBE8C2F3E5904002B7646 /* notification_profile_11.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE3F2F3E5904002B7646 /* notification_profile_11.txtproto */; };
+		D90FBE8D2F3E5904002B7646 /* notification_profile_01.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90FBE2A2F3E5904002B7646 /* notification_profile_01.binproto */; };
 		D9106DFF2AC1FEFD007ABFE6 /* EmptyForCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9106DFE2AC1FEFD007ABFE6 /* EmptyForCodable.swift */; };
 		D9106E022AC20066007ABFE6 /* EmptyForCodableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9106E002AC20061007ABFE6 /* EmptyForCodableTest.swift */; };
 		D91174562E8F35C1009EB756 /* AccountEntropyPoolTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91174552E8F35BD009EB756 /* AccountEntropyPoolTextView.swift */; };
@@ -6403,8 +6497,6 @@
 		D90AA1AA2CC9616A00021CB0 /* chat_item_simple_updates_13.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_simple_updates_13.txtproto; sourceTree = "<group>"; };
 		D90AA1AB2CC9616A00021CB0 /* chat_item_simple_updates_14.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_simple_updates_14.binproto; sourceTree = "<group>"; };
 		D90AA1AC2CC9616A00021CB0 /* chat_item_simple_updates_14.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_simple_updates_14.txtproto; sourceTree = "<group>"; };
-		D90AA1AD2CC9616A00021CB0 /* chat_item_simple_updates_15.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_simple_updates_15.binproto; sourceTree = "<group>"; };
-		D90AA1AE2CC9616A00021CB0 /* chat_item_simple_updates_15.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_simple_updates_15.txtproto; sourceTree = "<group>"; };
 		D90AA1AF2CC9616A00021CB0 /* chat_item_standard_message_formatted_text_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_formatted_text_00.binproto; sourceTree = "<group>"; };
 		D90AA1B02CC9616A00021CB0 /* chat_item_standard_message_formatted_text_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_formatted_text_00.txtproto; sourceTree = "<group>"; };
 		D90AA1B12CC9616A00021CB0 /* chat_item_standard_message_formatted_text_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_formatted_text_01.binproto; sourceTree = "<group>"; };
@@ -6720,6 +6812,102 @@
 		D90AA6182CC961ED00021CB0 /* BackupArchiveIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupArchiveIntegrationTests.swift; sourceTree = "<group>"; };
 		D90D4C822BB633560097C573 /* Backup.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = Backup.proto; sourceTree = "<group>"; };
 		D90D4D832BBB61680097C573 /* BackupArchive+EmptyFrameId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupArchive+EmptyFrameId.swift"; sourceTree = "<group>"; };
+		D90FBDCE2F3E5647002B7646 /* recipient_call_link_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_01.binproto; sourceTree = "<group>"; };
+		D90FBDCF2F3E5647002B7646 /* recipient_call_link_01.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_01.txtproto; sourceTree = "<group>"; };
+		D90FBDD02F3E5647002B7646 /* recipient_call_link_03.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_03.binproto; sourceTree = "<group>"; };
+		D90FBDD12F3E5647002B7646 /* recipient_call_link_03.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_03.txtproto; sourceTree = "<group>"; };
+		D90FBDD22F3E5647002B7646 /* recipient_call_link_05.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_05.binproto; sourceTree = "<group>"; };
+		D90FBDD32F3E5647002B7646 /* recipient_call_link_05.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_05.txtproto; sourceTree = "<group>"; };
+		D90FBDD42F3E5647002B7646 /* recipient_call_link_07.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_07.binproto; sourceTree = "<group>"; };
+		D90FBDD52F3E5647002B7646 /* recipient_call_link_07.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_07.txtproto; sourceTree = "<group>"; };
+		D90FBDD62F3E5647002B7646 /* recipient_call_link_09.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_09.binproto; sourceTree = "<group>"; };
+		D90FBDD72F3E5647002B7646 /* recipient_call_link_09.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_09.txtproto; sourceTree = "<group>"; };
+		D90FBDD82F3E5647002B7646 /* recipient_call_link_11.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_11.binproto; sourceTree = "<group>"; };
+		D90FBDD92F3E5647002B7646 /* recipient_call_link_11.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_11.txtproto; sourceTree = "<group>"; };
+		D90FBDDA2F3E5647002B7646 /* recipient_call_link_13.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_13.binproto; sourceTree = "<group>"; };
+		D90FBDDB2F3E5647002B7646 /* recipient_call_link_13.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_13.txtproto; sourceTree = "<group>"; };
+		D90FBDDC2F3E5647002B7646 /* recipient_call_link_15.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_call_link_15.binproto; sourceTree = "<group>"; };
+		D90FBDDD2F3E5647002B7646 /* recipient_call_link_15.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_call_link_15.txtproto; sourceTree = "<group>"; };
+		D90FBDEE2F3E57EB002B7646 /* chat_item_simple_updates_05.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_simple_updates_05.binproto; sourceTree = "<group>"; };
+		D90FBDEF2F3E57EB002B7646 /* chat_item_simple_updates_05.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_simple_updates_05.txtproto; sourceTree = "<group>"; };
+		D90FBDF22F3E5904002B7646 /* android_account_data_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = android_account_data_00.binproto; sourceTree = "<group>"; };
+		D90FBDF32F3E5904002B7646 /* android_account_data_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = android_account_data_00.txtproto; sourceTree = "<group>"; };
+		D90FBDF42F3E5904002B7646 /* android_account_data_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = android_account_data_01.binproto; sourceTree = "<group>"; };
+		D90FBDF52F3E5904002B7646 /* android_account_data_01.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = android_account_data_01.txtproto; sourceTree = "<group>"; };
+		D90FBDF62F3E5904002B7646 /* chat_folder_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_folder_00.binproto; sourceTree = "<group>"; };
+		D90FBDF72F3E5904002B7646 /* chat_folder_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_folder_00.txtproto; sourceTree = "<group>"; };
+		D90FBDF82F3E5904002B7646 /* chat_folder_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_folder_01.binproto; sourceTree = "<group>"; };
+		D90FBDF92F3E5904002B7646 /* chat_folder_01.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_folder_01.txtproto; sourceTree = "<group>"; };
+		D90FBDFA2F3E5904002B7646 /* chat_folder_02.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_folder_02.binproto; sourceTree = "<group>"; };
+		D90FBDFB2F3E5904002B7646 /* chat_folder_02.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_folder_02.txtproto; sourceTree = "<group>"; };
+		D90FBDFC2F3E5904002B7646 /* chat_folder_03.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_folder_03.binproto; sourceTree = "<group>"; };
+		D90FBDFD2F3E5904002B7646 /* chat_folder_03.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_folder_03.txtproto; sourceTree = "<group>"; };
+		D90FBDFE2F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_group_change_chat_multiple_update_09.binproto; sourceTree = "<group>"; };
+		D90FBDFF2F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_group_change_chat_multiple_update_09.txtproto; sourceTree = "<group>"; };
+		D90FBE002F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_group_change_chat_multiple_update_10.binproto; sourceTree = "<group>"; };
+		D90FBE012F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_group_change_chat_multiple_update_10.txtproto; sourceTree = "<group>"; };
+		D90FBE022F3E5904002B7646 /* chat_item_group_change_chat_update_43.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_group_change_chat_update_43.binproto; sourceTree = "<group>"; };
+		D90FBE032F3E5904002B7646 /* chat_item_group_change_chat_update_43.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_group_change_chat_update_43.txtproto; sourceTree = "<group>"; };
+		D90FBE042F3E5904002B7646 /* chat_item_group_change_chat_update_44.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_group_change_chat_update_44.binproto; sourceTree = "<group>"; };
+		D90FBE052F3E5904002B7646 /* chat_item_group_change_chat_update_44.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_group_change_chat_update_44.txtproto; sourceTree = "<group>"; };
+		D90FBE062F3E5904002B7646 /* chat_item_group_change_chat_update_47.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_group_change_chat_update_47.binproto; sourceTree = "<group>"; };
+		D90FBE072F3E5904002B7646 /* chat_item_group_change_chat_update_47.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_group_change_chat_update_47.txtproto; sourceTree = "<group>"; };
+		D90FBE082F3E5904002B7646 /* chat_item_group_change_chat_update_48.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_group_change_chat_update_48.binproto; sourceTree = "<group>"; };
+		D90FBE092F3E5904002B7646 /* chat_item_group_change_chat_update_48.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_group_change_chat_update_48.txtproto; sourceTree = "<group>"; };
+		D90FBE0A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_00.binproto; sourceTree = "<group>"; };
+		D90FBE0B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_00.txtproto; sourceTree = "<group>"; };
+		D90FBE0C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_01.binproto; sourceTree = "<group>"; };
+		D90FBE0D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_01.txtproto; sourceTree = "<group>"; };
+		D90FBE0E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_02.binproto; sourceTree = "<group>"; };
+		D90FBE0F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_02.txtproto; sourceTree = "<group>"; };
+		D90FBE102F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_03.binproto; sourceTree = "<group>"; };
+		D90FBE112F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_03.txtproto; sourceTree = "<group>"; };
+		D90FBE122F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_04.binproto; sourceTree = "<group>"; };
+		D90FBE132F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_04.txtproto; sourceTree = "<group>"; };
+		D90FBE142F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_05.binproto; sourceTree = "<group>"; };
+		D90FBE152F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_05.txtproto; sourceTree = "<group>"; };
+		D90FBE162F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_06.binproto; sourceTree = "<group>"; };
+		D90FBE172F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_06.txtproto; sourceTree = "<group>"; };
+		D90FBE182F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_07.binproto; sourceTree = "<group>"; };
+		D90FBE192F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_07.txtproto; sourceTree = "<group>"; };
+		D90FBE1A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_08.binproto; sourceTree = "<group>"; };
+		D90FBE1B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_08.txtproto; sourceTree = "<group>"; };
+		D90FBE1C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_09.binproto; sourceTree = "<group>"; };
+		D90FBE1D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_09.txtproto; sourceTree = "<group>"; };
+		D90FBE1E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_10.binproto; sourceTree = "<group>"; };
+		D90FBE1F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_10.txtproto; sourceTree = "<group>"; };
+		D90FBE202F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_11.binproto; sourceTree = "<group>"; };
+		D90FBE212F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_11.txtproto; sourceTree = "<group>"; };
+		D90FBE222F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_12.binproto; sourceTree = "<group>"; };
+		D90FBE232F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_12.txtproto; sourceTree = "<group>"; };
+		D90FBE242F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_13.binproto; sourceTree = "<group>"; };
+		D90FBE252F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_13.txtproto; sourceTree = "<group>"; };
+		D90FBE262F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = chat_item_standard_message_standard_attachments_incremental_mac_14.binproto; sourceTree = "<group>"; };
+		D90FBE272F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = chat_item_standard_message_standard_attachments_incremental_mac_14.txtproto; sourceTree = "<group>"; };
+		D90FBE282F3E5904002B7646 /* notification_profile_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_00.binproto; sourceTree = "<group>"; };
+		D90FBE292F3E5904002B7646 /* notification_profile_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_00.txtproto; sourceTree = "<group>"; };
+		D90FBE2A2F3E5904002B7646 /* notification_profile_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_01.binproto; sourceTree = "<group>"; };
+		D90FBE2B2F3E5904002B7646 /* notification_profile_01.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_01.txtproto; sourceTree = "<group>"; };
+		D90FBE2C2F3E5904002B7646 /* notification_profile_02.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_02.binproto; sourceTree = "<group>"; };
+		D90FBE2D2F3E5904002B7646 /* notification_profile_02.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_02.txtproto; sourceTree = "<group>"; };
+		D90FBE2E2F3E5904002B7646 /* notification_profile_03.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_03.binproto; sourceTree = "<group>"; };
+		D90FBE2F2F3E5904002B7646 /* notification_profile_03.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_03.txtproto; sourceTree = "<group>"; };
+		D90FBE302F3E5904002B7646 /* notification_profile_04.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_04.binproto; sourceTree = "<group>"; };
+		D90FBE312F3E5904002B7646 /* notification_profile_04.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_04.txtproto; sourceTree = "<group>"; };
+		D90FBE322F3E5904002B7646 /* notification_profile_05.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_05.binproto; sourceTree = "<group>"; };
+		D90FBE332F3E5904002B7646 /* notification_profile_05.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_05.txtproto; sourceTree = "<group>"; };
+		D90FBE342F3E5904002B7646 /* notification_profile_06.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_06.binproto; sourceTree = "<group>"; };
+		D90FBE352F3E5904002B7646 /* notification_profile_06.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_06.txtproto; sourceTree = "<group>"; };
+		D90FBE362F3E5904002B7646 /* notification_profile_07.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_07.binproto; sourceTree = "<group>"; };
+		D90FBE372F3E5904002B7646 /* notification_profile_07.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_07.txtproto; sourceTree = "<group>"; };
+		D90FBE382F3E5904002B7646 /* notification_profile_08.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_08.binproto; sourceTree = "<group>"; };
+		D90FBE392F3E5904002B7646 /* notification_profile_08.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_08.txtproto; sourceTree = "<group>"; };
+		D90FBE3A2F3E5904002B7646 /* notification_profile_09.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_09.binproto; sourceTree = "<group>"; };
+		D90FBE3B2F3E5904002B7646 /* notification_profile_09.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_09.txtproto; sourceTree = "<group>"; };
+		D90FBE3C2F3E5904002B7646 /* notification_profile_10.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_10.binproto; sourceTree = "<group>"; };
+		D90FBE3D2F3E5904002B7646 /* notification_profile_10.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_10.txtproto; sourceTree = "<group>"; };
+		D90FBE3E2F3E5904002B7646 /* notification_profile_11.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification_profile_11.binproto; sourceTree = "<group>"; };
+		D90FBE3F2F3E5904002B7646 /* notification_profile_11.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = notification_profile_11.txtproto; sourceTree = "<group>"; };
 		D9106DFE2AC1FEFD007ABFE6 /* EmptyForCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyForCodable.swift; sourceTree = "<group>"; };
 		D9106E002AC20061007ABFE6 /* EmptyForCodableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyForCodableTest.swift; sourceTree = "<group>"; };
 		D91174552E8F35BD009EB756 /* AccountEntropyPoolTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntropyPoolTextView.swift; sourceTree = "<group>"; };
@@ -11966,6 +12154,10 @@
 				E19B35432CD2E8C40078A678 /* ad_hoc_call_01.txtproto */,
 				E19B35442CD2E8C40078A678 /* ad_hoc_call_02.binproto */,
 				E19B35452CD2E8C40078A678 /* ad_hoc_call_02.txtproto */,
+				D90FBDF22F3E5904002B7646 /* android_account_data_00.binproto */,
+				D90FBDF32F3E5904002B7646 /* android_account_data_00.txtproto */,
+				D90FBDF42F3E5904002B7646 /* android_account_data_01.binproto */,
+				D90FBDF52F3E5904002B7646 /* android_account_data_01.txtproto */,
 				D90AA0AF2CC9616A00021CB0 /* chat_00.binproto */,
 				D90AA0B02CC9616A00021CB0 /* chat_00.txtproto */,
 				D90AA0B12CC9616A00021CB0 /* chat_01.binproto */,
@@ -12020,6 +12212,14 @@
 				D90AA0E22CC9616A00021CB0 /* chat_25.txtproto */,
 				D90AA0E32CC9616A00021CB0 /* chat_26.binproto */,
 				D90AA0E42CC9616A00021CB0 /* chat_26.txtproto */,
+				D90FBDF62F3E5904002B7646 /* chat_folder_00.binproto */,
+				D90FBDF72F3E5904002B7646 /* chat_folder_00.txtproto */,
+				D90FBDF82F3E5904002B7646 /* chat_folder_01.binproto */,
+				D90FBDF92F3E5904002B7646 /* chat_folder_01.txtproto */,
+				D90FBDFA2F3E5904002B7646 /* chat_folder_02.binproto */,
+				D90FBDFB2F3E5904002B7646 /* chat_folder_02.txtproto */,
+				D90FBDFC2F3E5904002B7646 /* chat_folder_03.binproto */,
+				D90FBDFD2F3E5904002B7646 /* chat_folder_03.txtproto */,
 				D90AA0E52CC9616A00021CB0 /* chat_item_contact_message_00.binproto */,
 				D90AA0E62CC9616A00021CB0 /* chat_item_contact_message_00.txtproto */,
 				D90AA0E72CC9616A00021CB0 /* chat_item_contact_message_01.binproto */,
@@ -12172,6 +12372,10 @@
 				E18EA8042CE7D8C1003F397B /* chat_item_group_change_chat_multiple_update_07.txtproto */,
 				E18EA8052CE7D8C1003F397B /* chat_item_group_change_chat_multiple_update_08.binproto */,
 				E18EA8062CE7D8C1003F397B /* chat_item_group_change_chat_multiple_update_08.txtproto */,
+				D90FBDFE2F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.binproto */,
+				D90FBDFF2F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.txtproto */,
+				D90FBE002F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.binproto */,
+				D90FBE012F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.txtproto */,
 				D98BC3982EE0B3520052A81F /* chat_item_group_change_chat_multiple_update_11.binproto */,
 				D98BC3992EE0B3520052A81F /* chat_item_group_change_chat_multiple_update_11.txtproto */,
 				D98BC39A2EE0B3520052A81F /* chat_item_group_change_chat_multiple_update_12.binproto */,
@@ -12270,10 +12474,18 @@
 				D98BC3C32EE0CDAD0052A81F /* chat_item_group_change_chat_update_41.txtproto */,
 				D98BC3C42EE0CDAD0052A81F /* chat_item_group_change_chat_update_42.binproto */,
 				D98BC3C52EE0CDAD0052A81F /* chat_item_group_change_chat_update_42.txtproto */,
+				D90FBE022F3E5904002B7646 /* chat_item_group_change_chat_update_43.binproto */,
+				D90FBE032F3E5904002B7646 /* chat_item_group_change_chat_update_43.txtproto */,
+				D90FBE042F3E5904002B7646 /* chat_item_group_change_chat_update_44.binproto */,
+				D90FBE052F3E5904002B7646 /* chat_item_group_change_chat_update_44.txtproto */,
 				D98BC3CA2EE0CDAD0052A81F /* chat_item_group_change_chat_update_45.binproto */,
 				D98BC3CB2EE0CDAD0052A81F /* chat_item_group_change_chat_update_45.txtproto */,
 				D98BC3CC2EE0CDAD0052A81F /* chat_item_group_change_chat_update_46.binproto */,
 				D98BC3CD2EE0CDAD0052A81F /* chat_item_group_change_chat_update_46.txtproto */,
+				D90FBE062F3E5904002B7646 /* chat_item_group_change_chat_update_47.binproto */,
+				D90FBE072F3E5904002B7646 /* chat_item_group_change_chat_update_47.txtproto */,
+				D90FBE082F3E5904002B7646 /* chat_item_group_change_chat_update_48.binproto */,
+				D90FBE092F3E5904002B7646 /* chat_item_group_change_chat_update_48.txtproto */,
 				D98BC3D22EE0CDAD0052A81F /* chat_item_group_change_chat_update_49.binproto */,
 				D98BC3D32EE0CDAD0052A81F /* chat_item_group_change_chat_update_49.txtproto */,
 				D98BC3D42EE0CDAD0052A81F /* chat_item_group_change_chat_update_50.binproto */,
@@ -12538,6 +12750,8 @@
 				D90AA1962CC9616A00021CB0 /* chat_item_simple_updates_03.txtproto */,
 				D90AA1972CC9616A00021CB0 /* chat_item_simple_updates_04.binproto */,
 				D90AA1982CC9616A00021CB0 /* chat_item_simple_updates_04.txtproto */,
+				D90FBDEE2F3E57EB002B7646 /* chat_item_simple_updates_05.binproto */,
+				D90FBDEF2F3E57EB002B7646 /* chat_item_simple_updates_05.txtproto */,
 				D90AA19B2CC9616A00021CB0 /* chat_item_simple_updates_06.binproto */,
 				D90AA19C2CC9616A00021CB0 /* chat_item_simple_updates_06.txtproto */,
 				D90AA19D2CC9616A00021CB0 /* chat_item_simple_updates_07.binproto */,
@@ -12556,8 +12770,6 @@
 				D90AA1AA2CC9616A00021CB0 /* chat_item_simple_updates_13.txtproto */,
 				D90AA1AB2CC9616A00021CB0 /* chat_item_simple_updates_14.binproto */,
 				D90AA1AC2CC9616A00021CB0 /* chat_item_simple_updates_14.txtproto */,
-				D90AA1AD2CC9616A00021CB0 /* chat_item_simple_updates_15.binproto */,
-				D90AA1AE2CC9616A00021CB0 /* chat_item_simple_updates_15.txtproto */,
 				D90AA1AF2CC9616A00021CB0 /* chat_item_standard_message_formatted_text_00.binproto */,
 				D90AA1B02CC9616A00021CB0 /* chat_item_standard_message_formatted_text_00.txtproto */,
 				D90AA1B12CC9616A00021CB0 /* chat_item_standard_message_formatted_text_01.binproto */,
@@ -12738,6 +12950,36 @@
 				D90AA2422CC9616A00021CB0 /* chat_item_standard_message_standard_attachments_13.txtproto */,
 				D90AA2432CC9616A00021CB0 /* chat_item_standard_message_standard_attachments_14.binproto */,
 				D90AA2442CC9616A00021CB0 /* chat_item_standard_message_standard_attachments_14.txtproto */,
+				D90FBE0A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.binproto */,
+				D90FBE0B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.txtproto */,
+				D90FBE0C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.binproto */,
+				D90FBE0D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.txtproto */,
+				D90FBE0E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.binproto */,
+				D90FBE0F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.txtproto */,
+				D90FBE102F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.binproto */,
+				D90FBE112F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.txtproto */,
+				D90FBE122F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.binproto */,
+				D90FBE132F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.txtproto */,
+				D90FBE142F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.binproto */,
+				D90FBE152F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.txtproto */,
+				D90FBE162F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.binproto */,
+				D90FBE172F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.txtproto */,
+				D90FBE182F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.binproto */,
+				D90FBE192F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.txtproto */,
+				D90FBE1A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.binproto */,
+				D90FBE1B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.txtproto */,
+				D90FBE1C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.binproto */,
+				D90FBE1D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.txtproto */,
+				D90FBE1E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.binproto */,
+				D90FBE1F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.txtproto */,
+				D90FBE202F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.binproto */,
+				D90FBE212F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.txtproto */,
+				D90FBE222F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.binproto */,
+				D90FBE232F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.txtproto */,
+				D90FBE242F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.binproto */,
+				D90FBE252F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.txtproto */,
+				D90FBE262F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.binproto */,
+				D90FBE272F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.txtproto */,
 				D90AA2452CC9616A00021CB0 /* chat_item_standard_message_text_only_00.binproto */,
 				D90AA2462CC9616A00021CB0 /* chat_item_standard_message_text_only_00.txtproto */,
 				D90AA2472CC9616A00021CB0 /* chat_item_standard_message_text_only_01.binproto */,
@@ -12894,22 +13136,62 @@
 				E1B628D32CCC59E600C4DC7F /* chat_item_view_once_11.txtproto */,
 				E1B628D42CCC59E600C4DC7F /* chat_item_view_once_12.binproto */,
 				E1B628D52CCC59E600C4DC7F /* chat_item_view_once_12.txtproto */,
+				D90FBE282F3E5904002B7646 /* notification_profile_00.binproto */,
+				D90FBE292F3E5904002B7646 /* notification_profile_00.txtproto */,
+				D90FBE2A2F3E5904002B7646 /* notification_profile_01.binproto */,
+				D90FBE2B2F3E5904002B7646 /* notification_profile_01.txtproto */,
+				D90FBE2C2F3E5904002B7646 /* notification_profile_02.binproto */,
+				D90FBE2D2F3E5904002B7646 /* notification_profile_02.txtproto */,
+				D90FBE2E2F3E5904002B7646 /* notification_profile_03.binproto */,
+				D90FBE2F2F3E5904002B7646 /* notification_profile_03.txtproto */,
+				D90FBE302F3E5904002B7646 /* notification_profile_04.binproto */,
+				D90FBE312F3E5904002B7646 /* notification_profile_04.txtproto */,
+				D90FBE322F3E5904002B7646 /* notification_profile_05.binproto */,
+				D90FBE332F3E5904002B7646 /* notification_profile_05.txtproto */,
+				D90FBE342F3E5904002B7646 /* notification_profile_06.binproto */,
+				D90FBE352F3E5904002B7646 /* notification_profile_06.txtproto */,
+				D90FBE362F3E5904002B7646 /* notification_profile_07.binproto */,
+				D90FBE372F3E5904002B7646 /* notification_profile_07.txtproto */,
+				D90FBE382F3E5904002B7646 /* notification_profile_08.binproto */,
+				D90FBE392F3E5904002B7646 /* notification_profile_08.txtproto */,
+				D90FBE3A2F3E5904002B7646 /* notification_profile_09.binproto */,
+				D90FBE3B2F3E5904002B7646 /* notification_profile_09.txtproto */,
+				D90FBE3C2F3E5904002B7646 /* notification_profile_10.binproto */,
+				D90FBE3D2F3E5904002B7646 /* notification_profile_10.txtproto */,
+				D90FBE3E2F3E5904002B7646 /* notification_profile_11.binproto */,
+				D90FBE3F2F3E5904002B7646 /* notification_profile_11.txtproto */,
 				E1650B9A2CD0507100304C58 /* recipient_call_link_00.binproto */,
 				E1650B9B2CD0507100304C58 /* recipient_call_link_00.txtproto */,
+				D90FBDCE2F3E5647002B7646 /* recipient_call_link_01.binproto */,
+				D90FBDCF2F3E5647002B7646 /* recipient_call_link_01.txtproto */,
 				E1650B9E2CD0507100304C58 /* recipient_call_link_02.binproto */,
 				E1650B9F2CD0507100304C58 /* recipient_call_link_02.txtproto */,
+				D90FBDD02F3E5647002B7646 /* recipient_call_link_03.binproto */,
+				D90FBDD12F3E5647002B7646 /* recipient_call_link_03.txtproto */,
 				E1650BA92CD0508C00304C58 /* recipient_call_link_04.binproto */,
 				E1650BAA2CD0508C00304C58 /* recipient_call_link_04.txtproto */,
+				D90FBDD22F3E5647002B7646 /* recipient_call_link_05.binproto */,
+				D90FBDD32F3E5647002B7646 /* recipient_call_link_05.txtproto */,
 				E1650BAD2CD0508C00304C58 /* recipient_call_link_06.binproto */,
 				E1650BAE2CD0508C00304C58 /* recipient_call_link_06.txtproto */,
+				D90FBDD42F3E5647002B7646 /* recipient_call_link_07.binproto */,
+				D90FBDD52F3E5647002B7646 /* recipient_call_link_07.txtproto */,
 				E1650BB12CD0508C00304C58 /* recipient_call_link_08.binproto */,
 				E1650BB22CD0508C00304C58 /* recipient_call_link_08.txtproto */,
+				D90FBDD62F3E5647002B7646 /* recipient_call_link_09.binproto */,
+				D90FBDD72F3E5647002B7646 /* recipient_call_link_09.txtproto */,
 				E1650BB52CD0508C00304C58 /* recipient_call_link_10.binproto */,
 				E1650BB62CD0508C00304C58 /* recipient_call_link_10.txtproto */,
+				D90FBDD82F3E5647002B7646 /* recipient_call_link_11.binproto */,
+				D90FBDD92F3E5647002B7646 /* recipient_call_link_11.txtproto */,
 				E1650BB92CD0508C00304C58 /* recipient_call_link_12.binproto */,
 				E1650BBA2CD0508C00304C58 /* recipient_call_link_12.txtproto */,
+				D90FBDDA2F3E5647002B7646 /* recipient_call_link_13.binproto */,
+				D90FBDDB2F3E5647002B7646 /* recipient_call_link_13.txtproto */,
 				E1650BBD2CD0508C00304C58 /* recipient_call_link_14.binproto */,
 				E1650BBE2CD0508C00304C58 /* recipient_call_link_14.txtproto */,
+				D90FBDDC2F3E5647002B7646 /* recipient_call_link_15.binproto */,
+				D90FBDDD2F3E5647002B7646 /* recipient_call_link_15.txtproto */,
 				D90AA3052CC9616A00021CB0 /* recipient_contacts_00.binproto */,
 				D90AA3062CC9616A00021CB0 /* recipient_contacts_00.txtproto */,
 				D90AA3072CC9616A00021CB0 /* recipient_contacts_01.binproto */,
@@ -15966,6 +16248,10 @@
 				E19B35462CD2E8C40078A678 /* ad_hoc_call_01.txtproto in Resources */,
 				E19B35492CD2E8C40078A678 /* ad_hoc_call_02.binproto in Resources */,
 				E19B35472CD2E8C40078A678 /* ad_hoc_call_02.txtproto in Resources */,
+				D90FBE7B2F3E5904002B7646 /* android_account_data_00.binproto in Resources */,
+				D90FBE672F3E5904002B7646 /* android_account_data_00.txtproto in Resources */,
+				D90FBE402F3E5904002B7646 /* android_account_data_01.binproto in Resources */,
+				D90FBE502F3E5904002B7646 /* android_account_data_01.txtproto in Resources */,
 				D90AA4632CC9616B00021CB0 /* chat_00.binproto in Resources */,
 				D90AA40D2CC9616B00021CB0 /* chat_00.txtproto in Resources */,
 				D90AA3AA2CC9616B00021CB0 /* chat_01.binproto in Resources */,
@@ -16020,6 +16306,14 @@
 				D90AA4502CC9616B00021CB0 /* chat_25.txtproto in Resources */,
 				D90AA50E2CC9616B00021CB0 /* chat_26.binproto in Resources */,
 				D90AA40F2CC9616B00021CB0 /* chat_26.txtproto in Resources */,
+				D90FBE642F3E5904002B7646 /* chat_folder_00.binproto in Resources */,
+				D90FBE462F3E5904002B7646 /* chat_folder_00.txtproto in Resources */,
+				D90FBE4E2F3E5904002B7646 /* chat_folder_01.binproto in Resources */,
+				D90FBE492F3E5904002B7646 /* chat_folder_01.txtproto in Resources */,
+				D90FBE542F3E5904002B7646 /* chat_folder_02.binproto in Resources */,
+				D90FBE6B2F3E5904002B7646 /* chat_folder_02.txtproto in Resources */,
+				D90FBE4A2F3E5904002B7646 /* chat_folder_03.binproto in Resources */,
+				D90FBE7C2F3E5904002B7646 /* chat_folder_03.txtproto in Resources */,
 				D90AA45D2CC9616B00021CB0 /* chat_item_contact_message_00.binproto in Resources */,
 				D90AA5762CC9616B00021CB0 /* chat_item_contact_message_00.txtproto in Resources */,
 				D90AA3D72CC9616B00021CB0 /* chat_item_contact_message_01.binproto in Resources */,
@@ -16172,6 +16466,10 @@
 				E18EA8152CE7D8C1003F397B /* chat_item_group_change_chat_multiple_update_07.txtproto in Resources */,
 				E18EA80C2CE7D8C1003F397B /* chat_item_group_change_chat_multiple_update_08.binproto in Resources */,
 				E18EA80D2CE7D8C1003F397B /* chat_item_group_change_chat_multiple_update_08.txtproto in Resources */,
+				D90FBE512F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.binproto in Resources */,
+				D90FBE482F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_09.txtproto in Resources */,
+				D90FBE422F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.binproto in Resources */,
+				D90FBE702F3E5904002B7646 /* chat_item_group_change_chat_multiple_update_10.txtproto in Resources */,
 				D98BC3AE2EE0B3520052A81F /* chat_item_group_change_chat_multiple_update_11.binproto in Resources */,
 				D98BC3A82EE0B3520052A81F /* chat_item_group_change_chat_multiple_update_11.txtproto in Resources */,
 				D98BC3AB2EE0B3520052A81F /* chat_item_group_change_chat_multiple_update_12.binproto in Resources */,
@@ -16270,10 +16568,18 @@
 				D98BC42F2EE0CDAD0052A81F /* chat_item_group_change_chat_update_41.txtproto in Resources */,
 				D98BC4302EE0CDAD0052A81F /* chat_item_group_change_chat_update_42.binproto in Resources */,
 				D98BC4412EE0CDAD0052A81F /* chat_item_group_change_chat_update_42.txtproto in Resources */,
+				D90FBE742F3E5904002B7646 /* chat_item_group_change_chat_update_43.binproto in Resources */,
+				D90FBE652F3E5904002B7646 /* chat_item_group_change_chat_update_43.txtproto in Resources */,
+				D90FBE4B2F3E5904002B7646 /* chat_item_group_change_chat_update_44.binproto in Resources */,
+				D90FBE4D2F3E5904002B7646 /* chat_item_group_change_chat_update_44.txtproto in Resources */,
 				D98BC43E2EE0CDAD0052A81F /* chat_item_group_change_chat_update_45.binproto in Resources */,
 				D98BC4252EE0CDAD0052A81F /* chat_item_group_change_chat_update_45.txtproto in Resources */,
 				D98BC41F2EE0CDAD0052A81F /* chat_item_group_change_chat_update_46.binproto in Resources */,
 				D98BC4262EE0CDAD0052A81F /* chat_item_group_change_chat_update_46.txtproto in Resources */,
+				D90FBE622F3E5904002B7646 /* chat_item_group_change_chat_update_47.binproto in Resources */,
+				D90FBE522F3E5904002B7646 /* chat_item_group_change_chat_update_47.txtproto in Resources */,
+				D90FBE592F3E5904002B7646 /* chat_item_group_change_chat_update_48.binproto in Resources */,
+				D90FBE532F3E5904002B7646 /* chat_item_group_change_chat_update_48.txtproto in Resources */,
 				D98BC4122EE0CDAD0052A81F /* chat_item_group_change_chat_update_49.binproto in Resources */,
 				D98BC4482EE0CDAD0052A81F /* chat_item_group_change_chat_update_49.txtproto in Resources */,
 				D98BC4522EE0CDAD0052A81F /* chat_item_group_change_chat_update_50.binproto in Resources */,
@@ -16538,6 +16844,8 @@
 				D90AA3A62CC9616B00021CB0 /* chat_item_simple_updates_03.txtproto in Resources */,
 				D90AA4BD2CC9616B00021CB0 /* chat_item_simple_updates_04.binproto in Resources */,
 				D90AA3D52CC9616B00021CB0 /* chat_item_simple_updates_04.txtproto in Resources */,
+				D90FBDF12F3E57EB002B7646 /* chat_item_simple_updates_05.binproto in Resources */,
+				D90FBDF02F3E57EB002B7646 /* chat_item_simple_updates_05.txtproto in Resources */,
 				D90AA3C02CC9616B00021CB0 /* chat_item_simple_updates_06.binproto in Resources */,
 				D90AA3682CC9616B00021CB0 /* chat_item_simple_updates_06.txtproto in Resources */,
 				D90AA4132CC9616B00021CB0 /* chat_item_simple_updates_07.binproto in Resources */,
@@ -16556,8 +16864,6 @@
 				D90AA3592CC9616B00021CB0 /* chat_item_simple_updates_13.txtproto in Resources */,
 				D90AA51F2CC9616B00021CB0 /* chat_item_simple_updates_14.binproto in Resources */,
 				D90AA3602CC9616B00021CB0 /* chat_item_simple_updates_14.txtproto in Resources */,
-				D90AA4C12CC9616B00021CB0 /* chat_item_simple_updates_15.binproto in Resources */,
-				D90AA5382CC9616B00021CB0 /* chat_item_simple_updates_15.txtproto in Resources */,
 				D90AA5A32CC9616B00021CB0 /* chat_item_standard_message_formatted_text_00.binproto in Resources */,
 				D90AA3982CC9616B00021CB0 /* chat_item_standard_message_formatted_text_00.txtproto in Resources */,
 				D90AA55C2CC9616B00021CB0 /* chat_item_standard_message_formatted_text_01.binproto in Resources */,
@@ -16738,6 +17044,36 @@
 				D90AA4F92CC9616B00021CB0 /* chat_item_standard_message_standard_attachments_13.txtproto in Resources */,
 				D90AA4752CC9616B00021CB0 /* chat_item_standard_message_standard_attachments_14.binproto in Resources */,
 				D90AA37D2CC9616B00021CB0 /* chat_item_standard_message_standard_attachments_14.txtproto in Resources */,
+				D90FBE5F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.binproto in Resources */,
+				D90FBE862F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_00.txtproto in Resources */,
+				D90FBE682F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.binproto in Resources */,
+				D90FBE822F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_01.txtproto in Resources */,
+				D90FBE7D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.binproto in Resources */,
+				D90FBE7A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_02.txtproto in Resources */,
+				D90FBE6C2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.binproto in Resources */,
+				D90FBE4F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_03.txtproto in Resources */,
+				D90FBE712F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.binproto in Resources */,
+				D90FBE632F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_04.txtproto in Resources */,
+				D90FBE5B2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.binproto in Resources */,
+				D90FBE552F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_05.txtproto in Resources */,
+				D90FBE732F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.binproto in Resources */,
+				D90FBE562F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_06.txtproto in Resources */,
+				D90FBE6D2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.binproto in Resources */,
+				D90FBE6E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_07.txtproto in Resources */,
+				D90FBE7E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.binproto in Resources */,
+				D90FBE752F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_08.txtproto in Resources */,
+				D90FBE882F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.binproto in Resources */,
+				D90FBE7F2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_09.txtproto in Resources */,
+				D90FBE872F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.binproto in Resources */,
+				D90FBE5A2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_10.txtproto in Resources */,
+				D90FBE802F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.binproto in Resources */,
+				D90FBE5E2F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_11.txtproto in Resources */,
+				D90FBE662F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.binproto in Resources */,
+				D90FBE792F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_12.txtproto in Resources */,
+				D90FBE812F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.binproto in Resources */,
+				D90FBE472F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_13.txtproto in Resources */,
+				D90FBE852F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.binproto in Resources */,
+				D90FBE762F3E5904002B7646 /* chat_item_standard_message_standard_attachments_incremental_mac_14.txtproto in Resources */,
 				D90AA5CF2CC9616B00021CB0 /* chat_item_standard_message_text_only_00.binproto in Resources */,
 				D90AA4C22CC9616B00021CB0 /* chat_item_standard_message_text_only_00.txtproto in Resources */,
 				D90AA4C82CC9616B00021CB0 /* chat_item_standard_message_text_only_01.binproto in Resources */,
@@ -16894,22 +17230,62 @@
 				E1B628E92CCC59E600C4DC7F /* chat_item_view_once_11.txtproto in Resources */,
 				E1B628EA2CCC59E600C4DC7F /* chat_item_view_once_12.binproto in Resources */,
 				E1B628E52CCC59E600C4DC7F /* chat_item_view_once_12.txtproto in Resources */,
+				D90FBE412F3E5904002B7646 /* notification_profile_00.binproto in Resources */,
+				D90FBE722F3E5904002B7646 /* notification_profile_00.txtproto in Resources */,
+				D90FBE8D2F3E5904002B7646 /* notification_profile_01.binproto in Resources */,
+				D90FBE602F3E5904002B7646 /* notification_profile_01.txtproto in Resources */,
+				D90FBE5C2F3E5904002B7646 /* notification_profile_02.binproto in Resources */,
+				D90FBE452F3E5904002B7646 /* notification_profile_02.txtproto in Resources */,
+				D90FBE692F3E5904002B7646 /* notification_profile_03.binproto in Resources */,
+				D90FBE892F3E5904002B7646 /* notification_profile_03.txtproto in Resources */,
+				D90FBE6F2F3E5904002B7646 /* notification_profile_04.binproto in Resources */,
+				D90FBE6A2F3E5904002B7646 /* notification_profile_04.txtproto in Resources */,
+				D90FBE842F3E5904002B7646 /* notification_profile_05.binproto in Resources */,
+				D90FBE5D2F3E5904002B7646 /* notification_profile_05.txtproto in Resources */,
+				D90FBE8A2F3E5904002B7646 /* notification_profile_06.binproto in Resources */,
+				D90FBE4C2F3E5904002B7646 /* notification_profile_06.txtproto in Resources */,
+				D90FBE582F3E5904002B7646 /* notification_profile_07.binproto in Resources */,
+				D90FBE772F3E5904002B7646 /* notification_profile_07.txtproto in Resources */,
+				D90FBE442F3E5904002B7646 /* notification_profile_08.binproto in Resources */,
+				D90FBE782F3E5904002B7646 /* notification_profile_08.txtproto in Resources */,
+				D90FBE612F3E5904002B7646 /* notification_profile_09.binproto in Resources */,
+				D90FBE832F3E5904002B7646 /* notification_profile_09.txtproto in Resources */,
+				D90FBE572F3E5904002B7646 /* notification_profile_10.binproto in Resources */,
+				D90FBE432F3E5904002B7646 /* notification_profile_10.txtproto in Resources */,
+				D90FBE8B2F3E5904002B7646 /* notification_profile_11.binproto in Resources */,
+				D90FBE8C2F3E5904002B7646 /* notification_profile_11.txtproto in Resources */,
 				E1650BA12CD0507100304C58 /* recipient_call_link_00.binproto in Resources */,
 				E1650BA22CD0507100304C58 /* recipient_call_link_00.txtproto in Resources */,
+				D90FBDDF2F3E5647002B7646 /* recipient_call_link_01.binproto in Resources */,
+				D90FBDE62F3E5647002B7646 /* recipient_call_link_01.txtproto in Resources */,
 				E1650BA62CD0507100304C58 /* recipient_call_link_02.binproto in Resources */,
 				E1650BA32CD0507100304C58 /* recipient_call_link_02.txtproto in Resources */,
+				D90FBDE82F3E5647002B7646 /* recipient_call_link_03.binproto in Resources */,
+				D90FBDE72F3E5647002B7646 /* recipient_call_link_03.txtproto in Resources */,
 				E1650BCF2CD0508C00304C58 /* recipient_call_link_04.binproto in Resources */,
 				E1650BD02CD0508C00304C58 /* recipient_call_link_04.txtproto in Resources */,
+				D90FBDE52F3E5647002B7646 /* recipient_call_link_05.binproto in Resources */,
+				D90FBDE12F3E5647002B7646 /* recipient_call_link_05.txtproto in Resources */,
 				E1650BCB2CD0508C00304C58 /* recipient_call_link_06.binproto in Resources */,
 				E1650BC82CD0508C00304C58 /* recipient_call_link_06.txtproto in Resources */,
+				D90FBDE22F3E5647002B7646 /* recipient_call_link_07.binproto in Resources */,
+				D90FBDE92F3E5647002B7646 /* recipient_call_link_07.txtproto in Resources */,
 				E1650BCD2CD0508C00304C58 /* recipient_call_link_08.binproto in Resources */,
 				E1650BC42CD0508C00304C58 /* recipient_call_link_08.txtproto in Resources */,
+				D90FBDE32F3E5647002B7646 /* recipient_call_link_09.binproto in Resources */,
+				D90FBDED2F3E5647002B7646 /* recipient_call_link_09.txtproto in Resources */,
 				E1650BD32CD0508C00304C58 /* recipient_call_link_10.binproto in Resources */,
 				E1650BC62CD0508C00304C58 /* recipient_call_link_10.txtproto in Resources */,
+				D90FBDEB2F3E5647002B7646 /* recipient_call_link_11.binproto in Resources */,
+				D90FBDEC2F3E5647002B7646 /* recipient_call_link_11.txtproto in Resources */,
 				E1650BD22CD0508C00304C58 /* recipient_call_link_12.binproto in Resources */,
 				E1650BCA2CD0508C00304C58 /* recipient_call_link_12.txtproto in Resources */,
+				D90FBDE42F3E5647002B7646 /* recipient_call_link_13.binproto in Resources */,
+				D90FBDDE2F3E5647002B7646 /* recipient_call_link_13.txtproto in Resources */,
 				E1650BD62CD0508C00304C58 /* recipient_call_link_14.binproto in Resources */,
 				E1650BCE2CD0508C00304C58 /* recipient_call_link_14.txtproto in Resources */,
+				D90FBDEA2F3E5647002B7646 /* recipient_call_link_15.binproto in Resources */,
+				D90FBDE02F3E5647002B7646 /* recipient_call_link_15.txtproto in Resources */,
 				D90AA4742CC9616B00021CB0 /* recipient_contacts_00.binproto in Resources */,
 				D90AA3C42CC9616B00021CB0 /* recipient_contacts_00.txtproto in Resources */,
 				D90AA3AB2CC9616B00021CB0 /* recipient_contacts_01.binproto in Resources */,
