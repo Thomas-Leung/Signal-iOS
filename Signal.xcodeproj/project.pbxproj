@@ -122,7 +122,7 @@
 		0CE014267EDFBD2538E940A0 /* Pods_Signal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF88FB580BC19B240EEB86A /* Pods_Signal.framework */; };
 		1404D8B3276A353B0068E2F6 /* ChatListViewController+Multiselect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404D8B2276A353A0068E2F6 /* ChatListViewController+Multiselect.swift */; };
 		1466AB282817F7E7003B3D9F /* PluralAware.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1466AB262817F7E7003B3D9F /* PluralAware.stringsdict */; };
-		1477630B275E20D700D1067E /* ThreadSwipeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1477630A275E20D700D1067E /* ThreadSwipeHandler.swift */; };
+		1477630B275E20D700D1067E /* ThreadContextualActionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1477630A275E20D700D1067E /* ThreadContextualActionProvider.swift */; };
 		1489ED0227A3D70200C7043A /* ArchivedConversationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1489ED0127A3D70200C7043A /* ArchivedConversationsCell.swift */; };
 		14E4A340278EE999008408FD /* BlurredToolbarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4A33F278EE999008408FD /* BlurredToolbarContainer.swift */; };
 		1700E33928B568200073D949 /* MediaGallerySections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700E33828B568200073D949 /* MediaGallerySections.swift */; };
@@ -4187,7 +4187,7 @@
 		1466AB382817F87D003B3D9F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = uk; path = translations/uk.lproj/PluralAware.stringsdict; sourceTree = "<group>"; };
 		1466AB392817F88A003B3D9F /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = zh_TW; path = translations/zh_TW.lproj/PluralAware.stringsdict; sourceTree = "<group>"; };
 		1466AB3B2817F89D003B3D9F /* zh_HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = zh_HK; path = translations/zh_HK.lproj/PluralAware.stringsdict; sourceTree = "<group>"; };
-		1477630A275E20D700D1067E /* ThreadSwipeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSwipeHandler.swift; sourceTree = "<group>"; };
+		1477630A275E20D700D1067E /* ThreadContextualActionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadContextualActionProvider.swift; sourceTree = "<group>"; };
 		1489ED0127A3D70200C7043A /* ArchivedConversationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedConversationsCell.swift; sourceTree = "<group>"; };
 		14E4A33F278EE999008408FD /* BlurredToolbarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredToolbarContainer.swift; sourceTree = "<group>"; };
 		1700E33828B568200073D949 /* MediaGallerySections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaGallerySections.swift; sourceTree = "<group>"; };
@@ -11105,7 +11105,7 @@
 				0550A5E12C4035170072CC02 /* CLVViewInfo.swift */,
 				34E95C1F269F4F4F004807EC /* CLVViewState.swift */,
 				4C20B2B820CA10DE001BAC90 /* ConversationSearchViewController.swift */,
-				1477630A275E20D700D1067E /* ThreadSwipeHandler.swift */,
+				1477630A275E20D700D1067E /* ThreadContextualActionProvider.swift */,
 			);
 			path = "Chat List";
 			sourceTree = "<group>";
@@ -18344,8 +18344,8 @@
 				344A761324B36C8C009D69A5 /* TestingViewController.swift in Sources */,
 				506A9252290326A600A2EFC2 /* TextHelper.swift in Sources */,
 				8829883925B979F900DEE1E3 /* ThemeSettingsTableViewController.swift in Sources */,
+				1477630B275E20D700D1067E /* ThreadContextualActionProvider.swift in Sources */,
 				88D1D40422EF8A9700F472C5 /* ThreadDetailsInteraction.swift in Sources */,
-				1477630B275E20D700D1067E /* ThreadSwipeHandler.swift in Sources */,
 				88A4CC10246CE2760082211F /* TransferProgressView.swift in Sources */,
 				C1868F822DBAD04400DA512A /* TransferStatusState.swift in Sources */,
 				50BF51052BB1FE7E00C2C309 /* TSInteraction+DeleteActionSheet.swift in Sources */,

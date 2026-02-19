@@ -1816,10 +1816,11 @@ extension CallsListViewController: UITableViewDelegate {
         let goToChatAction = ContextualActionBuilder.makeContextualAction(
             style: .normal,
             color: .ows_accentBlue,
-            image: "arrow-square-upright-fill",
+            image: .arrowSquareUprightFill,
             title: Strings.goToChatActionTitle,
-        ) { [weak self] in
+        ) { [weak self] completion in
             self?.goToChat(for: chatThread()!)
+            completion(true)
         }
 
         return .init(actions: [goToChatAction])
@@ -1838,10 +1839,11 @@ extension CallsListViewController: UITableViewDelegate {
         let deleteAction = ContextualActionBuilder.makeContextualAction(
             style: .destructive,
             color: .ows_accentRed,
-            image: "trash-fill",
+            image: .trashFill,
             title: CommonStrings.deleteButton,
-        ) { [weak self] in
+        ) { [weak self] completion in
             self?.promptToDeleteCallIfNeeded(modelReferences: modelReferences)
+            completion(true)
         }
 
         return .init(actions: [deleteAction])

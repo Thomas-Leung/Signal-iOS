@@ -414,23 +414,31 @@ class CLVTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             guard
                 let chatListViewController = viewController,
                 chatListViewController.canPresentPreview(fromIndexPath: indexPath),
-                let threadUniqueId = renderState.threadUniqueId(forIndexPath: indexPath)
+                let threadViewModel = threadViewModel(forIndexPath: indexPath)
             else {
                 return nil
             }
 
             return UIContextMenuConfiguration(
-                identifier: threadUniqueId as NSString,
-                previewProvider: {
-                    chatListViewController.createPreviewController(atIndexPath: indexPath)
+                identifier: threadViewModel.threadUniqueId as NSString,
+                previewProvider: { [weak chatListViewController] in
+                    guard let chatListViewController else { return nil }
+                    return chatListViewController.createPreviewController(atIndexPath: indexPath)
+                },
+                actionProvider: { [weak chatListViewController] _ in
+                    guard let chatListViewController else { return nil }
+                    let actions = chatListViewController.contextMenuActions(threadViewModel: threadViewModel)
+                    return UIMenu(children: actions)
                 },
             )
         case .backupProgressView:
-            let contextMenuActions = viewState.backupProgressView.contextMenuActions()
-
-            return UIContextMenuConfiguration(actionProvider: { _ in
-                return UIMenu(children: contextMenuActions)
-            })
+            return UIContextMenuConfiguration(
+                actionProvider: { [weak self] _ in
+                    guard let self else { return nil }
+                    let actions = viewState.backupProgressView.contextMenuActions()
+                    return UIMenu(children: actions)
+                },
+            )
         case .reminders,
              .backupDownloadProgressView,
              .archiveButton,
@@ -624,7 +632,10 @@ class CLVTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         cell.configure(cellContentToken: contentToken, spoilerAnimationManager: viewState.spoilerAnimationManager)
         cell.useSidebarAppearance = useSideBarChatListCellAppearance
 
-        if isConversationActive(threadUniqueId: contentToken.thread.uniqueId) {
+        if
+            let conversationSplitViewController = viewController?.conversationSplitViewController,
+            conversationSplitViewController.selectedThread?.uniqueId == contentToken.thread.uniqueId
+        {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         } else if !viewState.multiSelectState.isActive {
             tableView.deselectRow(at: indexPath, animated: false)
@@ -632,16 +643,6 @@ class CLVTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         updateAndSetRefreshTimer(for: cell)
         return cell
-    }
-
-    private func isConversationActive(threadUniqueId: String) -> Bool {
-        AssertIsOnMainThread()
-
-        guard let conversationSplitViewController = splitViewController as? ConversationSplitViewController else {
-            owsFailDebug("Missing conversationSplitViewController.")
-            return false
-        }
-        return conversationSplitViewController.selectedThread?.uniqueId == threadUniqueId
     }
 
     private func buildArchivedConversationsButtonCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -676,13 +677,7 @@ class CLVTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                 return nil
             }
 
-            let threadUniqueId = threadViewModel.threadRecord.uniqueId
-            return viewController.trailingSwipeActionsConfiguration(for: threadViewModel, closeConversationBlock: { [weak self] in
-                guard let self else { return }
-                if self.isConversationActive(threadUniqueId: threadUniqueId) {
-                    viewController.conversationSplitViewController?.closeSelectedConversation(animated: true)
-                }
-            })
+            return viewController.trailingSwipeActionsConfiguration(threadViewModel: threadViewModel)
         }
     }
 
@@ -718,7 +713,7 @@ class CLVTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                 return nil
             }
 
-            return viewController.leadingSwipeActionsConfiguration(for: threadViewModel)
+            return viewController.leadingSwipeActionsConfiguration(threadViewModel: threadViewModel)
         }
     }
 

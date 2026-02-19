@@ -1497,10 +1497,19 @@ extension ChatListViewController {
     }
 }
 
-// MARK: - ThreadSwipeHandler
+// MARK: - ThreadContextualActionProvider
 
-extension ChatListViewController: ThreadSwipeHandler {
-    func updateUIAfterSwipeAction() {
+extension ChatListViewController: ThreadContextualActionProvider {
+    func threadContextualActionShouldCloseThreadIfActive(threadViewModel: ThreadViewModel) {
+        if
+            let conversationSplitViewController,
+            conversationSplitViewController.selectedThread?.uniqueId == threadViewModel.threadUniqueId
+        {
+            conversationSplitViewController.closeSelectedConversation(animated: true)
+        }
+    }
+
+    func threadContextualActionDidComplete() {
         updateViewState()
     }
 }
