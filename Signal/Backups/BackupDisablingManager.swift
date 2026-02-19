@@ -23,6 +23,7 @@ final class BackupDisablingManager {
     private let authCredentialStore: AuthCredentialStore
     private let backupAttachmentCoordinator: BackupAttachmentCoordinator
     private let backupAttachmentDownloadQueueStatusManager: BackupAttachmentDownloadQueueStatusManager
+    private let backupAttachmentDownloadStore: BackupAttachmentDownloadStore
     private let backupCDNCredentialStore: BackupCDNCredentialStore
     private let backupExportJobStore: BackupExportJobStore
     private let backupKeyService: BackupKeyService
@@ -40,6 +41,7 @@ final class BackupDisablingManager {
         authCredentialStore: AuthCredentialStore,
         backupAttachmentCoordinator: BackupAttachmentCoordinator,
         backupAttachmentDownloadQueueStatusManager: BackupAttachmentDownloadQueueStatusManager,
+        backupAttachmentDownloadStore: BackupAttachmentDownloadStore,
         backupCDNCredentialStore: BackupCDNCredentialStore,
         backupExportJobStore: BackupExportJobStore,
         backupKeyService: BackupKeyService,
@@ -53,6 +55,7 @@ final class BackupDisablingManager {
         self.authCredentialStore = authCredentialStore
         self.backupAttachmentCoordinator = backupAttachmentCoordinator
         self.backupAttachmentDownloadQueueStatusManager = backupAttachmentDownloadQueueStatusManager
+        self.backupAttachmentDownloadStore = backupAttachmentDownloadStore
         self.backupCDNCredentialStore = backupCDNCredentialStore
         self.backupExportJobStore = backupExportJobStore
         self.backupKeyService = backupKeyService
@@ -220,8 +223,9 @@ final class BackupDisablingManager {
             backupSettingsStore.resetShouldAllowBackupUploadsOnCellular(tx: tx)
             backupExportJobStore.wipe(tx: tx)
 
-            // We want to re-show this if we reenable Backups later.
+            // Reset the Backups banners, in case we later reenable Backups.
             clvBackupProgressViewStore.setIsHidden(false, tx: tx)
+            backupAttachmentDownloadStore.resetDidDismissDownloadCompleteBanner(tx: tx)
 
             // With Backups disabled, these credentials are no longer valid
             // and are no longer safe to use.
