@@ -66,6 +66,7 @@
 		046926092E8EBAAE00B1FC74 /* TSInfoMessage+Polls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046926082E8EBAA800B1FC74 /* TSInfoMessage+Polls.swift */; };
 		047A6DD02E00B5720048EDF4 /* BackupKeyReminderMegaphoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A6DCF2E00B5640048EDF4 /* BackupKeyReminderMegaphoneTests.swift */; };
 		0480F0002E57C51A006CBB29 /* BackupsEnabledNotificationMegaphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480EFFF2E57C513006CBB29 /* BackupsEnabledNotificationMegaphone.swift */; };
+		0484CECE2F44B7BE009AB2CB /* AdminDeleteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484CECD2F44B7BB009AB2CB /* AdminDeleteRecord.swift */; };
 		048D58362ED4FABB00F26237 /* PinDisappearingMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D58352ED4FA8500F26237 /* PinDisappearingMessageViewController.swift */; };
 		048D58382EDDD57E00F26237 /* OutgoingPinMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D58372EDDD56D00F26237 /* OutgoingPinMessage.swift */; };
 		04A19B432EEC815200CCB105 /* PinnedMessageExpirationJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A19B422EEC814900CCB105 /* PinnedMessageExpirationJob.swift */; };
@@ -4109,6 +4110,7 @@
 		046926082E8EBAA800B1FC74 /* TSInfoMessage+Polls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TSInfoMessage+Polls.swift"; sourceTree = "<group>"; };
 		047A6DCF2E00B5640048EDF4 /* BackupKeyReminderMegaphoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupKeyReminderMegaphoneTests.swift; sourceTree = "<group>"; };
 		0480EFFF2E57C513006CBB29 /* BackupsEnabledNotificationMegaphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupsEnabledNotificationMegaphone.swift; sourceTree = "<group>"; };
+		0484CECD2F44B7BB009AB2CB /* AdminDeleteRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDeleteRecord.swift; sourceTree = "<group>"; };
 		048D58352ED4FA8500F26237 /* PinDisappearingMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDisappearingMessageViewController.swift; sourceTree = "<group>"; };
 		048D58372EDDD56D00F26237 /* OutgoingPinMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingPinMessage.swift; sourceTree = "<group>"; };
 		04A19B422EEC814900CCB105 /* PinnedMessageExpirationJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedMessageExpirationJob.swift; sourceTree = "<group>"; };
@@ -8275,6 +8277,14 @@
 				0426758F2EC529F500124C5F /* TSInfoMessage+PinnedMessage.swift */,
 			);
 			path = PinnedMessages;
+			sourceTree = "<group>";
+		};
+		0484CECC2F44B7B4009AB2CB /* AdminDelete */ = {
+			isa = PBXGroup;
+			children = (
+				0484CECD2F44B7BB009AB2CB /* AdminDeleteRecord.swift */,
+			);
+			path = AdminDelete;
 			sourceTree = "<group>";
 		};
 		048D58342ED4FA7C00F26237 /* PinnedMessages */ = {
@@ -14474,6 +14484,7 @@
 		F9C5C8D8289453B100548EEE /* Interactions */ = {
 			isa = PBXGroup;
 			children = (
+				0484CECC2F44B7B4009AB2CB /* AdminDelete */,
 				664BA8482BB5DF44005638E0 /* ContactShare */,
 				669FAE162B7A8DA4009EE2FE /* LinkPreview */,
 				045B408A2EC67BDB002D3F9A /* PinnedMessages */,
@@ -18472,6 +18483,7 @@
 				D9EDF2782E4D2A2F001D4BEC /* AccountEntropyPoolManager.swift in Sources */,
 				C14D49CE2D667F830033BA69 /* AccountKeyStore.swift in Sources */,
 				50BE67532CAAF7DF006D7BC7 /* AdHocCallRecordManager.swift in Sources */,
+				0484CECE2F44B7BE009AB2CB /* AdminDeleteRecord.swift in Sources */,
 				728BFE4C2C5C3427008F20F1 /* Aes256Key.swift in Sources */,
 				667DEE5F2BC7175300EFF32D /* AllMediaCategory.swift in Sources */,
 				720547F52B9C97EC00E2CF2F /* APNSRotationStore.swift in Sources */,

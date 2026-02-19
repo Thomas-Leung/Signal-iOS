@@ -318,6 +318,7 @@ public class GRDBSchemaMigrator {
         case addSession
         case addRecipientStatus
         case createKeyTransparencyTable
+        case addAdminDeleteTable
 
         // NOTE: Every time we add a migration id, consider
         // incrementing grdbSchemaVersionLatest.
@@ -441,7 +442,7 @@ public class GRDBSchemaMigrator {
     }
 
     public static let grdbSchemaVersionDefault: UInt = 0
-    public static let grdbSchemaVersionLatest: UInt = 140
+    public static let grdbSchemaVersionLatest: UInt = 141
 
     private class DatabaseMigratorWrapper {
         var migrator = DatabaseMigrator()
@@ -4995,6 +4996,31 @@ public class GRDBSchemaMigrator {
 
         migrator.registerMigration(.createKeyTransparencyTable) { tx in
             try createKeyTransparencyTable(tx: tx)
+            return .success(())
+        }
+
+        migrator.registerMigration(.addAdminDeleteTable) { tx in
+            try tx.database.create(
+                table: "AdminDelete",
+            ) { table in
+                table.column("interactionId", .integer)
+                    .primaryKey()
+                    .notNull()
+                    .unique()
+                    .references(
+                        "model_TSInteraction",
+                        column: "id",
+                        onDelete: .cascade,
+                        onUpdate: .cascade,
+                    )
+                table.column("deleteAuthorId", .integer)
+                    .references(
+                        "model_SignalRecipient",
+                        column: "id",
+                        onDelete: .cascade,
+                        onUpdate: .cascade,
+                    )
+            }
             return .success(())
         }
 

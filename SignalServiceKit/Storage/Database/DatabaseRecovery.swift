@@ -337,11 +337,12 @@ public enum DatabaseRecovery {
             GroupMessageProcessorJob.databaseTableName,
             "ListedBackupMediaObject",
             "BackupOversizeTextCache",
-            "Poll",
-            "PollOption",
-            "PollVote",
-            "PinnedMessage",
+            PollRecord.databaseTableName,
+            PollOptionRecord.databaseTableName,
+            PollVoteRecord.databaseTableName,
+            PinnedMessageRecord.databaseTableName,
             "KeyTransparency",
+            AdminDeleteRecord.databaseTableName,
         ]
 
         private static func prepareToCopyTablesWithBestEffort(
