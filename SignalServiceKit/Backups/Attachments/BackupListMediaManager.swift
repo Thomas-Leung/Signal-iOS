@@ -373,7 +373,7 @@ class BackupListMediaManagerImpl: BackupListMediaManager {
                         .compactMap { try? Attachment(record: $0) }
                 }
                 let lastAttachmentId = attachments.last?.id
-                Logger.info("Checking attachments [\(startAttachmentId.map(String.init) ?? "")...\(lastAttachmentId.map(String.init) ?? "")]")
+                logger.info("Checking attachments [\(startAttachmentId.map(String.init) ?? "")...\(lastAttachmentId.map(String.init) ?? "")]")
 
                 for attachment in attachments {
                     guard let fullsizeMediaName = attachment.mediaName else {
