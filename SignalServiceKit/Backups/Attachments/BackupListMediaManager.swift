@@ -355,12 +355,14 @@ class BackupListMediaManagerImpl: BackupListMediaManager {
                     .order(Column(Attachment.Record.CodingKeys.sqliteId).asc)
                     .filter(Column(Attachment.Record.CodingKeys.mediaName) != nil)
                     .limit(50)
+                var startAttachmentId: Attachment.IDType? = nil
                 if
                     let lastAttachmentId: Attachment.IDType = kvStore.getInt64(
                         Constants.lastEnumeratedAttachmentIdKey,
                         transaction: tx,
                     )
                 {
+                    startAttachmentId = lastAttachmentId
                     query = query
                         .filter(Column(Attachment.Record.CodingKeys.sqliteId) > lastAttachmentId)
                 }
@@ -370,6 +372,8 @@ class BackupListMediaManagerImpl: BackupListMediaManager {
                     try query.fetchAll(tx.database)
                         .compactMap { try? Attachment(record: $0) }
                 }
+                let lastAttachmentId = attachments.last?.id
+                Logger.info("Checking attachments [\(startAttachmentId.map(String.init) ?? "")...\(lastAttachmentId.map(String.init) ?? "")]")
 
                 for attachment in attachments {
                     guard let fullsizeMediaName = attachment.mediaName else {
@@ -411,7 +415,7 @@ class BackupListMediaManagerImpl: BackupListMediaManager {
                     )
                 }
 
-                if let lastAttachmentId = attachments.last?.id {
+                if let lastAttachmentId {
                     kvStore.setInt64(lastAttachmentId, key: Constants.lastEnumeratedAttachmentIdKey, transaction: tx)
                 } else {
                     // We're done
