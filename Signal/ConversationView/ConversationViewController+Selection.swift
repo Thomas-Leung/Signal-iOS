@@ -380,10 +380,11 @@ extension ConversationViewController {
                         canCancel: false,
                     ) { @MainActor [weak self] modalActivityIndicator in
                         guard let self else { return }
+                        let thread = self.thread
                         await db.awaitableWrite { tx in
                             self.deleteSelectedItemsForEveryone(
                                 selectionItems: selectionItems,
-                                thread: self.thread,
+                                thread: thread,
                                 tx: tx,
                             )
                         }
