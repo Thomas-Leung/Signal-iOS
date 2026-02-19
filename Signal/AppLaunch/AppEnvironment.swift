@@ -57,6 +57,7 @@ public class AppEnvironment: NSObject {
 
         let authCredentialStore = AuthCredentialStore()
         let backupAttachmentUploadEraStore = BackupAttachmentUploadEraStore()
+        let backupAttachmentDownloadStore = BackupAttachmentDownloadStore()
         let backupCDNCredentialStore = BackupCDNCredentialStore()
         let backupExportJobStore = BackupExportJobStore()
         let backupSettingsStore = BackupSettingsStore()
@@ -91,6 +92,7 @@ public class AppEnvironment: NSObject {
             authCredentialStore: authCredentialStore,
             backupAttachmentCoordinator: DependenciesBridge.shared.backupAttachmentCoordinator,
             backupAttachmentDownloadQueueStatusManager: DependenciesBridge.shared.backupAttachmentDownloadQueueStatusManager,
+            backupAttachmentDownloadStore: backupAttachmentDownloadStore,
             backupCDNCredentialStore: backupCDNCredentialStore,
             backupExportJobStore: backupExportJobStore,
             backupKeyService: DependenciesBridge.shared.backupKeyService,
