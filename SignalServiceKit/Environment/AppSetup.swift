@@ -603,7 +603,7 @@ extension AppSetup.GlobalsContinuation {
             remoteConfigProvider: remoteConfigManager,
         )
 
-        let backupAttachmentUploadScheduler = BackupAttachmentUploadSchedulerImpl(
+        let backupAttachmentUploadScheduler = BackupAttachmentUploadScheduler(
             attachmentStore: attachmentStore,
             backupAttachmentUploadStore: backupAttachmentUploadStore,
             backupAttachmentUploadEraStore: backupAttachmentUploadEraStore,

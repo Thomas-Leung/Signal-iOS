@@ -11,93 +11,7 @@ public enum BackupAttachmentUploadEnqueueMode: Equatable {
     case fullsizeAndThumbnailAsNeeded
 }
 
-public protocol BackupAttachmentUploadScheduler {
-
-    /// Returns true if the provided attachment is eligible to be uploaded
-    /// to backup/media tier, independently of the current backupPlan state.
-    ///
-    /// - parameter fullsize: true to check eligibility to upload fullsize,
-    /// false to check eligibility to upload the thumbnail.
-    func isEligibleToUpload(
-        _ attachment: Attachment,
-        fullsize: Bool,
-        currentUploadEra: String,
-        tx: DBReadTransaction,
-    ) -> Bool
-
-    /// "Enqueue" an attachment from a backup for upload, if needed and eligible, otherwise do nothing.
-    ///
-    /// Fetches all attachment owners and uses the highest priority one available.
-    ///
-    /// Doesn't actually trigger an upload; callers must later call
-    /// ``BackupAttachmentUploadQueueRunner.backUpAllAttachments()`` to upload.
-    func enqueueUsingHighestPriorityOwnerIfNeeded(
-        _ attachment: Attachment,
-        mode: BackupAttachmentUploadEnqueueMode,
-        tx: DBWriteTransaction,
-        file: StaticString?,
-        function: StaticString?,
-        line: UInt?,
-    )
-
-    /// "Enqueue" an attachment from a backup for upload, if needed and eligible via the provided
-    /// owner, otherwise do nothing.
-    ///
-    /// The attachment may or may not already be enqueued for upload using via other owners;
-    /// if so the provided owner (if eligible) may increase the priority.
-    ///
-    /// Doesn't actually trigger an upload; callers must later call
-    /// ``BackupAttachmentUploadQueueRunner.backUpAllAttachments()`` to upload.
-    func enqueueIfNeededWithOwner(
-        _ attachment: Attachment,
-        owner: AttachmentReference.Owner,
-        tx: DBWriteTransaction,
-        file: StaticString?,
-        function: StaticString?,
-        line: UInt?,
-    )
-}
-
-extension BackupAttachmentUploadScheduler {
-
-    public func enqueueUsingHighestPriorityOwnerIfNeeded(
-        _ attachment: Attachment,
-        mode: BackupAttachmentUploadEnqueueMode = .fullsizeAndThumbnailAsNeeded,
-        tx: DBWriteTransaction,
-        file: StaticString? = #file,
-        function: StaticString? = #function,
-        line: UInt? = #line,
-    ) {
-        enqueueUsingHighestPriorityOwnerIfNeeded(
-            attachment,
-            mode: mode,
-            tx: tx,
-            file: file,
-            function: function,
-            line: line,
-        )
-    }
-
-    func enqueueIfNeededWithOwner(
-        _ attachment: Attachment,
-        owner: AttachmentReference.Owner,
-        tx: DBWriteTransaction,
-        file: StaticString? = #file,
-        function: StaticString? = #function,
-        line: UInt? = #line,
-    ) {
-        enqueueIfNeededWithOwner(
-            attachment,
-            owner: owner,
-            tx: tx,
-            file: file,
-            function: function,
-            line: line,
-        )
-    }
-}
-
-public class BackupAttachmentUploadSchedulerImpl: BackupAttachmentUploadScheduler {
+public class BackupAttachmentUploadScheduler {
 
     private let attachmentStore: AttachmentStore
     private let backupAttachmentUploadStore: BackupAttachmentUploadStore
@@ -122,6 +36,11 @@ public class BackupAttachmentUploadSchedulerImpl: BackupAttachmentUploadSchedule
         self.remoteConfigProvider = remoteConfigProvider
     }
 
+    /// Returns true if the provided attachment is eligible to be uploaded
+    /// to backup/media tier, independently of the current backupPlan state.
+    ///
+    /// - parameter fullsize: true to check eligibility to upload fullsize,
+    /// false to check eligibility to upload the thumbnail.
     public func isEligibleToUpload(
         _ attachment: Attachment,
         fullsize: Bool,
@@ -150,6 +69,12 @@ public class BackupAttachmentUploadSchedulerImpl: BackupAttachmentUploadSchedule
         return highestPriorityEligibleOwner != nil
     }
 
+    /// "Enqueue" an attachment from a backup for upload, if needed and eligible, otherwise do nothing.
+    ///
+    /// Fetches all attachment owners and uses the highest priority one available.
+    ///
+    /// Doesn't actually trigger an upload; callers must later call
+    /// ``BackupAttachmentUploadQueueRunner.backUpAllAttachments()`` to upload.
     public func enqueueUsingHighestPriorityOwnerIfNeeded(
         _ attachment: Attachment,
         mode: BackupAttachmentUploadEnqueueMode,
@@ -222,6 +147,14 @@ public class BackupAttachmentUploadSchedulerImpl: BackupAttachmentUploadSchedule
         }
     }
 
+    /// "Enqueue" an attachment from a backup for upload, if needed and eligible via the provided
+    /// owner, otherwise do nothing.
+    ///
+    /// The attachment may or may not already be enqueued for upload using via other owners;
+    /// if so the provided owner (if eligible) may increase the priority.
+    ///
+    /// Doesn't actually trigger an upload; callers must later call
+    /// ``BackupAttachmentUploadQueueRunner.backUpAllAttachments()`` to upload.
     public func enqueueIfNeededWithOwner(
         _ attachment: Attachment,
         owner: AttachmentReference.Owner,
@@ -439,45 +372,3 @@ extension Attachment.ThumbnailMediaTierInfo {
             && cdnNumber != nil
     }
 }
-
-#if TESTABLE_BUILD
-
-open class BackupAttachmentUploadSchedulerMock: BackupAttachmentUploadScheduler {
-
-    public init() {}
-
-    public func isEligibleToUpload(
-        _ attachment: Attachment,
-        fullsize: Bool,
-        currentUploadEra: String,
-        tx: DBReadTransaction,
-    ) -> Bool {
-        return false
-    }
-
-    var enqueuedAttachmentIds = [Attachment.IDType]()
-
-    public func enqueueUsingHighestPriorityOwnerIfNeeded(
-        _ attachment: Attachment,
-        mode: BackupAttachmentUploadEnqueueMode,
-        tx: DBWriteTransaction,
-        file: StaticString?,
-        function: StaticString?,
-        line: UInt?,
-    ) {
-        enqueuedAttachmentIds.append(attachment.id)
-    }
-
-    public func enqueueIfNeededWithOwner(
-        _ attachment: Attachment,
-        owner: AttachmentReference.Owner,
-        tx: DBWriteTransaction,
-        file: StaticString?,
-        function: StaticString?,
-        line: UInt?,
-    ) {
-        // Do nothing
-    }
-}
-
-#endif
