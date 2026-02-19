@@ -21,12 +21,12 @@ public class ContactThreadFinder: NSObject {
 
     func contactThreads(for serviceId: ServiceId, tx: DBReadTransaction) -> [TSContactThread] {
         let serviceIdString = serviceId.serviceIdUppercaseString
-        let sql = "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .contactUUID) = ?"
+        let sql = "SELECT * FROM \(TSThread.databaseTableName) WHERE \(threadColumn: .contactUUID) = ?"
         return fetchContactThreads(sql: sql, arguments: [serviceIdString], tx: tx)
     }
 
     func contactThreads(for phoneNumber: String, tx: DBReadTransaction) -> [TSContactThread] {
-        let sql = "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .contactPhoneNumber) = ?"
+        let sql = "SELECT * FROM \(TSThread.databaseTableName) WHERE \(threadColumn: .contactPhoneNumber) = ?"
         return fetchContactThreads(sql: sql, arguments: [phoneNumber], tx: tx)
     }
 

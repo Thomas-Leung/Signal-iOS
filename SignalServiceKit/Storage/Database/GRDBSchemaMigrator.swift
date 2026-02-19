@@ -5093,7 +5093,7 @@ public class GRDBSchemaMigrator {
         migrator.registerMigration(.dataMigration_scheduleStorageServiceUpdateForMutedThreads) { transaction in
             TSThread.anyEnumerate(
                 transaction: transaction,
-                sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .mutedUntilTimestamp) > 0",
+                sql: "SELECT * FROM \(TSThread.databaseTableName) WHERE \(threadColumn: .mutedUntilTimestamp) > 0",
                 arguments: [],
             ) { thread, _ in
                 if let thread = thread as? TSContactThread {
@@ -5112,7 +5112,7 @@ public class GRDBSchemaMigrator {
                 transaction: transaction,
                 sql: """
                     SELECT *
-                    FROM \(ThreadRecord.databaseTableName)
+                    FROM \(TSThread.databaseTableName)
                     WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)
                 """,
                 arguments: [],
@@ -5203,7 +5203,7 @@ public class GRDBSchemaMigrator {
         migrator.registerMigration(.dataMigration_reindexGroupMembershipAndMigrateLegacyAvatarDataFixed) { transaction in
             TSThread.anyEnumerate(
                 transaction: transaction,
-                sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)",
+                sql: "SELECT * FROM \(TSThread.databaseTableName) WHERE \(threadColumn: .recordType) = \(SDSRecordType.groupThread.rawValue)",
                 arguments: [],
             ) { thread, _ in
                 // [SDS] TODO: Fetch TSGroupThreads directly.

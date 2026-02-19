@@ -303,7 +303,7 @@ public enum DatabaseRecovery {
             TSGroupMember.databaseTableName,
             TSMention.databaseTableName,
             TSPaymentModel.table.tableName,
-            TSThread.table.tableName,
+            TSThread.databaseTableName,
             ThreadAssociatedData.databaseTableName,
             // We'd like to get receipts back, but it's okay if we don't get them all.
             DonationReceipt.databaseTableName,

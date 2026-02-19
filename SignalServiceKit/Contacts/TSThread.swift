@@ -7,6 +7,8 @@ import GRDB
 public import LibSignalClient
 
 extension TSThread {
+    public static var databaseTableName: String { ThreadRecord.databaseTableName }
+
     public typealias RowId = Int64
 
     public var logString: String {

@@ -23,7 +23,7 @@ public class ThreadFinder {
             let thread = TSThread.grdbFetchOne(
                 sql: """
                     SELECT *
-                    FROM \(ThreadRecord.databaseTableName)
+                    FROM \(TSThread.databaseTableName)
                     WHERE \(threadColumn: .id) = ?
                 """,
                 arguments: [rowId],
@@ -42,7 +42,7 @@ public class ThreadFinder {
             do {
                 return try String.fetchAll(
                     tx.database,
-                    sql: "SELECT \(threadColumn: .uniqueId) FROM \(ThreadRecord.databaseTableName)",
+                    sql: "SELECT \(threadColumn: .uniqueId) FROM \(TSThread.databaseTableName)",
                 )
             } catch {
                 throw error.grdbErrorForLogging
@@ -60,7 +60,7 @@ public class ThreadFinder {
     ) throws {
         let sql = """
             SELECT *
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             WHERE \(threadColumn: .recordType) = \(SDSRecordType.privateStoryThread.rawValue)
         """
         let cursor = try ThreadRecord.fetchCursor(
@@ -88,7 +88,7 @@ public class ThreadFinder {
     ) throws {
         let sql = """
             SELECT *
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             WHERE \(threadColumn: .groupModel) IS NOT NULL
             ORDER BY \(threadColumn: .lastInteractionRowId) DESC
         """
@@ -118,7 +118,7 @@ public class ThreadFinder {
     ) throws {
         let sql = """
             SELECT *
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             WHERE \(threadColumn: .recordType) IS NOT ?
         """
 
@@ -139,7 +139,7 @@ public class ThreadFinder {
     ) throws -> UInt {
         let sql = """
         SELECT COUNT(*)
-        FROM \(ThreadRecord.databaseTableName)
+        FROM \(TSThread.databaseTableName)
         \(threadAssociatedDataJoinClause(isArchived: isArchived))
         WHERE \(threadColumn: .shouldThreadBeVisible) = 1
         """
@@ -164,7 +164,7 @@ public class ThreadFinder {
     ) {
         let sql = """
         SELECT *
-        FROM \(ThreadRecord.databaseTableName)
+        FROM \(TSThread.databaseTableName)
         \(threadAssociatedDataJoinClause(isArchived: isArchived))
         WHERE \(threadColumn: .shouldThreadBeVisible) = 1
         ORDER BY \(threadColumn: .lastInteractionRowId) DESC
@@ -183,7 +183,7 @@ public class ThreadFinder {
     public func fetchContactSyncThreadRowIds(tx: DBReadTransaction) throws -> [Int64] {
         let sql = """
         SELECT \(threadColumn: .id)
-        FROM \(ThreadRecord.databaseTableName)
+        FROM \(TSThread.databaseTableName)
         WHERE \(threadColumn: .shouldThreadBeVisible) = 1
         ORDER BY \(threadColumn: .lastInteractionRowId) DESC
         """
@@ -305,7 +305,7 @@ public class ThreadFinder {
         let sql = """
             SELECT EXISTS(
                 SELECT 1
-                FROM \(ThreadRecord.databaseTableName)
+                FROM \(TSThread.databaseTableName)
                 WHERE \(threadColumn: .recordType) = ?
                 LIMIT 1
             )
@@ -357,7 +357,7 @@ public class ThreadFinder {
 
         let sql = """
             SELECT *
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             WHERE \(threadColumn: .storyViewMode) != \(TSThreadStoryViewMode.disabled.rawValue)
             AND \(threadColumn: .storyViewMode) != \(TSThreadStoryViewMode.default.rawValue)
             OR (
@@ -391,7 +391,7 @@ public class ThreadFinder {
     ) -> [TSThread] {
         let sql = """
             SELECT *
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             ORDER BY \(threadColumn: .lastInteractionRowId) DESC
             LIMIT \(limit)
         """
@@ -429,7 +429,7 @@ public class ThreadFinder {
                 \(threadColumnFullyQualified: .uniqueId) AS thread_uniqueId,
                 \(ThreadAssociatedData.databaseTableName).isMarkedUnread AS thread_isMarkedUnread,
                 COUNT(i.\(interactionColumn: .uniqueId)) AS interactions_unreadCount
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             INNER JOIN \(ThreadAssociatedData.databaseTableName)
                 ON \(ThreadAssociatedData.databaseTableName).threadUniqueId = \(threadColumnFullyQualified: .uniqueId)
                 AND \(ThreadAssociatedData.databaseTableName).isArchived = 0
@@ -455,7 +455,7 @@ public class ThreadFinder {
         } else {
             let sql = """
             SELECT \(threadColumn: .uniqueId)
-            FROM \(ThreadRecord.databaseTableName)
+            FROM \(TSThread.databaseTableName)
             INNER JOIN \(ThreadAssociatedData.databaseTableName)
                 ON \(ThreadAssociatedData.databaseTableName).threadUniqueId = \(threadColumnFullyQualified: .uniqueId)
                 AND \(ThreadAssociatedData.databaseTableName).isArchived = 0
@@ -475,7 +475,7 @@ public class ThreadFinder {
     ) throws -> [String] {
         let sql = """
         SELECT \(threadColumn: .uniqueId)
-        FROM \(ThreadRecord.databaseTableName)
+        FROM \(TSThread.databaseTableName)
         \(threadAssociatedDataJoinClause(isArchived: true))
         WHERE \(threadColumn: .shouldThreadBeVisible) = 1
         ORDER BY

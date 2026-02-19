@@ -529,7 +529,7 @@ extension TSGroupModel {
         var filePaths = Set<String>()
         TSThread.anyEnumerate(
             transaction: transaction,
-            sql: "SELECT * FROM \(ThreadRecord.databaseTableName) WHERE \(threadColumn: .recordType) = ?",
+            sql: "SELECT * FROM \(TSThread.databaseTableName) WHERE \(threadColumn: .recordType) = ?",
             arguments: [SDSRecordType.groupThread.rawValue],
             block: { thread, stop in
                 // [SDS] TODO: Fetch TSGroupThreads directly.
