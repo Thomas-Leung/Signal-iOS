@@ -135,9 +135,8 @@ struct NewPollView: View {
         self.viewModel = viewModel
     }
 
-    struct PollResizingTextEditor: View {
+    struct PollTextField: View {
         @Binding var text: String
-        @State private var editorWidth: CGFloat = 0
         var placeholder: String
 
         // Submit
@@ -150,23 +149,29 @@ struct NewPollView: View {
 
         static let characterLimit: Int = 100
 
-        var body: some View {
-            ZStack(alignment: .topLeading) {
-                if text.isEmpty {
-                    Text(placeholder)
-                        .foregroundColor(Color.Signal.secondaryLabel)
-                        .padding(.horizontal, 4)
-                        .padding(.vertical, 8)
-                        .accessibilityHidden(true)
-                }
-                textEditor()
+        private func baseTextField() -> some View {
+            if #available(iOS 16, *) {
+                return TextField(
+                    "",
+                    text: $text,
+                    prompt: Text(placeholder)
+                        .foregroundColor(Color.Signal.secondaryLabel),
+                    axis: .vertical,
+                )
+            } else {
+                return TextField(
+                    "",
+                    text: $text,
+                    prompt: Text(placeholder)
+                        .foregroundColor(Color.Signal.secondaryLabel),
+                )
             }
-            .frame(height: NewPollView.calculateHeight(text: text, textViewWidth: editorWidth))
         }
 
-        @ViewBuilder
-        private func textEditor() -> some View {
-            let editor = TextEditor(text: $text)
+        var body: some View {
+            let editor = baseTextField()
+                .padding(.horizontal, 4)
+                .padding(.vertical, 8)
                 .onChange(of: text) { newText in
                     // remove newlines but detect them and subsitute with onSubmit.
                     text = text.components(separatedBy: CharacterSet.newlines).joined()
@@ -174,8 +179,8 @@ struct NewPollView: View {
                         onSubmit()
                         return
                     }
-                    if newText.count > PollResizingTextEditor.characterLimit {
-                        let resizedText = String(newText.prefix(PollResizingTextEditor.characterLimit))
+                    if newText.count > PollTextField.characterLimit {
+                        let resizedText = String(newText.prefix(PollTextField.characterLimit))
                         if text != resizedText {
                             text = resizedText
                         }
@@ -184,17 +189,6 @@ struct NewPollView: View {
                         text = ""
                     }
                 }
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear {
-                                editorWidth = geo.size.width
-                            }
-                            .onChange(of: geo.size.width) { newWidth in
-                                editorWidth = newWidth
-                            }
-                    },
-                )
                 .accessibilityLabel(placeholder)
 
             if let questionFieldFocus {
@@ -215,14 +209,14 @@ struct NewPollView: View {
         var onSubmit: () -> Void
 
         var body: some View {
-            let remainingChars = PollResizingTextEditor.characterLimit - option.text.count
+            let remainingChars = PollTextField.characterLimit - option.text.count
             let displayRemainingChars = remainingChars <= 20 ? NewPollView.localizedNumber(from: remainingChars) : ""
             let countdownColor = remainingChars <= 5 ? Color.Signal.red : Color.Signal.tertiaryLabel
             let shouldHaveEmptyPlaceholder = totalCount > 2 && optionIndex != totalCount - 1
             let placeholder = shouldHaveEmptyPlaceholder ? "" : localizedOptionPlaceholderText(index: optionIndex + 1)
 
             HStack {
-                PollResizingTextEditor(
+                PollTextField(
                     text: $option.text,
                     placeholder: placeholder,
                     onSubmit: onSubmit,
@@ -265,11 +259,11 @@ struct NewPollView: View {
         VStack(spacing: 0) {
             SignalList {
                 SignalSection {
-                    let remainingChars = PollResizingTextEditor.characterLimit - pollQuestion.count
+                    let remainingChars = PollTextField.characterLimit - pollQuestion.count
                     let displayRemainingChars = remainingChars <= 20 ? NewPollView.localizedNumber(from: remainingChars) : ""
                     let countdownColor = remainingChars <= 5 ? Color.Signal.red : Color.Signal.tertiaryLabel
 
-                    PollResizingTextEditor(
+                    PollTextField(
                         text: $pollQuestion,
                         placeholder: OWSLocalizedString(
                             "POLL_QUESTION_PLACEHOLDER_TEXT",
