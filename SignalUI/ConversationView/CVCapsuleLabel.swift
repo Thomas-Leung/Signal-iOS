@@ -21,10 +21,10 @@ public class CVCapsuleLabel: UILabel {
 
     // *CapsuleInset is how far beyond the text the capsule expands.
     // *Offset is how shifted BOTH capsule & text are from the edge of the view.
-    private static let horizontalCapsuleInset: CGFloat = 6
+    private static let horizontalCapsuleInset: CGFloat = 8
     private static let verticalCapsuleInset: CGFloat = 1
     private static let verticalOffset: CGFloat = 3
-    private static let horizontalOffset: CGFloat = 6
+    private static let horizontalOffset: CGFloat = 8
 
     public init(
         attributedText: NSAttributedString,
@@ -207,21 +207,25 @@ public class CVCapsuleLabel: UILabel {
         return textContainer
     }
 
+    private func calculateHorizontalOffset() -> CGFloat {
+        // We only need to offset the capsule & text horizontally if the edge of the view
+        // might cut it off, (location starts at 0 and its naturally aligned).
+        let needsHorizontalOffset = highlightRange.location == 0 && textAlignment == .natural
+        if needsHorizontalOffset {
+            return CurrentAppContext().isRTL ? -Self.horizontalOffset : Self.horizontalOffset
+        }
+        return 0
+    }
+
     override public func drawText(in rect: CGRect) {
         guard let attributedText, let textColor else {
             return super.drawText(in: rect)
         }
-        // We only need to offset the capsule & text horizontally if the edge of the view
-        // might cut it off, (location starts at 0).
-        var horizontalOffset: CGFloat = 0
-        let needsHorizontalOffset = highlightRange.location == 0
-        if needsHorizontalOffset {
-            horizontalOffset = CurrentAppContext().isRTL ? -Self.horizontalOffset : Self.horizontalOffset
-        }
 
         owsAssertDebug(numberOfLines == 0 || numberOfLines == 1, "CVCapsule wrapping behavior undefined")
 
-        let maxWidth = rect.width - (2 * Self.horizontalCapsuleInset + horizontalOffset)
+        let hOffset = calculateHorizontalOffset()
+        let maxWidth = rect.width - (2 * Self.horizontalCapsuleInset + hOffset)
         let formattedStringData = CVCapsuleLabel.formatCapsuleString(
             attributedString: attributedText,
             highlightRange: highlightRange,
@@ -246,7 +250,7 @@ public class CVCapsuleLabel: UILabel {
         layoutManager.enumerateEnclosingRects(forGlyphRange: highlightGlyphRange, withinSelectedGlyphRange: NSRange(location: NSNotFound, length: 0), in: textContainer) { rect, _ in
             let vCapsuleOffset = -Self.verticalCapsuleInset + Self.verticalOffset
             let roundedRect = rect.offsetBy(
-                dx: horizontalOffset,
+                dx: hOffset,
                 dy: vCapsuleOffset,
             ).insetBy(
                 dx: -Self.horizontalCapsuleInset,
@@ -257,7 +261,7 @@ public class CVCapsuleLabel: UILabel {
             path.fill()
         }
 
-        let textOrigin = CGPoint(x: horizontalOffset, y: Self.verticalOffset)
+        let textOrigin = CGPoint(x: hOffset, y: Self.verticalOffset)
         let glyphRange = layoutManager.glyphRange(for: textContainer)
         layoutManager.drawGlyphs(forGlyphRange: glyphRange, at: textOrigin)
     }
@@ -289,11 +293,9 @@ public class CVCapsuleLabel: UILabel {
 
     public func labelSize(maxWidth: CGFloat) -> CGSize {
         guard let attributedText, !attributedText.isEmpty else { return .zero }
-        let horizontalOffset: CGFloat = (highlightRange.location == 0)
-            ? (CurrentAppContext().isRTL ? -Self.horizontalOffset : Self.horizontalOffset)
-            : 0
+        let hOffset = calculateHorizontalOffset()
 
-        let maxWidthMinusInsets = maxWidth - (horizontalOffset + Self.horizontalCapsuleInset * 2)
+        let maxWidthMinusInsets = maxWidth - (hOffset + Self.horizontalCapsuleInset * 2)
 
         owsAssertDebug(numberOfLines == 0 || numberOfLines == 1, "CVCapsule wrapping behavior undefined")
 
@@ -318,15 +320,6 @@ public class CVCapsuleLabel: UILabel {
             size: size,
         )
 
-        if numberOfLines != 0 {
-            let glyphRange = layoutManager.glyphRange(for: textContainer)
-            let rect = layoutManager.boundingRect(forGlyphRange: glyphRange, in: textContainer)
-            let totalHeight = rect.height + Self.verticalOffset + Self.verticalCapsuleInset * 2
-            let totalWidth = rect.width + horizontalOffset + Self.horizontalCapsuleInset * 2
-
-            return CGSize(width: totalWidth, height: totalHeight)
-        }
-
         // Sometimes the maxWidth is slightly different than the rect.width passed to drawText(),
         // which may cause the height to be too tall as the width wraps (creating extra whitespace).
         // Since we know the highlight text will always render on the bottom-most line, we can
@@ -345,7 +338,7 @@ public class CVCapsuleLabel: UILabel {
         }
 
         totalHeight += Self.verticalOffset + Self.verticalCapsuleInset * 2
-        let finalWidth = layoutManager.usedRect(for: textContainer).size.ceil.width + Self.horizontalCapsuleInset * 2 + horizontalOffset
+        let finalWidth = layoutManager.usedRect(for: textContainer).size.ceil.width + Self.horizontalCapsuleInset * 2 + hOffset
         return CGSize(width: finalWidth, height: totalHeight)
     }
 

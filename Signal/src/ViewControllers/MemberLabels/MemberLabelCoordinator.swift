@@ -59,10 +59,21 @@ public final class MemberLabelCoordinator {
         self.kvStore = NewKeyValueStore(collection: "MemberLabelCoordinator")
     }
 
-    func presentWithEducationSheet(localUserHasMemberLabel: Bool) {
-        let hero = MemberLabelEducationHeroSheet(hasMemberLabel: localUserHasMemberLabel, editMemberLabelHandler: { [weak self] in
-            self?.present()
-        })
+    func presentWithEducationSheet(
+        localUserHasMemberLabel: Bool,
+        canEditMemberLabel: Bool,
+    ) {
+        var editBlock: (() -> Void)?
+        if canEditMemberLabel {
+            editBlock = { [weak self] in
+                self?.present()
+            }
+        }
+
+        let hero = MemberLabelEducationHeroSheet(
+            hasMemberLabel: localUserHasMemberLabel,
+            editMemberLabelHandler: editBlock,
+        )
         presenter?.present(hero, animated: true)
     }
 

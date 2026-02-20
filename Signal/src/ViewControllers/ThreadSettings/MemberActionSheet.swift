@@ -495,8 +495,7 @@ extension MemberActionSheet: ConversationHeaderDelegate {
             let groupViewHelper,
             let groupThread = groupViewHelper.thread as? TSGroupThread,
             let groupModel = groupThread.groupModel as? TSGroupModelV2,
-            let memberLabelCoordinator = groupViewHelper.memberLabelCoordinator,
-            groupViewHelper.canEditConversationAttributes
+            let memberLabelCoordinator = groupViewHelper.memberLabelCoordinator
         else {
             return
         }
@@ -504,7 +503,10 @@ extension MemberActionSheet: ConversationHeaderDelegate {
         let localUserHasMemberLabel = groupModel.groupMembership.localUserMemberLabel != nil
         dismiss(animated: true) {
             memberLabelCoordinator.presenter = presenter
-            memberLabelCoordinator.presentWithEducationSheet(localUserHasMemberLabel: localUserHasMemberLabel)
+            memberLabelCoordinator.presentWithEducationSheet(
+                localUserHasMemberLabel: localUserHasMemberLabel,
+                canEditMemberLabel: groupViewHelper.canEditConversationAttributes,
+            )
         }
     }
 }
