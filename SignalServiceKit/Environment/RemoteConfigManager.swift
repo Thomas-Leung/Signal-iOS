@@ -325,14 +325,6 @@ public class RemoteConfig {
         return isEnabled(.backupsMegaphone)
     }
 
-    public var ringrtcNwPathMonitorTrial: Bool {
-        return !isEnabled(.ringrtcNwPathMonitorTrialKillSwitch, defaultValue: false)
-    }
-
-    public var ringrtcVp9Enabled: Bool {
-        return isEnabled(.ringrtcVp9Enabled, defaultValue: false)
-    }
-
     public var pinnedThreadLimit: UInt {
         return getUIntValue(
             forFlag: .pinnedThreadLimit,
@@ -346,6 +338,42 @@ public class RemoteConfig {
             defaultValue: UInt(3),
         )
     }
+
+    // MARK: - RingRTC
+
+    public var ringrtcNwPathMonitorTrial: Bool {
+        return !isEnabled(.ringrtcNwPathMonitorTrialKillSwitch, defaultValue: false)
+    }
+
+    public var ringrtcVp9Enabled: Bool {
+        return isEnabled(.ringrtcVp9Enabled, defaultValue: false)
+    }
+
+    /// List of "device models" hardware identifiers allow-listed for which
+    /// RingRTC should always offer encoding VP9. (overriden by the deny list)
+    ///
+    /// Compare entries to the value of `String(sysctlKey: "hw.machine")`.
+    public var ringrtcVp9DeviceModelEnablelist: [String] {
+        guard let valueFlag = valueFlags[ValueFlag.ringrtcVp9DeviceModelEnablelist.rawValue] else {
+            return []
+        }
+
+        return valueFlag.split(separator: ".").map { String($0) }
+    }
+
+    /// List of "device models" hardware identifiers deny-listed for which
+    /// RingRTC should avoid encoding VP9.
+    ///
+    /// Compare entries to the value of `String(sysctlKey: "hw.machine")`.
+    public var ringrtcVp9DeviceModelDenylist: [String] {
+        guard let valueFlag = valueFlags[ValueFlag.ringrtcVp9DeviceModelDenylist.rawValue] else {
+            return []
+        }
+
+        return valueFlag.split(separator: ".").map { String($0) }
+    }
+
+    // MARK: -
 
 #if TESTABLE_BUILD
     public var testHotSwappable: Bool? {
@@ -555,7 +583,7 @@ private enum IsEnabledFlag: String, FlagType {
     case paypalMonthlyDonationKillSwitch = "ios.paypalMonthlyDonationKillSwitch"
     case paypalOneTimeDonationKillSwitch = "ios.paypalOneTimeDonationKillSwitch"
     case ringrtcNwPathMonitorTrialKillSwitch = "ios.ringrtcNwPathMonitorTrialKillSwitch"
-    case ringrtcVp9Enabled = "ios.ringrtcVp9Enabled"
+    case ringrtcVp9Enabled = "ios.ringrtcVp9Enabled.2"
     case serviceExtensionFailureKillSwitch = "ios.serviceExtensionFailureKillSwitch"
 
 #if TESTABLE_BUILD
@@ -625,6 +653,8 @@ private enum ValueFlag: String, FlagType {
     case backupListMediaOutOfQuotaRefreshIntervalMs = "ios.backupListMediaOutOfQuotaRefreshIntervalMs"
     case pinnedMessageLimit = "global.pinned_message_limit"
     case pinnedThreadLimit = "global.pinned_chat_limit"
+    case ringrtcVp9DeviceModelDenylist = "ios.ringrtcVp9DeviceModelDenylist"
+    case ringrtcVp9DeviceModelEnablelist = "ios.ringrtcVp9DeviceModelEnablelist"
 
 #if TESTABLE_BUILD
     case hotSwappable = "test.hotSwappable.value"
@@ -665,6 +695,8 @@ private enum ValueFlag: String, FlagType {
         case .backupListMediaOutOfQuotaRefreshIntervalMs: true
         case .pinnedMessageLimit: true
         case .pinnedThreadLimit: true
+        case .ringrtcVp9DeviceModelDenylist: true
+        case .ringrtcVp9DeviceModelEnablelist: true
 
 #if TESTABLE_BUILD
         case .hotSwappable: true

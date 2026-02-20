@@ -14,6 +14,16 @@ public enum RingrtcVp9Config {
         if DebugFlags.callingForceVp9Off.get() {
             return false
         }
+
+        guard let hwIdentifier = String(sysctlKey: "hw.machine") else {
+            return false
+        }
+
+        if remoteConfig.ringrtcVp9DeviceModelDenylist.contains(hwIdentifier) {
+            return false
+        } else if remoteConfig.ringrtcVp9DeviceModelEnablelist.contains(hwIdentifier) {
+            return true
+        }
         return remoteConfig.ringrtcVp9Enabled
     }
 }
