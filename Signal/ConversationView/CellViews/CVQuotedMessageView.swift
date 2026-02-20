@@ -89,11 +89,17 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
         var isOutgoing: Bool { state.isOutgoing }
         var isIncoming: Bool { !isOutgoing }
         fileprivate var quotedAuthorName: NSAttributedString {
+            var authorName: String
+            if quotedReplyModel.originalMessageAuthorAddress.isLocalAddress {
+                authorName = CommonStrings.you
+            } else {
+                authorName = state.quotedAuthorName
+            }
             let padding = " "
             if let labelString = state.memberLabel {
-                return NSAttributedString(string: state.quotedAuthorName + padding + labelString)
+                return NSAttributedString(string: authorName + padding + labelString)
             } else {
-                return NSAttributedString(string: state.quotedAuthorName)
+                return NSAttributedString(string: authorName)
             }
         }
 
@@ -228,12 +234,7 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
         }
 
         var quotedAuthorLabelConfig: CVLabelConfig {
-            let authorName: String
-            if quotedReplyModel.originalMessageAuthorAddress.isLocalAddress {
-                authorName = CommonStrings.you
-            } else {
-                authorName = quotedAuthorName.string
-            }
+            let authorName = quotedAuthorName.string
 
             let text: String
             if quotedReplyModel.originalContent.isStory {
@@ -828,7 +829,7 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
                 attributedText: configurator.quotedAuthorName,
                 font: configurator.quotedAuthorFont,
                 highlightRange: (configurator.quotedAuthorName.string as NSString).range(of: memberLabel, options: .backwards),
-                highlightFont: configurator.quotedAuthorFont,
+                highlightFont: UIFont.dynamicTypeSubheadlineClamped,
                 isQuotedReply: true,
                 maxWidth: maxLabelWidth,
             )

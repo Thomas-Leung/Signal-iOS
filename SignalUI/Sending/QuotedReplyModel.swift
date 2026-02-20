@@ -355,7 +355,7 @@ public class QuotedReplyModel {
             return QuotedReplyModel(
                 originalMessageTimestamp: quotedMessage.timestampValue?.uint64Value,
                 originalMessageAuthorAddress: quotedMessage.authorAddress,
-                originalMessageMemberLabel: isOriginalAuthorLocalUser ? nil : memberLabel,
+                originalMessageMemberLabel: memberLabel,
                 isOriginalMessageAuthorLocalUser: isOriginalAuthorLocalUser,
                 storyReactionEmoji: nil,
                 originalContent: originalContent,
