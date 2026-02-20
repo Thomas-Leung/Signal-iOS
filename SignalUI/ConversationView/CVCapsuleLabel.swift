@@ -166,8 +166,7 @@ public class CVCapsuleLabel: UILabel {
         let nonHighlightRange = NSRange(location: 0, length: highlightRange.location)
         let nonHighlightString = attributedString.attributedSubstring(from: nonHighlightRange)
 
-        // TODO: dont use arbitrary spacing
-        let breakString = NSAttributedString(string: "\n  ")
+        let breakString = NSAttributedString(string: "\n")
 
         // If highlight text width or total string width is greater than line width,
         // move highlight to the next line to avoid wrapping, and truncate it if needed.
@@ -209,8 +208,8 @@ public class CVCapsuleLabel: UILabel {
 
     private func calculateHorizontalOffset() -> CGFloat {
         // We only need to offset the capsule & text horizontally if the edge of the view
-        // might cut it off, (location starts at 0 and its naturally aligned).
-        let needsHorizontalOffset = highlightRange.location == 0 && textAlignment == .natural
+        // might cut it off because its naturally aligned.
+        let needsHorizontalOffset = textAlignment == .natural
         if needsHorizontalOffset {
             return CurrentAppContext().isRTL ? -Self.horizontalOffset : Self.horizontalOffset
         }
@@ -225,7 +224,7 @@ public class CVCapsuleLabel: UILabel {
         owsAssertDebug(numberOfLines == 0 || numberOfLines == 1, "CVCapsule wrapping behavior undefined")
 
         let hOffset = calculateHorizontalOffset()
-        let maxWidth = rect.width - (2 * Self.horizontalCapsuleInset + hOffset)
+        let maxWidth = rect.width - (2 * Self.horizontalCapsuleInset + abs(hOffset))
         let formattedStringData = CVCapsuleLabel.formatCapsuleString(
             attributedString: attributedText,
             highlightRange: highlightRange,
@@ -259,11 +258,12 @@ public class CVCapsuleLabel: UILabel {
             let path = UIBezierPath(roundedRect: roundedRect, cornerRadius: roundedRect.height / 2)
             highlightColor.setFill()
             path.fill()
+            layoutManager.drawGlyphs(forGlyphRange: highlightGlyphRange, at: CGPoint(x: hOffset, y: Self.verticalOffset))
         }
 
-        let textOrigin = CGPoint(x: hOffset, y: Self.verticalOffset)
-        let glyphRange = layoutManager.glyphRange(for: textContainer)
-        layoutManager.drawGlyphs(forGlyphRange: glyphRange, at: textOrigin)
+        let newNonHighlightRange = NSRange(location: 0, length: newHighlightRange.location)
+        let nonHighlightGlyphRange = layoutManager.glyphRange(forCharacterRange: newNonHighlightRange, actualCharacterRange: nil)
+        layoutManager.drawGlyphs(forGlyphRange: nonHighlightGlyphRange, at: CGPoint(x: 0, y: Self.verticalOffset))
     }
 
     override public var intrinsicContentSize: CGSize {
@@ -281,7 +281,7 @@ public class CVCapsuleLabel: UILabel {
         let label = CVCapsuleLabel(
             attributedText: attributedText,
             textColor: .black,
-            font: UIFont.dynamicTypeFootnote.semibold(),
+            font: font,
             highlightRange: highlightRange,
             highlightFont: highlightFont,
             axLabelPrefix: nil,
@@ -295,7 +295,7 @@ public class CVCapsuleLabel: UILabel {
         guard let attributedText, !attributedText.isEmpty else { return .zero }
         let hOffset = calculateHorizontalOffset()
 
-        let maxWidthMinusInsets = maxWidth - (hOffset + Self.horizontalCapsuleInset * 2)
+        let maxWidthMinusInsets = maxWidth - (abs(hOffset) + Self.horizontalCapsuleInset * 2)
 
         owsAssertDebug(numberOfLines == 0 || numberOfLines == 1, "CVCapsule wrapping behavior undefined")
 
@@ -307,12 +307,13 @@ public class CVCapsuleLabel: UILabel {
             maxWidth: maxWidthMinusInsets,
         )
 
-        guard let (formattedAttributedString, newHighlightRange) = formattedStringData else {
+        guard let (formattedAttributedString, _) = formattedStringData else {
             return .zero
         }
 
         let layoutManager = NSLayoutManager()
         let size = CGSize(width: maxWidthMinusInsets, height: .greatestFiniteMagnitude)
+
         let textStorage = NSTextStorage(attributedString: formattedAttributedString)
         let textContainer = textContainerForFormattedString(
             layoutManager: layoutManager,
@@ -320,26 +321,10 @@ public class CVCapsuleLabel: UILabel {
             size: size,
         )
 
-        // Sometimes the maxWidth is slightly different than the rect.width passed to drawText(),
-        // which may cause the height to be too tall as the width wraps (creating extra whitespace).
-        // Since we know the highlight text will always render on the bottom-most line, we can
-        // stop the enumeration when we reach the highlight range and use that height to avoid extra whitespace.
-        var totalHeight: CGFloat = 0
-        layoutManager.enumerateLineFragments(forGlyphRange: NSRange(location: 0, length: layoutManager.numberOfGlyphs)) { _, usedRect, _, glyphRange, stop in
-            let charRangeStart = layoutManager.characterIndexForGlyph(at: glyphRange.location)
-            let charRangeEnd = layoutManager.characterIndexForGlyph(at: glyphRange.location + glyphRange.length - 1)
-
-            let lineRange = NSRange(location: charRangeStart, length: charRangeEnd - charRangeStart + 1)
-            totalHeight += usedRect.height
-
-            if NSIntersectionRange(lineRange, newHighlightRange).length > 0 {
-                stop.pointee = true
-            }
-        }
-
-        totalHeight += Self.verticalOffset + Self.verticalCapsuleInset * 2
-        let finalWidth = layoutManager.usedRect(for: textContainer).size.ceil.width + Self.horizontalCapsuleInset * 2 + hOffset
-        return CGSize(width: finalWidth, height: totalHeight)
+        let measureSize = layoutManager.usedRect(for: textContainer).size.ceil
+        let finalHeight = measureSize.height + Self.verticalOffset + Self.verticalCapsuleInset * 2
+        let finalWidth = measureSize.width + Self.horizontalCapsuleInset * 2 + abs(hOffset)
+        return CGSize(width: finalWidth, height: finalHeight)
     }
 
     override public var accessibilityLabel: String? {

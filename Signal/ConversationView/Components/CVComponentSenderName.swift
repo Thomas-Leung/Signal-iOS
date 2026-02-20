@@ -12,7 +12,7 @@ public class CVComponentSenderName: CVComponentBase, CVComponent {
 
     private let state: CVComponentState.SenderName
     private var senderName: NSAttributedString {
-        let padding = "   "
+        let padding = " "
         if let labelString = state.memberLabel {
             return state.senderName + padding + labelString
         } else {

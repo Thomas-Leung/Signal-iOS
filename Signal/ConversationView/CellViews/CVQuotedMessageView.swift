@@ -89,7 +89,7 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
         var isOutgoing: Bool { state.isOutgoing }
         var isIncoming: Bool { !isOutgoing }
         fileprivate var quotedAuthorName: NSAttributedString {
-            let padding = " " + String(repeating: SignalSymbol.LeadingCharacter.nonBreakingSpace.rawValue, count: 2)
+            let padding = " "
             if let labelString = state.memberLabel {
                 return NSAttributedString(string: state.quotedAuthorName + padding + labelString)
             } else {
