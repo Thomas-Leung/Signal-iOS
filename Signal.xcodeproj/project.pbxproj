@@ -673,6 +673,8 @@
 		503BD2892B44D666009624FC /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503BD2882B44D666009624FC /* ProfileManager.swift */; };
 		503BD28B2B44DA64009624FC /* OWSFakeProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503BD28A2B44DA64009624FC /* OWSFakeProfileManager.swift */; };
 		503BDDB6296F5BE100FED3B2 /* ContactReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503BDDB5296F5BE100FED3B2 /* ContactReminderTableViewCell.swift */; };
+		503C06362F4774F40073D54A /* TSPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C06352F4774F40073D54A /* TSPaymentModel.swift */; };
+		503C06382F47751E0073D54A /* MobileCoinPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C06372F47751E0073D54A /* MobileCoinPayment.swift */; };
 		503C2F432977752B00217527 /* OWSURLSessionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C2F422977752B00217527 /* OWSURLSessionEndpoint.swift */; };
 		50423CA42BBF427900DCB8F5 /* StaleProfileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50423CA32BBF427900DCB8F5 /* StaleProfileFetcher.swift */; };
 		504271B62BB4C54500E33C01 /* SystemContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504271B52BB4C54500E33C01 /* SystemContact.swift */; };
@@ -3857,14 +3859,11 @@
 		F9C5CD78289453B300548EEE /* PendingReadReceiptRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CA9C289453B100548EEE /* PendingReadReceiptRecord.swift */; };
 		F9C5CD7A289453B300548EEE /* PaymentsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAA0289453B200548EEE /* PaymentsEvents.swift */; };
 		F9C5CD7B289453B300548EEE /* MobileCoinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAA1289453B200548EEE /* MobileCoinHelper.swift */; };
-		F9C5CD7C289453B300548EEE /* TSPaymentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C5CAA2289453B200548EEE /* TSPaymentModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9C5CD7D289453B300548EEE /* PaymentsCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAA3289453B200548EEE /* PaymentsCurrencies.swift */; };
 		F9C5CD7F289453B300548EEE /* DonationReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAA5289453B200548EEE /* DonationReceipt.swift */; };
 		F9C5CD81289453B300548EEE /* PaymentsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAA7289453B200548EEE /* PaymentsHelper.swift */; };
 		F9C5CD82289453B300548EEE /* TSPaymentModels.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C5CAA8289453B200548EEE /* TSPaymentModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9C5CD83289453B300548EEE /* TSPaymentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAA9289453B200548EEE /* TSPaymentModels.swift */; };
-		F9C5CD84289453B300548EEE /* TSPaymentModel+SDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAAA289453B200548EEE /* TSPaymentModel+SDS.swift */; };
-		F9C5CD85289453B300548EEE /* TSPaymentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAAB289453B200548EEE /* TSPaymentModel.m */; };
 		F9C5CD86289453B300548EEE /* Payments+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAAC289453B200548EEE /* Payments+SSK.swift */; };
 		F9C5CD87289453B300548EEE /* DonationReceiptFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAAD289453B200548EEE /* DonationReceiptFinder.swift */; };
 		F9C5CD89289453B300548EEE /* PaymentFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CAAF289453B200548EEE /* PaymentFinder.swift */; };
@@ -4938,6 +4937,8 @@
 		503BD2882B44D666009624FC /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		503BD28A2B44DA64009624FC /* OWSFakeProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWSFakeProfileManager.swift; sourceTree = "<group>"; };
 		503BDDB5296F5BE100FED3B2 /* ContactReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactReminderTableViewCell.swift; sourceTree = "<group>"; };
+		503C06352F4774F40073D54A /* TSPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPaymentModel.swift; sourceTree = "<group>"; };
+		503C06372F47751E0073D54A /* MobileCoinPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCoinPayment.swift; sourceTree = "<group>"; };
 		503C2F422977752B00217527 /* OWSURLSessionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWSURLSessionEndpoint.swift; sourceTree = "<group>"; };
 		50423CA32BBF427900DCB8F5 /* StaleProfileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaleProfileFetcher.swift; sourceTree = "<group>"; };
 		504271B52BB4C54500E33C01 /* SystemContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemContact.swift; sourceTree = "<group>"; };
@@ -8158,14 +8159,11 @@
 		F9C5CA9C289453B100548EEE /* PendingReadReceiptRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingReadReceiptRecord.swift; sourceTree = "<group>"; };
 		F9C5CAA0289453B200548EEE /* PaymentsEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsEvents.swift; sourceTree = "<group>"; };
 		F9C5CAA1289453B200548EEE /* MobileCoinHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileCoinHelper.swift; sourceTree = "<group>"; };
-		F9C5CAA2289453B200548EEE /* TSPaymentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPaymentModel.h; sourceTree = "<group>"; };
 		F9C5CAA3289453B200548EEE /* PaymentsCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsCurrencies.swift; sourceTree = "<group>"; };
 		F9C5CAA5289453B200548EEE /* DonationReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationReceipt.swift; sourceTree = "<group>"; };
 		F9C5CAA7289453B200548EEE /* PaymentsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsHelper.swift; sourceTree = "<group>"; };
 		F9C5CAA8289453B200548EEE /* TSPaymentModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSPaymentModels.h; sourceTree = "<group>"; };
 		F9C5CAA9289453B200548EEE /* TSPaymentModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSPaymentModels.swift; sourceTree = "<group>"; };
-		F9C5CAAA289453B200548EEE /* TSPaymentModel+SDS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSPaymentModel+SDS.swift"; sourceTree = "<group>"; };
-		F9C5CAAB289453B200548EEE /* TSPaymentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSPaymentModel.m; sourceTree = "<group>"; };
 		F9C5CAAC289453B200548EEE /* Payments+SSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Payments+SSK.swift"; sourceTree = "<group>"; };
 		F9C5CAAD289453B200548EEE /* DonationReceiptFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationReceiptFinder.swift; sourceTree = "<group>"; };
 		F9C5CAAF289453B200548EEE /* PaymentFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentFinder.swift; sourceTree = "<group>"; };
@@ -15263,6 +15261,7 @@
 			children = (
 				F9C5CAA1289453B200548EEE /* MobileCoinHelper.swift */,
 				34BB78B4272C510800DA0D04 /* MobileCoinHelperMinimal.swift */,
+				503C06372F47751E0073D54A /* MobileCoinPayment.swift */,
 				F9C5CAAF289453B200548EEE /* PaymentFinder.swift */,
 				F9C5CAAC289453B200548EEE /* Payments+SSK.swift */,
 				F9C5CAA3289453B200548EEE /* PaymentsCurrencies.swift */,
@@ -15271,9 +15270,7 @@
 				C100E6812C33087C000C83B8 /* PaymentsFormat.swift */,
 				F9C5CAA7289453B200548EEE /* PaymentsHelper.swift */,
 				3465F4DA27287858001663AF /* PaymentsHelperImpl.swift */,
-				F9C5CAAA289453B200548EEE /* TSPaymentModel+SDS.swift */,
-				F9C5CAA2289453B200548EEE /* TSPaymentModel.h */,
-				F9C5CAAB289453B200548EEE /* TSPaymentModel.m */,
+				503C06352F4774F40073D54A /* TSPaymentModel.swift */,
 				F9C5CAA8289453B200548EEE /* TSPaymentModels.h */,
 				F9C5CAB0289453B200548EEE /* TSPaymentModels.m */,
 				F9C5CAA9289453B200548EEE /* TSPaymentModels.swift */,
@@ -15645,7 +15642,6 @@
 				F9C5CC25289453B300548EEE /* TSInvalidIdentityKeySendingErrorMessage.h in Headers */,
 				F9C5CBE0289453B300548EEE /* TSMessage.h in Headers */,
 				F9C5CBD2289453B300548EEE /* TSOutgoingMessage.h in Headers */,
-				F9C5CD7C289453B300548EEE /* TSPaymentModel.h in Headers */,
 				F9C5CD82289453B300548EEE /* TSPaymentModels.h in Headers */,
 				F9C5CCCC289453B300548EEE /* TSPrivateStoryThread.h in Headers */,
 				F9C5CC03289453B300548EEE /* TSQuotedMessage.h in Headers */,
@@ -19395,6 +19391,7 @@
 				501052642BDAEEDC0097DDC5 /* MobileCoinExternal.pb.swift in Sources */,
 				F9C5CD7B289453B300548EEE /* MobileCoinHelper.swift in Sources */,
 				72345D202B9A2035000237B3 /* MobileCoinHelperMinimal.swift in Sources */,
+				503C06382F47751E0073D54A /* MobileCoinPayment.swift in Sources */,
 				664657352AC370670099DE1C /* MockAccountAttributesUpdater.swift in Sources */,
 				668B24182BBB663400EB60C4 /* MockAttachment.swift in Sources */,
 				663D02E12C06E2F400350632 /* MockAttachmentReference.swift in Sources */,
@@ -19974,8 +19971,7 @@
 				F9C5CBEB289453B300548EEE /* TSOutgoingMessage.m in Sources */,
 				F9C5CBEC289453B300548EEE /* TSOutgoingMessage.swift in Sources */,
 				D9495A6D2C7683D100843BC1 /* TSOutgoingMessageRecipientState.swift in Sources */,
-				F9C5CD84289453B300548EEE /* TSPaymentModel+SDS.swift in Sources */,
-				F9C5CD85289453B300548EEE /* TSPaymentModel.m in Sources */,
+				503C06362F4774F40073D54A /* TSPaymentModel.swift in Sources */,
 				F9C5CD8A289453B300548EEE /* TSPaymentModels.m in Sources */,
 				F9C5CD83289453B300548EEE /* TSPaymentModels.swift in Sources */,
 				6642A87C2A8EB0D800E591C2 /* TSPaymentsActivationRequestModel.swift in Sources */,

@@ -969,7 +969,7 @@ public class ChatListViewController: OWSViewController, HomeTabViewController {
         guard
             paymentModel.isIncoming,
             !paymentModel.isUnidentified,
-            let senderAci = paymentModel.senderOrRecipientAci?.wrappedAciValue,
+            let senderAci = paymentModel.senderOrRecipientAci,
             let paymentAmount = paymentModel.paymentAmount,
             paymentAmount.isValid
         else {

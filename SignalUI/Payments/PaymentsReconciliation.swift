@@ -636,7 +636,7 @@ public class PaymentsReconciliation {
             paymentState: paymentState,
             paymentAmount: paymentAmount,
             createdDate: createdDate,
-            senderOrRecipientAci: archivedPayment.senderOrRecipientAci.map { AciObjC($0) },
+            senderOrRecipientAci: archivedPayment.senderOrRecipientAci,
             memoMessage: archivedPayment.note,
             isUnread: false,
             interactionUniqueId: archivedPayment.interactionUniqueId,
@@ -869,7 +869,7 @@ public class PaymentsReconciliation {
 
         TSPaymentModel.anyEnumerate(
             transaction: transaction,
-            batchSize: 100,
+            batchingPreference: .batched(100),
         ) { paymentModel, _ in
             databaseState.add(paymentModel: paymentModel)
         }

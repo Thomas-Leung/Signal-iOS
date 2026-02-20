@@ -13,7 +13,7 @@ public struct PaymentsHistoryModelItem: PaymentsHistoryItem {
     public let displayName: String
 
     public var address: SignalServiceAddress? {
-        paymentModel.senderOrRecipientAci.map { SignalServiceAddress($0.wrappedAciValue) }
+        paymentModel.senderOrRecipientAci.map { SignalServiceAddress($0) }
     }
 
     public var isIncoming: Bool {
