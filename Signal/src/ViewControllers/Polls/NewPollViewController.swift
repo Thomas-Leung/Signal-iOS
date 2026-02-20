@@ -126,7 +126,7 @@ struct NewPollView: View {
     fileprivate let viewModel: NewPollViewModel
     @State var pollQuestion: String = ""
     @State var pollOptions: [NewOption] = [NewOption(text: ""), NewOption(text: "")]
-    @State var allowMultipleVotes: Bool = false
+    @State var allowMultipleVotes: Bool = true
 
     @FocusState private var focusedItemID: UUID?
     @FocusState private var focusQuestionField: Bool
