@@ -388,32 +388,6 @@ struct NewPollView: View {
         }
     }
 
-    fileprivate static func calculateHeight(text: String, textViewWidth: CGFloat) -> CGFloat {
-        let heightPadding = 16.0
-        let characterCountBuffer = 15.0
-        let maxSize = CGSize(
-            width: textViewWidth - characterCountBuffer,
-            height: CGFloat.greatestFiniteMagnitude,
-        )
-        var textToMeasure: NSAttributedString = NSAttributedString(string: text, attributes: [.font: UIFont.dynamicTypeBody])
-
-        if textToMeasure.isEmpty {
-            textToMeasure = NSAttributedString(string: "M", attributes: [.font: UIFont.dynamicTypeBody])
-        }
-        var contentSize = textToMeasure.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
-        contentSize.height += heightPadding
-
-        let newHeight = CGFloat.clamp(
-            contentSize.height.rounded(),
-            min: LayoutMetrics.minTextViewHeight,
-            max: LayoutMetrics.maxTextViewHeight,
-        )
-
-        // Measured height for one line is taller than the average one-line TextField and looks strange.
-        // Reduce to minTextViewHeight in this case.
-        return newHeight <= LayoutMetrics.oneLineHeight ? LayoutMetrics.minTextViewHeight : newHeight
-    }
-
     static func localizedNumber(from number: Int) -> String {
         let formatter: NumberFormatter = {
             let f = NumberFormatter()
