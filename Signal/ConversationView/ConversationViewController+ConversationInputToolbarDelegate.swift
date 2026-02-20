@@ -166,7 +166,7 @@ extension ConversationViewController: ConversationInputToolbarDelegate {
             // Reload a fresh instance of the thread model; our models are not
             // thread-safe, so it wouldn't be safe to update the model in an
             // async write.
-            guard let thread = TSThread.anyFetch(uniqueId: thread.uniqueId, transaction: transaction) else {
+            guard let thread = TSThread.fetchViaCache(uniqueId: thread.uniqueId, transaction: transaction) else {
                 owsFailDebug("Missing thread.")
                 return
             }
@@ -285,7 +285,7 @@ extension ConversationViewController: ConversationInputToolbarDelegate {
                 // Reload a fresh instance of the thread model; our models are not
                 // thread-safe, so it wouldn't be safe to update the model in an
                 // async write.
-                guard let thread = TSThread.anyFetch(uniqueId: thread.uniqueId, transaction: transaction) else {
+                guard let thread = TSThread.fetchViaCache(uniqueId: thread.uniqueId, transaction: transaction) else {
                     owsFailDebug("Missing thread.")
                     return
                 }

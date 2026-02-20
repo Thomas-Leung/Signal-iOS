@@ -119,7 +119,7 @@ public extension TSInteraction {
                 guard self != nil else { return }
                 Self.showDeleteForEveryoneConfirmationIfNecessary {
                     SSKEnvironment.shared.databaseStorageRef.write { tx in
-                        let latestMessage = TSOutgoingMessage.anyFetchOutgoingMessage(
+                        let latestMessage = TSOutgoingMessage.fetchOutgoingMessageViaCache(
                             uniqueId: outgoingMessage.uniqueId,
                             transaction: tx,
                         )
@@ -195,8 +195,8 @@ public extension TSInteraction {
 
             db.asyncWrite { tx in
                 guard
-                    let freshSelf = TSInteraction.anyFetch(uniqueId: self.uniqueId, transaction: tx),
-                    let freshThread = TSThread.anyFetch(uniqueId: thread.uniqueId, transaction: tx)
+                    let freshSelf = TSInteraction.fetchViaCache(uniqueId: self.uniqueId, transaction: tx),
+                    let freshThread = TSThread.fetchViaCache(uniqueId: thread.uniqueId, transaction: tx)
                 else { return }
 
                 interactionDeleteManager.delete(

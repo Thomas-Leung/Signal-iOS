@@ -340,7 +340,7 @@ extension TSThread {
         tx.addFinalizationBlock(key: uniqueId) { tx in
             let databaseStorage = SSKEnvironment.shared.databaseStorageRef
 
-            guard let selfThread = Self.anyFetch(uniqueId: self.uniqueId, transaction: tx) else {
+            guard let selfThread = Self.fetchViaCache(uniqueId: self.uniqueId, transaction: tx) else {
                 return
             }
 

@@ -141,7 +141,7 @@ private class CVQuotedMessageViewAdapter: CVQuotedMessageViewDelegate {
 
     func didTapDownloadQuotedReplyAttachment(_ quotedReply: QuotedReplyModel) {
         SSKEnvironment.shared.databaseStorageRef.write { tx in
-            guard let message = TSMessage.anyFetchMessage(uniqueId: interactionUniqueId, transaction: tx) else {
+            guard let message = TSMessage.fetchMessageViaCache(uniqueId: interactionUniqueId, transaction: tx) else {
                 return
             }
             DependenciesBridge.shared.attachmentDownloadManager.enqueueDownloadOfAttachmentsForMessage(

@@ -781,7 +781,7 @@ public final class StoryMessage: NSObject, SDSCodableModel, Decodable {
                 return [groupThread]
             }
             return Set(recipientStates.values.flatMap({ $0.contexts })).compactMap { context in
-                guard let thread = TSPrivateStoryThread.anyFetch(uniqueId: context.uuidString, transaction: transaction) else {
+                guard let thread = TSPrivateStoryThread.fetchViaCache(uniqueId: context.uuidString, transaction: transaction) else {
                     owsFailDebug("Missing thread for story context \(context)")
                     return nil
                 }
@@ -920,7 +920,7 @@ public final class StoryMessage: NSObject, SDSCodableModel, Decodable {
         } else {
             let contexts = Set(recipientStates.values.flatMap({ $0.contexts }))
             let privateStoryThreads = contexts.compactMap {
-                TSPrivateStoryThread.anyFetchPrivateStoryThread(
+                TSPrivateStoryThread.fetchPrivateStoryThreadViaCache(
                     uniqueId: $0.uuidString,
                     transaction: transaction,
                 )

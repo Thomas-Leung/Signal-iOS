@@ -1472,7 +1472,7 @@ public final class MessageReceiver {
 
         // Inserting the message may have modified the thread on disk, so reload
         // it. For example, we may have marked the thread as visible.
-        let updatedThread = TSThread.anyFetch(uniqueId: thread.uniqueId, transaction: tx) ?? thread
+        let updatedThread = TSThread.fetchViaCache(uniqueId: thread.uniqueId, transaction: tx) ?? thread
 
         do {
             let attachmentManager = DependenciesBridge.shared.attachmentManager

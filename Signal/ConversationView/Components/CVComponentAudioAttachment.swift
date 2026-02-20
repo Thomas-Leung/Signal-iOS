@@ -165,7 +165,7 @@ public class CVComponentAudioAttachment: CVComponentBase, CVComponent {
         }
 
         let messageWasDeleted = SSKEnvironment.shared.databaseStorageRef.read { tx in
-            TSInteraction.anyFetch(uniqueId: interaction.uniqueId, transaction: tx) == nil
+            TSInteraction.fetchViaCache(uniqueId: interaction.uniqueId, transaction: tx) == nil
         }
         guard messageWasDeleted else {
             return

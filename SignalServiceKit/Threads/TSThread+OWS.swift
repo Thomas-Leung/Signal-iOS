@@ -116,7 +116,7 @@ extension TSThread {
         transaction: DBReadTransaction,
     ) -> MessageBody? {
         if shouldFetchLatest {
-            guard let thread = TSThread.anyFetch(uniqueId: uniqueId, transaction: transaction) else {
+            guard let thread = TSThread.fetchViaCache(uniqueId: uniqueId, transaction: transaction) else {
                 return nil
             }
             return Self.draft(forThread: thread)

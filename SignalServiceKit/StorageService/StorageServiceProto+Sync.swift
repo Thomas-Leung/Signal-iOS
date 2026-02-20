@@ -1012,7 +1012,7 @@ class StorageServiceGroupV2RecordUpdater: StorageServiceRecordUpdater {
             builder.setHideStory(storyContextAssociatedData.isHidden)
         }
 
-        if let thread = TSGroupThread.anyFetchGroupThread(uniqueId: threadId, transaction: transaction) {
+        if let thread = TSGroupThread.fetchGroupThreadViaCache(uniqueId: threadId, transaction: transaction) {
             builder.setStorySendMode(thread.storyViewMode.storageServiceMode)
         } else if
             let enqueuedRecord = groupsV2.groupRecordPendingStorageServiceRestore(
@@ -2024,7 +2024,7 @@ class StorageServiceStoryDistributionListRecordUpdater: StorageServiceRecordUpda
         {
             builder.setDeletedAtTimestamp(deletedAtTimestamp)
         } else if
-            let story = TSPrivateStoryThread.anyFetchPrivateStoryThread(
+            let story = TSPrivateStoryThread.fetchPrivateStoryThreadViaCache(
                 uniqueId: uniqueId,
                 transaction: transaction,
             )
@@ -2062,7 +2062,7 @@ class StorageServiceStoryDistributionListRecordUpdater: StorageServiceRecordUpda
             return .invalid
         }
 
-        let existingStory = TSPrivateStoryThread.anyFetchPrivateStoryThread(
+        let existingStory = TSPrivateStoryThread.fetchPrivateStoryThreadViaCache(
             uniqueId: uniqueId.uuidString,
             transaction: transaction,
         )

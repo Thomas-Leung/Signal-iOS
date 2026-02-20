@@ -987,7 +987,7 @@ public extension PaymentsImpl {
             let interactionUniqueId = paymentModel.interactionUniqueId
         {
             if
-                let existingInteraction = TSInteraction.anyFetch(uniqueId: interactionUniqueId, transaction: transaction),
+                let existingInteraction = TSInteraction.fetchViaCache(uniqueId: interactionUniqueId, transaction: transaction),
                 let message = existingInteraction as? OWSOutgoingPaymentMessage
             {
                 // We already have a message, no need to send anything.

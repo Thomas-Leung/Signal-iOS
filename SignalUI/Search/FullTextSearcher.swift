@@ -420,7 +420,7 @@ public class FullTextSearcher: NSObject {
             if let thread = threadCache[threadUniqueId] {
                 return thread as? T
             }
-            let thread = TSThread.anyFetch(uniqueId: threadUniqueId, transaction: transaction)
+            let thread = TSThread.fetchViaCache(uniqueId: threadUniqueId, transaction: transaction)
             threadCache[threadUniqueId] = thread
             return thread as? T
         }

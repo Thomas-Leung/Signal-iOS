@@ -361,7 +361,7 @@ extension ConversationViewController {
 
         let canDeleteForEveryone: Bool = db.read { tx in
             selectionItems.allSatisfy { selectionItem in
-                TSOutgoingMessage.anyFetchOutgoingMessage(
+                TSOutgoingMessage.fetchOutgoingMessageViaCache(
                     uniqueId: selectionItem.interactionId,
                     transaction: tx,
                 )?.canBeRemotelyDeleted ?? false
@@ -409,7 +409,7 @@ extension ConversationViewController {
         let interactionDeleteManager = DependenciesBridge.shared.interactionDeleteManager
 
         let interactionsToDelete = selectionItems.compactMap { item in
-            TSInteraction.anyFetch(
+            TSInteraction.fetchViaCache(
                 uniqueId: item.interactionId,
                 transaction: tx,
             )
@@ -430,7 +430,7 @@ extension ConversationViewController {
         tx: DBWriteTransaction,
     ) {
         guard !selectionItems.isEmpty else { return }
-        guard let latestThread = TSThread.anyFetch(uniqueId: thread.uniqueId, transaction: tx) else {
+        guard let latestThread = TSThread.fetchViaCache(uniqueId: thread.uniqueId, transaction: tx) else {
             return owsFailDebug("Trying to delete messages without a thread.")
         }
 
@@ -440,7 +440,7 @@ extension ConversationViewController {
 
         selectionItems.forEach {
             guard
-                let message = TSOutgoingMessage.anyFetchOutgoingMessage(
+                let message = TSOutgoingMessage.fetchOutgoingMessageViaCache(
                     uniqueId: $0.interactionId,
                     transaction: tx,
                 )

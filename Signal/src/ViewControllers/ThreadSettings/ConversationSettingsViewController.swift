@@ -288,7 +288,7 @@ class ConversationSettingsViewController: OWSTableViewController2, BadgeCollecti
 
     func reloadThreadAndUpdateContent() {
         let didUpdate = SSKEnvironment.shared.databaseStorageRef.read { tx -> Bool in
-            guard let newThread = TSThread.anyFetch(uniqueId: self.thread.uniqueId, transaction: tx) else {
+            guard let newThread = TSThread.fetchViaCache(uniqueId: self.thread.uniqueId, transaction: tx) else {
                 return false
             }
             let newThreadViewModel = ThreadViewModel(thread: newThread, forChatList: false, transaction: tx)

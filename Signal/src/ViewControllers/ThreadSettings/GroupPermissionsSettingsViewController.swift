@@ -278,7 +278,7 @@ class GroupPermissionsSettingsViewController: OWSTableViewController2 {
     private func reloadThreadAndUpdateContent() {
         let didUpdate = SSKEnvironment.shared.databaseStorageRef.read { transaction -> Bool in
             guard
-                let newThread = TSThread.anyFetch(
+                let newThread = TSThread.fetchViaCache(
                     uniqueId: self.thread.uniqueId,
                     transaction: transaction,
                 )

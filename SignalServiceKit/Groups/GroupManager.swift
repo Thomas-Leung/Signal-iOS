@@ -1148,7 +1148,7 @@ public class GroupManager: NSObject {
             )
             .lazy
             .compactMap { groupThreadId in
-                return TSGroupThread.anyFetchGroupThread(uniqueId: groupThreadId, transaction: tx)
+                return TSGroupThread.fetchGroupThreadViaCache(uniqueId: groupThreadId, transaction: tx)
             }
             .filter { groupThread in
                 return groupThread.groupMembership.hasProfileKeyInGroup(serviceId: localAci)

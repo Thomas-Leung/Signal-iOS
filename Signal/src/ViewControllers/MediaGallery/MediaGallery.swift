@@ -864,7 +864,7 @@ class MediaGallery {
 
         Task {
             await db.awaitableWrite { tx in
-                guard let thread = TSThread.anyFetch(uniqueId: self.threadUniqueId, transaction: tx) else {
+                guard let thread = TSThread.fetchViaCache(uniqueId: self.threadUniqueId, transaction: tx) else {
                     owsFail("Unexpectedly missing thread!")
                 }
 

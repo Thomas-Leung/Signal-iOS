@@ -350,7 +350,7 @@ class StoryItemMediaView: UIView {
         if
             case .privateStory(let uniqueId) = delegate?.context,
             let privateStoryThread = SSKEnvironment.shared.databaseStorageRef.read(
-                block: { TSPrivateStoryThread.anyFetchPrivateStoryThread(uniqueId: uniqueId, transaction: $0) },
+                block: { TSPrivateStoryThread.fetchPrivateStoryThreadViaCache(uniqueId: uniqueId, transaction: $0) },
             ),
             !privateStoryThread.isMyStory
         {

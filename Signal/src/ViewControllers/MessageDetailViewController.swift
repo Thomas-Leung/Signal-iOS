@@ -213,7 +213,7 @@ class MessageDetailViewController: OWSTableViewController2 {
         transaction: DBReadTransaction,
     ) -> CVRenderItem? {
         guard
-            let thread = TSThread.anyFetch(
+            let thread = TSThread.fetchViaCache(
                 uniqueId: interaction.uniqueThreadId,
                 transaction: transaction,
             )
@@ -914,7 +914,7 @@ extension MessageDetailViewController: DatabaseChangeDelegate {
 
         let messageStillExists = SSKEnvironment.shared.databaseStorageRef.read { transaction in
             let uniqueId = message.uniqueId
-            guard let newMessage = TSInteraction.anyFetch(uniqueId: uniqueId, transaction: transaction) as? TSMessage else {
+            guard let newMessage = TSInteraction.fetchViaCache(uniqueId: uniqueId, transaction: transaction) as? TSMessage else {
                 return false
             }
             self.message = newMessage

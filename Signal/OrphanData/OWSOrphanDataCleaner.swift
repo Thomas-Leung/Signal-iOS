@@ -266,7 +266,7 @@ enum OWSOrphanDataCleaner {
         for interactionId in orphanedData.interactionIds {
             try Task.checkCancellation()
             await databaseStorage.awaitableWrite { transaction in
-                guard let interaction = TSInteraction.anyFetch(uniqueId: interactionId, transaction: transaction) else {
+                guard let interaction = TSInteraction.fetchViaCache(uniqueId: interactionId, transaction: transaction) else {
                     // This could just be a race condition, but it should be very unlikely.
                     Logger.warn("Could not load interaction: \(interactionId)")
                     return

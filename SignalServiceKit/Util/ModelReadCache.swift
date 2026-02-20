@@ -344,7 +344,7 @@ class ModelReadCache<KeyType: Hashable & Equatable, ValueType> {
 public class ThreadReadCache: NSObject {
     private class Adapter: ModelCacheAdapter<String, TSThread> {
         override func read(key: String, transaction: DBReadTransaction) -> TSThread? {
-            return TSThread.anyFetch(uniqueId: key, transaction: transaction, ignoreCache: true)
+            return TSThread.anyFetch(uniqueId: key, transaction: transaction)
         }
 
         override func key(forValue value: TSThread) -> String {
@@ -396,7 +396,7 @@ public class ThreadReadCache: NSObject {
 public class InteractionReadCache: NSObject {
     private class Adapter: ModelCacheAdapter<String, TSInteraction> {
         override func read(key: String, transaction: DBReadTransaction) -> TSInteraction? {
-            return TSInteraction.anyFetch(uniqueId: key, transaction: transaction, ignoreCache: true)
+            return TSInteraction.anyFetch(uniqueId: key, transaction: transaction)
         }
 
         override func key(forValue value: TSInteraction) -> String {

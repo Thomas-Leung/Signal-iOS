@@ -566,7 +566,7 @@ public class MessageSender {
         if let message = message as? TSOutgoingMessage, !(message is TransientOutgoingMessage) {
             let databaseStorage = SSKEnvironment.shared.databaseStorageRef
             let latestCopy = databaseStorage.read { tx in
-                return TSInteraction.anyFetch(uniqueId: message.uniqueId, transaction: tx) as? TSOutgoingMessage
+                return TSInteraction.fetchViaCache(uniqueId: message.uniqueId, transaction: tx) as? TSOutgoingMessage
             }
             guard let latestCopy, !latestCopy.wasRemotelyDeleted else {
                 throw MessageDeletedBeforeSentError()
@@ -1146,7 +1146,7 @@ public class MessageSender {
         }
         let databaseStorage = SSKEnvironment.shared.databaseStorageRef
         await databaseStorage.awaitableWrite { tx in
-            let latestMessage = TSInteraction.anyFetch(uniqueId: message.uniqueId, transaction: tx)
+            let latestMessage = TSInteraction.fetchViaCache(uniqueId: message.uniqueId, transaction: tx)
             guard let latestMessage = latestMessage as? TSOutgoingMessage else {
                 Logger.warn("Could not update expiration for deleted message.")
                 return

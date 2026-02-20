@@ -260,7 +260,7 @@ class LongTextViewController: OWSViewController {
 
         let uniqueId = itemViewModel.interaction.uniqueId
         let messageWasDeleted = SSKEnvironment.shared.databaseStorageRef.read {
-            TSInteraction.anyFetch(uniqueId: uniqueId, transaction: $0) == nil
+            TSInteraction.fetchViaCache(uniqueId: uniqueId, transaction: $0) == nil
         }
         guard messageWasDeleted else { return }
 
