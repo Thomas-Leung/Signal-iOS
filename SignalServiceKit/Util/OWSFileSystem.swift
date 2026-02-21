@@ -397,7 +397,7 @@ public extension OWSFileSystem {
             let fileExtension,
             !fileExtension.isEmpty
         {
-            fileName = String(format: "\(fileName).\(fileExtension)")
+            fileName = "\(fileName).\(fileExtension)"
         }
         let filePath = (tempDirPath as NSString).appendingPathComponent(fileName)
         return filePath
