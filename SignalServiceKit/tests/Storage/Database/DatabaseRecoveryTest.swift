@@ -158,7 +158,7 @@ final class DatabaseRecoveryTest: SSKBaseTest {
             reaction.anyInsert(transaction: transaction)
 
             // Pending read receipts (not copied)
-            let pendingReadReceipt = PendingReadReceiptRecord(
+            var pendingReadReceipt = PendingReadReceiptRecord(
                 threadId: contactThreadId,
                 messageTimestamp: Int64(message.timestamp),
                 messageUniqueId: message.uniqueId,
