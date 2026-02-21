@@ -52,7 +52,10 @@ class AudioAllMediaPresenter: AudioPresenter {
         return playedColor(isIncoming: true)
     }
 
-    func playPauseContainerBackgroundColor(isIncoming: Bool) -> UIColor {
+    func playPauseContainerBackgroundColor(
+        conversationStyle: ConversationStyle,
+        isIncoming: Bool,
+    ) -> UIColor {
         return Theme.isDarkThemeEnabled ? .ows_gray65 : .ows_gray05
     }
 

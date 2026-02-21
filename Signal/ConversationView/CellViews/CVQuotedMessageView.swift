@@ -104,13 +104,33 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
         }
 
         let stripeThickness: CGFloat = 4
+        var stripeColor: UIColor {
+            switch (isIncoming, conversationStyle.hasWallpaper) {
+            case (true, true): .Signal.MaterialBase.fillPrimary
+            case (true, _): .Signal.LightBase.fillPrimary
+            case (false, _): .Signal.ColorBase.fillPrimary
+            }
+        }
+
+        var backgroundTint: UIColor {
+            switch (isIncoming, conversationStyle.hasWallpaper) {
+            case (true, true): .Signal.MaterialBase.fillTertiary
+            case (true, _): .Signal.LightBase.fillSecondary
+            case (false, _): .Signal.ColorBase.fillSecondary
+            }
+        }
+
+        private var textColor: UIColor {
+            isIncoming ? .Signal.label : .Signal.ColorBase.labelInverted
+        }
+
         var quotedAuthorFont: UIFont { UIFont.dynamicTypeSubheadlineClamped.semibold() }
-        var quotedAuthorColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
-        var quotedTextColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
+        var quotedAuthorColor: UIColor { textColor }
+        var quotedTextColor: UIColor { textColor }
         var quotedTextFont: UIFont { UIFont.dynamicTypeSubheadline }
-        var fileTypeTextColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
+        var fileTypeTextColor: UIColor { textColor }
         var fileTypeFont: UIFont { quotedTextFont.italic() }
-        var filenameTextColor: UIColor { conversationStyle.bubbleTextColor(isIncoming: isIncoming) }
+        var filenameTextColor: UIColor { textColor }
         var filenameFont: UIFont { quotedTextFont }
         var quotedAuthorHeight: CGFloat { quotedAuthorFont.lineHeight }
         let quotedAttachmentSizeWithoutQuotedText: CGFloat = 64
@@ -465,7 +485,7 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
     ) -> ManualLayoutView {
 
         // Background
-        tintView.backgroundColor = .Signal.materialTertiaryFill
+        tintView.backgroundColor = configurator.backgroundTint
         bubbleView.addSubviewToFillSuperviewMargins(tintView)
         // For incoming messages, manipulate leading margin
         // to render stripe.
@@ -516,7 +536,7 @@ public class CVQuotedMessageView: ManualStackViewWithLayer {
 
         var hStackSubviews = [UIView]()
 
-        stripeView.backgroundColor = .Signal.materialPrimaryFill
+        stripeView.backgroundColor = configurator.stripeColor
         hStackSubviews.append(stripeView)
 
         var innerVStackSubviews = [UIView]()

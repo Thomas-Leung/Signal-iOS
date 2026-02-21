@@ -304,14 +304,14 @@ public struct ConversationStyle {
 
     // MARK: - Secondary text color
 
-    public static var bubbleSecondaryTextColorIncomingThemed: ThemedColor {
+    private static var bubbleSecondaryTextColorIncomingThemed: ThemedColor {
         ThemedColor(
             light: Theme.lightThemeSecondaryTextAndIconColor,
             dark: Theme.darkThemeSecondaryTextAndIconColor,
         )
     }
 
-    public static var bubbleSecondaryTextColorOutgoingThemed: ThemedColor {
+    private static var bubbleSecondaryTextColorOutgoingThemed: ThemedColor {
         ThemedColor(
             light: UIColor.ows_whiteAlpha80,
             dark: UIColor.ows_whiteAlpha60,

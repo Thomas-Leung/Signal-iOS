@@ -49,7 +49,7 @@ public class CVContactShareView: ManualStackView {
 
         avatarView.image = state.avatar
 
-        let disclosureColor = state.isIncoming ? UIColor.Signal.tertiaryLabel : Theme.darkThemeTertiaryLabel
+        let disclosureColor: UIColor = state.isIncoming ? .Signal.tertiaryLabel : .Signal.ColorBase.labelTertiary
         disclosureImageView.setTemplateImage(
             UIImage(imageLiteralResourceName: "chevron-right-20"),
             tintColor: disclosureColor,
@@ -77,7 +77,7 @@ public class CVContactShareView: ManualStackView {
     }
 
     private static func contactNameLabelConfig(state: State) -> CVLabelConfig {
-        let textColor = state.conversationStyle.bubbleTextColor(isIncoming: state.isIncoming)
+        let textColor: UIColor = state.isIncoming ? .Signal.label : .Signal.ColorBase.labelPrimary
         return CVLabelConfig.unstyledText(
             state.contactShare.displayName,
             font: .dynamicTypeHeadline,

@@ -136,7 +136,10 @@ class AudioMessageView: ManualStackView {
                 keypath: fillColorKeypath,
             )
 
-            playPauseContainer.backgroundColor = presentation.playPauseContainerBackgroundColor(isIncoming: isIncoming)
+            playPauseContainer.backgroundColor = presentation.playPauseContainerBackgroundColor(
+                conversationStyle: conversationStyle,
+                isIncoming: isIncoming,
+            )
             playPauseContainer.addSubviewToCenterOnSuperview(playPauseAnimation, size: CGSize(square: 24))
 
             presentation.playedDotContainer.addSubviewToCenterOnSuperview(playedDotAnimation, size: CGSize(square: 16))

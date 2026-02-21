@@ -329,32 +329,109 @@ extension UIColor.Signal {
 
     // MARK: Material
 
-    public static var materialPrimaryFill: UIColor {
-        UIColor(
-            light: UIColor(white: 0, alpha: 0.24),
-            dark: UIColor(white: 1, alpha: 0.48),
-        )
+    /// Designed to be used on top of material (blur / glass) backgrounds.
+    public enum MaterialBase {
+
+        public static var fillPrimary: UIColor {
+            UIColor(
+                light: UIColor(white: 0, alpha: 0.24),
+                dark: UIColor(white: 1, alpha: 0.48),
+            )
+        }
+
+        public static var fillSecondary: UIColor {
+            UIColor(
+                light: UIColor(white: 0, alpha: 0.16),
+                dark: UIColor(white: 1, alpha: 0.24),
+            )
+        }
+
+        public static var fillTertiary: UIColor {
+            UIColor(
+                light: UIColor(white: 0, alpha: 0.1),
+                dark: UIColor(white: 1, alpha: 0.16),
+            )
+        }
+
+        public static var button: UIColor {
+            UIColor(
+                light: UIColor(white: 0, alpha: 0.12),
+                dark: UIColor(white: 1, alpha: 0.2),
+            )
+        }
     }
 
-    public static var materialSecondaryFill: UIColor {
-        UIColor(
-            light: UIColor(white: 0, alpha: 0.16),
-            dark: UIColor(white: 1, alpha: 0.32),
-        )
+    // MARK: Light
+
+    /// To be used on top of neutral backgrounds
+    /// (eg incoming message bubbles when no wallpaper).
+    public enum LightBase {
+
+        public static var fillPrimary: UIColor {
+            UIColor(
+                light: UIColor(white: 1, alpha: 1),
+                dark: UIColor(white: 1, alpha: 0.48),
+            )
+        }
+
+        public static var fillSecondary: UIColor {
+            UIColor(
+                light: UIColor(white: 1, alpha: 0.6),
+                dark: UIColor(white: 1, alpha: 0.16),
+            )
+        }
+
+        public static var fillTertiary: UIColor {
+            UIColor(
+                light: UIColor(white: 1, alpha: 0.2),
+                dark: UIColor(white: 1, alpha: 0.08),
+            )
+        }
+
+        public static var button: UIColor {
+            UIColor(
+                light: UIColor(white: 1, alpha: 0.8),
+                dark: UIColor(white: 1, alpha: 0.2),
+            )
+        }
     }
 
-    public static var materialTertiaryFill: UIColor {
-        UIColor(
-            light: UIColor(white: 0, alpha: 0.1),
-            dark: UIColor(white: 1, alpha: 0.16),
-        )
-    }
+    // MARK: Color
 
-    public static var materialButton: UIColor {
-        UIColor(
-            light: UIColor(white: 0, alpha: 0.12),
-            dark: UIColor(white: 1, alpha: 0.2),
-        )
+    /// To be used on top of any arbitrary color. Fixed across light/dark theme.
+    public enum ColorBase {
+
+        public static var labelPrimary: UIColor {
+            UIColor(white: 1, alpha: 1)
+        }
+
+        public static var labelSecondary: UIColor {
+            UIColor(white: 1, alpha: 0.8)
+        }
+
+        public static var labelTertiary: UIColor {
+            UIColor(white: 1, alpha: 0.4)
+        }
+
+        public static var labelInverted: UIColor {
+            UIColor(white: 0, alpha: 1)
+        }
+
+        public static var fillPrimary: UIColor {
+            UIColor(white: 1, alpha: 0.8)
+        }
+
+        public static var fillSecondary: UIColor {
+            UIColor(white: 1, alpha: 0.6)
+        }
+
+        public static var fillTertiary: UIColor {
+            UIColor(white: 1, alpha: 0.2)
+        }
+
+        public static var button: UIColor {
+            UIColor(white: 1, alpha: 0.2)
+        }
     }
 
     @available(iOS 26, *)

@@ -46,7 +46,7 @@ class AudioMessagePresenter: AudioPresenter {
     }
 
     func primaryElementColor(isIncoming: Bool) -> UIColor {
-        return ConversationStyle.bubbleTextColor(isIncoming: isIncoming)
+        isIncoming ? .Signal.label : .Signal.ColorBase.labelPrimary
     }
 
     func playedColor(isIncoming: Bool) -> UIColor {
@@ -54,15 +54,22 @@ class AudioMessagePresenter: AudioPresenter {
     }
 
     func unplayedColor(isIncoming: Bool) -> UIColor {
-        isIncoming ? .Signal.tertiaryLabel : .ows_whiteAlpha40
+        isIncoming ? .Signal.tertiaryLabel : .Signal.ColorBase.labelTertiary
     }
 
     func thumbColor(isIncoming: Bool) -> UIColor {
         primaryElementColor(isIncoming: isIncoming)
     }
 
-    func playPauseContainerBackgroundColor(isIncoming: Bool) -> UIColor {
-        isIncoming ? .Signal.materialButton : .ows_whiteAlpha20
+    func playPauseContainerBackgroundColor(
+        conversationStyle: ConversationStyle,
+        isIncoming: Bool,
+    ) -> UIColor {
+        switch (isIncoming, conversationStyle.hasWallpaper) {
+        case (true, true): .Signal.MaterialBase.button
+        case (true, _): .Signal.LightBase.button
+        case (false, _): .Signal.ColorBase.button
+        }
     }
 
     func playPauseAnimationColor(isIncoming: Bool) -> ColorValueProvider {

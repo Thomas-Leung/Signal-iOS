@@ -50,7 +50,10 @@ protocol AudioPresenter {
     func unplayedColor(isIncoming: Bool) -> UIColor
 
     // Color of circle enclosing the play/pause icon.
-    func playPauseContainerBackgroundColor(isIncoming: Bool) -> UIColor
+    func playPauseContainerBackgroundColor(
+        conversationStyle: ConversationStyle,
+        isIncoming: Bool,
+    ) -> UIColor
 
     // Last chance to adjust constraints before the view appears.
     func configureForRendering(conversationStyle: ConversationStyle)

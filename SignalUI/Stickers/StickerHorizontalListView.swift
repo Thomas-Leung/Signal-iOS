@@ -155,7 +155,7 @@ public class StickerHorizontalListView: UICollectionView {
                 var background = UIBackgroundConfiguration.clear()
                 background.cornerRadius = cellSize / 2
                 if item.isSelected {
-                    background.backgroundColor = .Signal.materialButton
+                    background.backgroundColor = .Signal.MaterialBase.button
                 } else {
                     background.backgroundColor = .clear
                 }

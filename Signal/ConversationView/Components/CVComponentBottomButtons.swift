@@ -42,11 +42,16 @@ public class CVComponentBottomButtons: CVComponentBase, CVComponent {
         for action in actions {
             let buttonView = CVMessageActionButton(action: action)
             if isIncoming {
-                buttonView.backgroundColor = .Signal.materialButton
+                if conversationStyle.hasWallpaper {
+                    buttonView.backgroundColor = .Signal.MaterialBase.button
+                } else {
+                    buttonView.backgroundColor = .Signal.LightBase.button
+                }
+                buttonView.textColor = .Signal.label
             } else {
-                buttonView.backgroundColor = Theme.darkThemeMaterialButton
+                buttonView.backgroundColor = .Signal.ColorBase.button
+                buttonView.textColor = .Signal.ColorBase.labelPrimary
             }
-            buttonView.textColor = conversationStyle.bubbleTextColor(isIncoming: isIncoming)
             subviews.append(buttonView)
             componentView.buttonViews.append(buttonView)
         }

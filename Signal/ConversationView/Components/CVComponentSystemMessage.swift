@@ -255,7 +255,7 @@ public class CVComponentSystemMessage: CVComponentBase, CVRootComponent {
                     if interaction is OWSGroupCallMessage {
                         .Signal.green
                     } else if hasWallpaper {
-                        .Signal.materialButton
+                        .Signal.MaterialBase.button
                     } else {
                         .Signal.secondaryFill
                     }
