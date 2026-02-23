@@ -2746,6 +2746,9 @@
 /* Subheader for an action sheet explaining that a Note to Self deleted on this device will be deleted on the user's other devices as well. */
 "DELETE_FOR_ME_NOTE_TO_SELF_LINKED_DEVICES_PRESENT_ACTION_SHEET_SUBHEADER" = "This message will be deleted from all your devices.";
 
+/* Text indicating the message was remotely deleted by an admin. Embeds {{admin display name}} */
+"DELETED_BY_ADMIN" = "Admin %@ deleted this message";
+
 /* Label indicating a user who deleted their account. */
 "DELETED_USER" = "Deleted Account";
 

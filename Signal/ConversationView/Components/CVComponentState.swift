@@ -133,7 +133,7 @@ public struct CVComponentState: Equatable {
 
         // We use the "body text" component to
         // render the "remotely deleted" indicator.
-        case remotelyDeleted
+        case remotelyDeleted(deleteAuthorName: String?)
 
         var displayableText: DisplayableText? {
             switch self {
@@ -1187,6 +1187,34 @@ private extension CVComponentState.Builder {
         return FailedOrPendingDownloads(attachmentPointers: attachmentPointers)
     }
 
+    /// If the message was deleted remotely by an admin,  display the admin's name.
+    private func displayNameForDeleteMessage(message: TSMessage) -> String? {
+        let adminDeleteManager = DependenciesBridge.shared.adminDeleteManager
+
+        guard
+            let authorAci = adminDeleteManager.adminDeleteAuthor(
+                interactionId: interaction.sqliteRowId!,
+                tx: transaction,
+            )
+        else {
+            return nil
+        }
+
+        if authorAci == localAci, message.isOutgoing {
+            // Display usual self delete message for outgoing self-deletion.
+            return nil
+        } else if let incomingMessage = message as? TSIncomingMessage, incomingMessage.authorAddress.aci == authorAci {
+            // Display usual other user delete for incoming self-deletion.
+            return nil
+        } else {
+            // Only display admin name if non self-delete.
+            return SSKEnvironment.shared.contactManagerRef.displayName(
+                for: SignalServiceAddress(authorAci),
+                tx: transaction,
+            ).resolvedValue()
+        }
+    }
+
     mutating func populateAndBuild(
         message: TSMessage,
         revealedSpoilerIdsSnapshot: Set<StyleIdType>,
@@ -1194,7 +1222,9 @@ private extension CVComponentState.Builder {
 
         if message.wasRemotelyDeleted {
             // If the message has been remotely deleted, suppress everything else.
-            self.bodyText = .remotelyDeleted
+
+            let deleteAuthor = displayNameForDeleteMessage(message: message)
+            self.bodyText = .remotelyDeleted(deleteAuthorName: deleteAuthor)
             return build()
         }
 

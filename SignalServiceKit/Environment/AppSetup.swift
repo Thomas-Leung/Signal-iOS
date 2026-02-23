@@ -1649,10 +1649,16 @@ extension AppSetup.GlobalsContinuation {
             tsAccountManager: tsAccountManager,
         )
 
+        let adminDeleteManager = AdminDeleteManager(
+            recipientDatabaseTable: recipientDatabaseTable,
+            tsAccountManager: tsAccountManager,
+        )
+
         let dependenciesBridge = DependenciesBridge(
             accountAttributesUpdater: accountAttributesUpdater,
             accountEntropyPoolManager: accountEntropyPoolManager,
             adHocCallRecordManager: adHocCallRecordManager,
+            adminDeleteManager: adminDeleteManager,
             appExpiry: appExpiry,
             attachmentContentValidator: attachmentContentValidator,
             attachmentDownloadManager: attachmentDownloadManager,

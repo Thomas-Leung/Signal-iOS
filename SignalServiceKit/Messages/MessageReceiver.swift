@@ -468,7 +468,7 @@ public final class MessageReceiver {
                         )
                     }
                 } else if let delete = dataMessage.delete {
-                    let result = TSMessage.tryToRemotelyDeleteMessage(
+                    let result = TSMessage.tryToRemotelyDeleteMessageAsNonAdmin(
                         fromAuthor: decryptedEnvelope.sourceAci,
                         sentAtTimestamp: delete.targetSentTimestamp,
                         threadUniqueId: transcript.threadForDataMessage?.uniqueId,
@@ -487,6 +487,52 @@ public final class MessageReceiver {
                             wasReceivedByUD: request.wasReceivedByUD,
                             serverDeliveryTimestamp: request.serverDeliveryTimestamp,
                             associatedMessageTimestamp: delete.targetSentTimestamp,
+                            associatedMessageAuthor: decryptedEnvelope.sourceAci,
+                            transaction: tx,
+                        )
+                    }
+                } else if let adminDelete = dataMessage.adminDelete {
+                    guard BuildFlags.AdminDelete.receive else {
+                        Logger.warn("Dropping admin delete message because build flag is not enabled")
+                        return
+                    }
+
+                    let adminDeleteManager = DependenciesBridge.shared.adminDeleteManager
+                    let earlyMessageManager = SSKEnvironment.shared.earlyMessageManagerRef
+                    guard let groupThread = transcript.threadForDataMessage as? TSGroupThread else {
+                        owsFailDebug("Could not process admin delete thread from sync transcript.")
+                        return
+                    }
+
+                    guard
+                        let targetAuthorAciBinary = adminDelete.targetAuthorAciBinary,
+                        let targetAuthorAci = try? Aci.parseFrom(serviceIdBinary: targetAuthorAciBinary)
+                    else {
+                        Logger.error("Couldn't process admin delete for invalid aci")
+                        return
+                    }
+                    let result = adminDeleteManager.tryToAdminDeleteMessage(
+                        originalMessageAuthorAci: targetAuthorAci,
+                        deleteAuthorAci: localIdentifiers.aci,
+                        sentAtTimestamp: adminDelete.targetSentTimestamp,
+                        groupThread: groupThread,
+                        threadUniqueId: groupThread.uniqueId,
+                        serverTimestamp: envelope.serverTimestamp,
+                        transaction: tx,
+                    )
+
+                    switch result {
+                    case .success:
+                        break
+                    case .invalidDelete:
+                        Logger.warn("Couldn't process invalid admin delete")
+                    case .deletedMessageMissing:
+                        earlyMessageManager.recordEarlyEnvelope(
+                            envelope,
+                            plainTextData: request.plaintextData,
+                            wasReceivedByUD: request.wasReceivedByUD,
+                            serverDeliveryTimestamp: request.serverDeliveryTimestamp,
+                            associatedMessageTimestamp: adminDelete.targetSentTimestamp,
                             associatedMessageAuthor: decryptedEnvelope.sourceAci,
                             transaction: tx,
                         )
@@ -1081,7 +1127,7 @@ public final class MessageReceiver {
         }
 
         if let delete = dataMessage.delete {
-            let result = TSMessage.tryToRemotelyDeleteMessage(
+            let result = TSMessage.tryToRemotelyDeleteMessageAsNonAdmin(
                 fromAuthor: envelope.sourceAci,
                 sentAtTimestamp: delete.targetSentTimestamp,
                 threadUniqueId: thread.uniqueId,
@@ -1100,6 +1146,54 @@ public final class MessageReceiver {
                     wasReceivedByUD: request.wasReceivedByUD,
                     serverDeliveryTimestamp: request.serverDeliveryTimestamp,
                     associatedMessageTimestamp: delete.targetSentTimestamp,
+                    associatedMessageAuthor: envelope.sourceAci,
+                    transaction: tx,
+                )
+            }
+            return nil
+        }
+
+        if let adminDelete = dataMessage.adminDelete {
+            guard BuildFlags.AdminDelete.receive else {
+                Logger.warn("Dropping admin delete message because build flag is not enabled")
+                return nil
+            }
+
+            let adminDeleteManager = DependenciesBridge.shared.adminDeleteManager
+            guard let groupThread = (thread as? TSGroupThread) else {
+                Logger.error("Couldn't process admin delete for non-group thread")
+                return nil
+            }
+
+            guard
+                let targetAuthorAciBinary = adminDelete.targetAuthorAciBinary,
+                let targetAuthorAci = try? Aci.parseFrom(serviceIdBinary: targetAuthorAciBinary)
+            else {
+                Logger.error("Couldn't process admin delete for invalid aci")
+                return nil
+            }
+            let result = adminDeleteManager.tryToAdminDeleteMessage(
+                originalMessageAuthorAci: targetAuthorAci,
+                deleteAuthorAci: envelope.sourceAci,
+                sentAtTimestamp: adminDelete.targetSentTimestamp,
+                groupThread: groupThread,
+                threadUniqueId: thread.uniqueId,
+                serverTimestamp: envelope.serverTimestamp,
+                transaction: tx,
+            )
+
+            switch result {
+            case .success:
+                break
+            case .invalidDelete:
+                Logger.warn("Couldn't process invalid admin delete")
+            case .deletedMessageMissing:
+                SSKEnvironment.shared.earlyMessageManagerRef.recordEarlyEnvelope(
+                    envelope.envelope,
+                    plainTextData: request.plaintextData,
+                    wasReceivedByUD: request.wasReceivedByUD,
+                    serverDeliveryTimestamp: request.serverDeliveryTimestamp,
+                    associatedMessageTimestamp: adminDelete.targetSentTimestamp,
                     associatedMessageAuthor: envelope.sourceAci,
                     transaction: tx,
                 )

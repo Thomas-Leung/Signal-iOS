@@ -49,6 +49,7 @@ public class DependenciesBridge {
     public let accountAttributesUpdater: AccountAttributesUpdater
     public let accountEntropyPoolManager: AccountEntropyPoolManager
     public let adHocCallRecordManager: any AdHocCallRecordManager
+    public let adminDeleteManager: AdminDeleteManager
     public let appExpiry: AppExpiry
     public let attachmentContentValidator: AttachmentContentValidator
     public let attachmentDownloadManager: AttachmentDownloadManager
@@ -190,6 +191,7 @@ public class DependenciesBridge {
         accountAttributesUpdater: AccountAttributesUpdater,
         accountEntropyPoolManager: AccountEntropyPoolManager,
         adHocCallRecordManager: any AdHocCallRecordManager,
+        adminDeleteManager: AdminDeleteManager,
         appExpiry: AppExpiry,
         attachmentContentValidator: AttachmentContentValidator,
         attachmentDownloadManager: AttachmentDownloadManager,
@@ -330,6 +332,7 @@ public class DependenciesBridge {
         self.accountAttributesUpdater = accountAttributesUpdater
         self.accountEntropyPoolManager = accountEntropyPoolManager
         self.adHocCallRecordManager = adHocCallRecordManager
+        self.adminDeleteManager = adminDeleteManager
         self.appExpiry = appExpiry
         self.attachmentContentValidator = attachmentContentValidator
         self.attachmentDownloadManager = attachmentDownloadManager

@@ -476,11 +476,26 @@ public class CVComponentBodyText: CVComponentBase, CVComponent {
     }
 
     private var labelConfigForRemotelyDeleted: CVLabelConfig {
-        let text = (
-            isIncoming
-                ? OWSLocalizedString("THIS_MESSAGE_WAS_DELETED", comment: "text indicating the message was remotely deleted")
-                : OWSLocalizedString("YOU_DELETED_THIS_MESSAGE", comment: "text indicating the message was remotely deleted by you"),
-        )
+        var text: String
+        switch bodyText {
+        case .remotelyDeleted(let deleteAuthor):
+            if let deleteAuthor {
+                // TODO: make attributed string with icon and tappable display name.
+                let format = OWSLocalizedString(
+                    "DELETED_BY_ADMIN",
+                    comment: "Text indicating the message was remotely deleted by an admin. Embeds {{admin display name}}",
+                )
+                text = String(format: format, deleteAuthor)
+            } else {
+                fallthrough
+            }
+        default:
+            text = (
+                isIncoming
+                    ? OWSLocalizedString("THIS_MESSAGE_WAS_DELETED", comment: "text indicating the message was remotely deleted")
+                    : OWSLocalizedString("YOU_DELETED_THIS_MESSAGE", comment: "text indicating the message was remotely deleted by you"),
+            )
+        }
         return CVLabelConfig(
             text: .text(text),
             displayConfig: .forUnstyledText(font: textMessageFont.italic(), textColor: bodyTextColor),
