@@ -5,6 +5,7 @@
 
 import MobileCoin
 public import SignalServiceKit
+import LibSignalClient
 import SignalUI
 
 public enum CVAttachment: Equatable {
@@ -121,6 +122,12 @@ public struct CVComponentState: Equatable {
         let avatarDataSource: ConversationAvatarDataSource
     }
 
+    struct DeleteAuthor: Equatable {
+        let displayName: String
+        let aci: Aci
+        let groupColor: UIColor
+    }
+
     let senderAvatar: SenderAvatar?
 
     enum BodyText: Equatable {
@@ -133,7 +140,7 @@ public struct CVComponentState: Equatable {
 
         // We use the "body text" component to
         // render the "remotely deleted" indicator.
-        case remotelyDeleted(deleteAuthorName: String?)
+        case remotelyDeleted(deleteAuthor: DeleteAuthor?)
 
         var displayableText: DisplayableText? {
             switch self {
@@ -1188,7 +1195,7 @@ private extension CVComponentState.Builder {
     }
 
     /// If the message was deleted remotely by an admin,  display the admin's name.
-    private func displayNameForDeleteMessage(message: TSMessage) -> String? {
+    private func displayNameAndColorForDeleteMessage(message: TSMessage) -> CVComponentState.DeleteAuthor? {
         let adminDeleteManager = DependenciesBridge.shared.adminDeleteManager
 
         guard
@@ -1208,10 +1215,16 @@ private extension CVComponentState.Builder {
             return nil
         } else {
             // Only display admin name if non self-delete.
-            return SSKEnvironment.shared.contactManagerRef.displayName(
+            let displayName = SSKEnvironment.shared.contactManagerRef.displayName(
                 for: SignalServiceAddress(authorAci),
                 tx: transaction,
             ).resolvedValue()
+            let groupNameColor = GroupNameColors.forThread(thread).color(for: authorAci)
+            return CVComponentState.DeleteAuthor(
+                displayName: displayName,
+                aci: authorAci,
+                groupColor: groupNameColor,
+            )
         }
     }
 
@@ -1223,8 +1236,8 @@ private extension CVComponentState.Builder {
         if message.wasRemotelyDeleted {
             // If the message has been remotely deleted, suppress everything else.
 
-            let deleteAuthor = displayNameForDeleteMessage(message: message)
-            self.bodyText = .remotelyDeleted(deleteAuthorName: deleteAuthor)
+            let remoteDeleteAuthor = displayNameAndColorForDeleteMessage(message: message)
+            self.bodyText = .remotelyDeleted(deleteAuthor: remoteDeleteAuthor)
             return build()
         }
 

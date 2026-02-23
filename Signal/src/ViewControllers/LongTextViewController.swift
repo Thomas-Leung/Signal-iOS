@@ -365,6 +365,8 @@ class LongTextViewController: OWSViewController {
                     )
                     self.loadContent()
                     return
+                case .deleteAuthor:
+                    owsFailDebug("delete author should not appear in long message body")
                 }
             }
         }
