@@ -1621,6 +1621,7 @@ extension AppSetup.GlobalsContinuation {
             messageProcessor: messageProcessor,
             messageSenderJobQueue: messageSenderJobQueue,
             receiptSender: receiptSender,
+            storageServiceManager: storageServiceManager,
         )
 
         let backupExportJob = BackupExportJobImpl(
