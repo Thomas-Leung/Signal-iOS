@@ -1095,7 +1095,10 @@ class StorageServiceOperation {
             )
         } catch StorageService.StorageError.conflictingManifest(let conflictingManifest) {
             // Throw away all our work, resolve conflicts, and try again.
-            try await self.mergeLocalManifest(withRemoteManifest: conflictingManifest, backupAfterSuccess: true)
+            try await self.mergeLocalManifest(
+                withRemoteManifest: conflictingManifest,
+                mergeReason: .conflictBackingUp,
+            )
             return
         } catch
         StorageService.StorageError.manifestDecryptionFailed(let conflictingVersion) where isPrimaryDevice,
@@ -1173,7 +1176,10 @@ class StorageServiceOperation {
                 return
             case .latestManifest(let manifest):
                 // Our manifest is not the latest, merge in the latest copy.
-                return try await self.mergeLocalManifest(withRemoteManifest: manifest, backupAfterSuccess: false)
+                return try await self.mergeLocalManifest(
+                    withRemoteManifest: manifest,
+                    mergeReason: .fetchedLatest,
+                )
             }
         } catch
         StorageService.StorageError.manifestDecryptionFailed(let manifestVersion) where isPrimaryDevice,
@@ -1476,18 +1482,27 @@ class StorageServiceOperation {
 
     // MARK: - Conflict Resolution
 
+    private enum MergeLocalManifestReason {
+        case fetchedLatest
+        case conflictBackingUp
+    }
+
     private func mergeLocalManifest(
         withRemoteManifest manifest: StorageServiceProtoManifestRecord,
-        backupAfterSuccess: Bool,
+        mergeReason: MergeLocalManifestReason,
     ) async throws {
         var state: State = await SSKEnvironment.shared.databaseStorageRef.awaitableWrite { transaction in
             var state = State.current(transaction: transaction)
 
             normalizePendingMutations(in: &state, transaction: transaction)
 
-            // Increment our conflict count.
-            state.consecutiveConflicts += 1
-            state.save(transaction: transaction)
+            switch mergeReason {
+            case .fetchedLatest:
+                break
+            case .conflictBackingUp:
+                state.consecutiveConflicts += 1
+                state.save(transaction: transaction)
+            }
 
             return state
         }
@@ -1716,7 +1731,12 @@ class StorageServiceOperation {
 
                 state.save(clearConsecutiveConflicts: true, transaction: transaction)
 
-                if backupAfterSuccess {
+                switch mergeReason {
+                case .fetchedLatest:
+                    break
+                case .conflictBackingUp:
+                    // If we're merging because we had a conflict while backing
+                    // up, reattempt that backup now that we've merged.
                     storageServiceManager.backupPendingChanges(authedDevice: self.authedDevice)
                 }
             }
