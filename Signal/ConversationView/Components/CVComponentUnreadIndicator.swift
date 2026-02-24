@@ -40,14 +40,6 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
         CVComponentViewUnreadIndicator()
     }
 
-    override public func wallpaperBlurView(componentView: CVComponentView) -> CVWallpaperBlurView? {
-        guard let componentView = componentView as? CVComponentViewUnreadIndicator else {
-            owsFailDebug("Unexpected componentView.")
-            return nil
-        }
-        return componentView.wallpaperBlurView
-    }
-
     public func configureForRendering(
         componentView: CVComponentView,
         cellMeasurement: CVCellMeasurement,
@@ -77,8 +69,10 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
 
         let outerStack = componentView.outerStack
         let innerStack = componentView.innerStack
-        let strokeView = componentView.strokeView
         let titleLabel = componentView.titleLabel
+        let strokeViewLeading = componentView.strokeViewLeading
+        let strokeViewTrailing = componentView.strokeViewTrailing
+
         titleLabelConfig.applyForRendering(label: titleLabel)
 
         if isReusing {
@@ -94,44 +88,48 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
             )
         } else {
             outerStack.reset()
-            titleLabel.removeFromSuperview()
-            componentView.wallpaperBlurView?.removeFromSuperview()
-            componentView.wallpaperBlurView = nil
+
+            let visualEffectView: UIVisualEffectView
+            if #available(iOS 26, *) {
+                let glassEffectView = UIVisualEffectView(effect: UIGlassEffect(style: .regular))
+                glassEffectView.contentView.addSubview(titleLabel)
+                glassEffectView.cornerConfiguration = .capsule()
+                visualEffectView = glassEffectView
+            } else {
+                let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
+                blurEffectView.contentView.addSubview(titleLabel)
+                blurEffectView.layer.masksToBounds = true
+                visualEffectView = blurEffectView
+            }
+            titleLabel.autoPinEdgesToSuperviewEdges(with: Self.titleLabelMargins)
+
+            let wrapper = ManualLayoutView.wrapSubviewUsingIOSAutoLayout(visualEffectView)
+            if #unavailable(iOS 26) {
+                wrapper.addLayoutBlock { view in
+                    visualEffectView.layer.cornerRadius = view.bounds.size.smallerAxis / 2
+                }
+            }
 
             innerStack.reset()
             innerStack.configure(
                 config: innerStackConfig,
                 cellMeasurement: cellMeasurement,
                 measurementKey: Self.measurementKey_innerStack,
-                subviews: [titleLabel],
+                subviews: [wrapper],
             )
 
-            if hasWallpaper {
-                let topStrokeColor = UIColor(rgbHex: 0x525252, alpha: isDarkThemeEnabled ? 0.32 : 0.24)
-                let bottomStrokeColor = UIColor(white: 1, alpha: 0.12)
-                strokeView.setStrokeColor(top: topStrokeColor, bottom: bottomStrokeColor)
-
-                let wallpaperBlurView = componentView.ensureWallpaperBlurView()
-                configureWallpaperBlurView(
-                    wallpaperBlurView: wallpaperBlurView,
-                    componentDelegate: componentDelegate,
-                    bubbleConfig: BubbleConfiguration(
-                        corners: .capsule(),
-                        stroke: ConversationStyle.bubbleStroke(isDarkThemeEnabled: isDarkThemeEnabled),
-                    ),
-                )
-                innerStack.addSubviewToFillSuperviewEdges(wallpaperBlurView)
-            } else {
-                strokeView.setStrokeColor(top: .ows_gray45, bottom: .clear)
-            }
+            let strokeViewStyle: StrokeView.Style = hasWallpaper ? .double : .single
+            strokeViewLeading.style = strokeViewStyle
+            strokeViewTrailing.style = strokeViewStyle
 
             outerStack.configure(
                 config: outerStackConfig,
                 cellMeasurement: cellMeasurement,
                 measurementKey: Self.measurementKey_outerStack,
                 subviews: [
-                    strokeView,
+                    strokeViewLeading,
                     innerStack,
+                    strokeViewTrailing,
                 ],
             )
         }
@@ -151,12 +149,20 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
         )
     }
 
+    private static var titleLabelMargins = UIEdgeInsets(hMargin: 12, vMargin: 3)
+
     private var outerStackConfig: CVStackViewConfig {
-        CVStackViewConfig(
-            axis: .vertical,
-            alignment: .fill,
-            spacing: 12,
-            layoutMargins: UIEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0),
+        let cellLayoutMargins = UIEdgeInsets(
+            top: 8,
+            leading: conversationStyle.fullWidthGutterLeading,
+            bottom: 8,
+            trailing: conversationStyle.fullWidthGutterTrailing,
+        )
+        return CVStackViewConfig(
+            axis: .horizontal,
+            alignment: .center,
+            spacing: 6,
+            layoutMargins: cellLayoutMargins,
         )
     }
 
@@ -165,7 +171,7 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
             axis: .vertical,
             alignment: .center,
             spacing: 0,
-            layoutMargins: UIEdgeInsets(hMargin: 12, vMargin: 3),
+            layoutMargins: .zero,
         )
     }
 
@@ -175,16 +181,10 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
     public func measure(maxWidth: CGFloat, measurementBuilder: CVCellMeasurement.Builder) -> CGSize {
         owsAssertDebug(maxWidth > 0)
 
-        let availableWidth = max(
-            0,
-            maxWidth -
-                (
-                    innerStackConfig.layoutMargins.totalWidth +
-                        outerStackConfig.layoutMargins.totalWidth
-                ),
-        )
-        let labelSize = CVText.measureLabel(config: titleLabelConfig, maxWidth: availableWidth)
-        let strokeSize = CGSize(width: 0, height: 1)
+        let availableWidth = max(0, maxWidth - (Self.titleLabelMargins.totalWidth + outerStackConfig.layoutMargins.totalWidth))
+        let labelSize = CVText.measureLabel(config: titleLabelConfig, maxWidth: availableWidth) + Self.titleLabelMargins.asSize
+
+        let strokeSize = CGSize(width: 0, height: 2)
 
         let labelInfo = labelSize.asManualSubviewInfo
         let innerStackMeasurement = ManualStackView.measure(
@@ -196,18 +196,19 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
 
         let strokeInfo = strokeSize.asManualSubviewInfo(hasFixedHeight: true)
         let innerStackInfo = innerStackMeasurement.measuredSize.asManualSubviewInfo(hasFixedWidth: true)
-        let vStackSubviewInfos = [
+        let hStackSubviewInfos = [
             strokeInfo,
             innerStackInfo,
+            strokeInfo,
         ]
-        let vStackMeasurement = ManualStackView.measure(
+        let hStackMeasurement = ManualStackView.measure(
             config: outerStackConfig,
             measurementBuilder: measurementBuilder,
             measurementKey: Self.measurementKey_outerStack,
-            subviewInfos: vStackSubviewInfos,
+            subviewInfos: hStackSubviewInfos,
             maxWidth: maxWidth,
         )
-        return vStackMeasurement.measuredSize
+        return hStackMeasurement.measuredSize
     }
 
     // MARK: -
@@ -221,20 +222,11 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
 
         fileprivate let titleLabel = CVLabel()
 
-        fileprivate var wallpaperBlurView: CVWallpaperBlurView?
-        fileprivate func ensureWallpaperBlurView() -> CVWallpaperBlurView {
-            if let wallpaperBlurView = self.wallpaperBlurView {
-                return wallpaperBlurView
-            }
-            let wallpaperBlurView = CVWallpaperBlurView()
-            self.wallpaperBlurView = wallpaperBlurView
-            return wallpaperBlurView
-        }
-
         fileprivate var hasWallpaper = false
         fileprivate var isDarkThemeEnabled = false
 
-        fileprivate let strokeView = DoubleStrokeView()
+        fileprivate let strokeViewLeading = StrokeView()
+        fileprivate let strokeViewTrailing = StrokeView()
 
         public var isDedicatedCellView = false
 
@@ -259,50 +251,70 @@ public class CVComponentUnreadIndicator: CVComponentBase, CVRootComponent {
                 outerStack.reset()
                 innerStack.reset()
 
-                wallpaperBlurView?.removeFromSuperview()
-
                 hasWallpaper = false
                 isDarkThemeEnabled = false
             }
         }
     }
 
-    fileprivate class DoubleStrokeView: ManualLayoutView {
+    fileprivate class StrokeView: ManualLayoutView {
+        enum Style {
+            case single
+            case double
+        }
+
+        var style: Style = .single {
+            didSet {
+                updateStokeStyle()
+            }
+        }
 
         private let topStrokeView = UIView()
+        private let middleStrokeView = UIView()
         private let bottomStrokeView = UIView()
 
         init() {
-            super.init(name: "DoubleStrokeView")
+            super.init(name: "StrokeView")
 
             clipsToBounds = true
 
+            topStrokeView.backgroundColor = UIColor(white: 0, alpha: 0.32)
+            middleStrokeView.backgroundColor = UIColor.Signal.quaternaryLabel
+            bottomStrokeView.backgroundColor = UIColor(white: 1, alpha: 0.16)
+
             addSubview(topStrokeView)
+            addSubview(middleStrokeView)
             addSubview(bottomStrokeView)
 
             addDefaultLayoutBlock()
+            updateStokeStyle()
         }
 
         private func addDefaultLayoutBlock() {
             addLayoutBlock { [weak self] _ in
                 guard let self else { return }
 
-                let strokeViewSize = CGSize(width: self.bounds.width, height: CGFloat.hairlineWidth)
+                let strokeViewSize = CGSize(width: self.bounds.width, height: 1)
 
                 self.topStrokeView.frame = CGRect(
-                    origin: CGPoint(x: self.bounds.minX, y: self.bounds.minY),
+                    origin: CGPoint(x: self.bounds.minX, y: self.bounds.midY - strokeViewSize.height),
+                    size: strokeViewSize,
+                )
+                self.middleStrokeView.frame = CGRect(
+                    origin: CGPoint(x: self.bounds.minX, y: self.bounds.midY - strokeViewSize.height / 2),
                     size: strokeViewSize,
                 )
                 self.bottomStrokeView.frame = CGRect(
-                    origin: CGPoint(x: self.bounds.minX, y: self.topStrokeView.frame.maxY),
+                    origin: CGPoint(x: self.bounds.minX, y: self.bounds.midY),
                     size: strokeViewSize,
                 )
             }
         }
 
-        func setStrokeColor(top: UIColor, bottom: UIColor) {
-            topStrokeView.backgroundColor = top
-            bottomStrokeView.backgroundColor = bottom
+        private func updateStokeStyle() {
+            topStrokeView.isHidden = style == .single
+            bottomStrokeView.isHidden = style == .single
+            middleStrokeView.isHidden = style == .double
         }
     }
 }
