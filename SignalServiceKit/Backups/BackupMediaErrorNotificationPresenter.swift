@@ -26,7 +26,7 @@ struct BackupMediaErrorNotificationPresenter {
         self.notificationPresenter = notificationPresenter
     }
 
-    func notifyIfNecessary() {
+    func notifyIfNecessary() async {
         guard BuildFlags.Backups.mediaErrorDisplay else {
             return
         }
@@ -42,11 +42,14 @@ struct BackupMediaErrorNotificationPresenter {
             return
         }
 
-        db.write { tx in
+        await db.awaitableWrite { tx in
             kvStore.writeValue(now, forKey: Keys.lastNotified, tx: tx)
         }
 
-        logger.warn("Presenting BackupsMediaError notification.")
+        owsFailDebug(
+            "Presenting BackupsMediaError notification.",
+            logger: logger,
+        )
         notificationPresenter.notifyUserOfBackupsMediaError()
     }
 }

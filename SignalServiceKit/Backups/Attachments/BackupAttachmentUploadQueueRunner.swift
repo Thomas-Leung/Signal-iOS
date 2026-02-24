@@ -182,7 +182,7 @@ class BackupAttachmentUploadQueueRunnerImpl: BackupAttachmentUploadQueueRunner {
         switch backupAuth.backupLevel {
         case .free:
             Logger.warn("Local backupPlan is paid but credential is free")
-            backupMediaErrorNotificationPresenter.notifyIfNecessary()
+            await backupMediaErrorNotificationPresenter.notifyIfNecessary()
             try? await taskQueue.stop()
             return
         case .paid:
@@ -463,7 +463,7 @@ class BackupAttachmentUploadQueueRunnerImpl: BackupAttachmentUploadQueueRunner {
                 // If we find ourselves with a free tier credential,
                 // all uploads will fail. Just quit.
                 try? await loader.stop()
-                backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                 return .retryableError(IsFreeTierError())
             }
 
@@ -541,7 +541,7 @@ class BackupAttachmentUploadQueueRunnerImpl: BackupAttachmentUploadQueueRunner {
                     )
                     switch credential?.backupLevel {
                     case .free, nil:
-                        backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                        await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                         try? await loader.stop()
                         return .retryableError(IsFreeTierError())
                     case .paid:
@@ -635,7 +635,7 @@ class BackupAttachmentUploadQueueRunnerImpl: BackupAttachmentUploadQueueRunner {
                                 }
                             case .noMoreRetries:
                                 logger.error("No more upload retries; stopping the queue")
-                                backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                                await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                                 try? await loader.stop()
                                 return .retryableError(error)
                             }
@@ -643,7 +643,7 @@ class BackupAttachmentUploadQueueRunnerImpl: BackupAttachmentUploadQueueRunner {
                             // For other errors stop the queue to prevent thundering herd;
                             // when it starts up again (e.g. on app launch) we will retry.
                             logger.error("Unknown error occurred; stopping the queue. \(error)")
-                            backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                            await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                             try? await loader.stop()
                             return .retryableError(error)
                         }
@@ -651,7 +651,7 @@ class BackupAttachmentUploadQueueRunnerImpl: BackupAttachmentUploadQueueRunner {
                         // For other errors stop the queue to prevent thundering herd;
                         // when it starts up again (e.g. on app launch) we will retry.
                         logger.error("Unknown error occurred; stopping the queue")
-                        backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                        await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                         try? await loader.stop()
                         return .retryableError(error)
                     } else {

@@ -274,7 +274,7 @@ class BackupListMediaManagerImpl: BackupListMediaManager {
             logger.error("Unretryable failure in list media! \(error)")
 
             // Post a notification so we hear about this quickly.
-            backupMediaErrorNotificationPresenter.notifyIfNecessary()
+            await backupMediaErrorNotificationPresenter.notifyIfNecessary()
 
             // We failed for a non-retryable reason: "complete" this attempt
             // so we don't make a doomed attempt for each of our callers.

@@ -465,13 +465,13 @@ class BackupAttachmentDownloadQueueRunnerImpl: BackupAttachmentDownloadQueueRunn
                     owsFailDebug("Backup downloads should never be blocked by auto download settings!")
                     // This should be impossible. Stop the queue, it can start up again later
                     // on whatever the next trigger is.
-                    backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                    await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                     try? await loader.stop()
                     return .retryableError(error)
                 case .blockedByActiveCall:
                     // TODO: [Backups] suspend downloads during calls and resume after
                     owsFailDebug("Backup downloads should never be blocked by active calls!")
-                    backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                    await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                     try? await loader.stop()
                     return .retryableError(error)
                 case .blockedByPendingMessageRequest:
@@ -485,7 +485,7 @@ class BackupAttachmentDownloadQueueRunnerImpl: BackupAttachmentDownloadQueueRunn
                         return .unretryableError(error)
                     case .mediaTierFullsize, .mediaTierThumbnail:
                         owsFailDebug("Media tier downloads should never be blocked by message request state!")
-                        backupMediaErrorNotificationPresenter.notifyIfNecessary()
+                        await backupMediaErrorNotificationPresenter.notifyIfNecessary()
                         // This should be impossible. Stop the queue, it can start up again later
                         // on whatever the next trigger is.
                         try? await loader.stop()
