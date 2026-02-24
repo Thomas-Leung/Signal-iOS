@@ -297,101 +297,101 @@ public struct BackupProto_AccountData: @unchecked Sendable {
   // methods supported on all messages.
 
   public var profileKey: Data {
-    get {return _storage._profileKey}
+    get {_storage._profileKey}
     set {_uniqueStorage()._profileKey = newValue}
   }
 
   public var username: String {
-    get {return _storage._username ?? String()}
+    get {_storage._username ?? String()}
     set {_uniqueStorage()._username = newValue}
   }
   /// Returns true if `username` has been explicitly set.
-  public var hasUsername: Bool {return _storage._username != nil}
+  public var hasUsername: Bool {_storage._username != nil}
   /// Clears the value of `username`. Subsequent reads from it will return its default value.
   public mutating func clearUsername() {_uniqueStorage()._username = nil}
 
   public var usernameLink: BackupProto_AccountData.UsernameLink {
-    get {return _storage._usernameLink ?? BackupProto_AccountData.UsernameLink()}
+    get {_storage._usernameLink ?? BackupProto_AccountData.UsernameLink()}
     set {_uniqueStorage()._usernameLink = newValue}
   }
   /// Returns true if `usernameLink` has been explicitly set.
-  public var hasUsernameLink: Bool {return _storage._usernameLink != nil}
+  public var hasUsernameLink: Bool {_storage._usernameLink != nil}
   /// Clears the value of `usernameLink`. Subsequent reads from it will return its default value.
   public mutating func clearUsernameLink() {_uniqueStorage()._usernameLink = nil}
 
   public var givenName: String {
-    get {return _storage._givenName}
+    get {_storage._givenName}
     set {_uniqueStorage()._givenName = newValue}
   }
 
   public var familyName: String {
-    get {return _storage._familyName}
+    get {_storage._familyName}
     set {_uniqueStorage()._familyName = newValue}
   }
 
   public var avatarURLPath: String {
-    get {return _storage._avatarURLPath}
+    get {_storage._avatarURLPath}
     set {_uniqueStorage()._avatarURLPath = newValue}
   }
 
   public var donationSubscriberData: BackupProto_AccountData.SubscriberData {
-    get {return _storage._donationSubscriberData ?? BackupProto_AccountData.SubscriberData()}
+    get {_storage._donationSubscriberData ?? BackupProto_AccountData.SubscriberData()}
     set {_uniqueStorage()._donationSubscriberData = newValue}
   }
   /// Returns true if `donationSubscriberData` has been explicitly set.
-  public var hasDonationSubscriberData: Bool {return _storage._donationSubscriberData != nil}
+  public var hasDonationSubscriberData: Bool {_storage._donationSubscriberData != nil}
   /// Clears the value of `donationSubscriberData`. Subsequent reads from it will return its default value.
   public mutating func clearDonationSubscriberData() {_uniqueStorage()._donationSubscriberData = nil}
 
   public var accountSettings: BackupProto_AccountData.AccountSettings {
-    get {return _storage._accountSettings ?? BackupProto_AccountData.AccountSettings()}
+    get {_storage._accountSettings ?? BackupProto_AccountData.AccountSettings()}
     set {_uniqueStorage()._accountSettings = newValue}
   }
   /// Returns true if `accountSettings` has been explicitly set.
-  public var hasAccountSettings: Bool {return _storage._accountSettings != nil}
+  public var hasAccountSettings: Bool {_storage._accountSettings != nil}
   /// Clears the value of `accountSettings`. Subsequent reads from it will return its default value.
   public mutating func clearAccountSettings() {_uniqueStorage()._accountSettings = nil}
 
   public var backupsSubscriberData: BackupProto_AccountData.IAPSubscriberData {
-    get {return _storage._backupsSubscriberData ?? BackupProto_AccountData.IAPSubscriberData()}
+    get {_storage._backupsSubscriberData ?? BackupProto_AccountData.IAPSubscriberData()}
     set {_uniqueStorage()._backupsSubscriberData = newValue}
   }
   /// Returns true if `backupsSubscriberData` has been explicitly set.
-  public var hasBackupsSubscriberData: Bool {return _storage._backupsSubscriberData != nil}
+  public var hasBackupsSubscriberData: Bool {_storage._backupsSubscriberData != nil}
   /// Clears the value of `backupsSubscriberData`. Subsequent reads from it will return its default value.
   public mutating func clearBackupsSubscriberData() {_uniqueStorage()._backupsSubscriberData = nil}
 
   public var svrPin: String {
-    get {return _storage._svrPin}
+    get {_storage._svrPin}
     set {_uniqueStorage()._svrPin = newValue}
   }
 
   public var androidSpecificSettings: BackupProto_AccountData.AndroidSpecificSettings {
-    get {return _storage._androidSpecificSettings ?? BackupProto_AccountData.AndroidSpecificSettings()}
+    get {_storage._androidSpecificSettings ?? BackupProto_AccountData.AndroidSpecificSettings()}
     set {_uniqueStorage()._androidSpecificSettings = newValue}
   }
   /// Returns true if `androidSpecificSettings` has been explicitly set.
-  public var hasAndroidSpecificSettings: Bool {return _storage._androidSpecificSettings != nil}
+  public var hasAndroidSpecificSettings: Bool {_storage._androidSpecificSettings != nil}
   /// Clears the value of `androidSpecificSettings`. Subsequent reads from it will return its default value.
   public mutating func clearAndroidSpecificSettings() {_uniqueStorage()._androidSpecificSettings = nil}
 
   public var bioText: String {
-    get {return _storage._bioText}
+    get {_storage._bioText}
     set {_uniqueStorage()._bioText = newValue}
   }
 
   public var bioEmoji: String {
-    get {return _storage._bioEmoji}
+    get {_storage._bioEmoji}
     set {_uniqueStorage()._bioEmoji = newValue}
   }
 
   /// Opaque blob containing key transparency data for the account
   public var keyTransparencyData: Data {
-    get {return _storage._keyTransparencyData ?? Data()}
+    get {_storage._keyTransparencyData ?? Data()}
     set {_uniqueStorage()._keyTransparencyData = newValue}
   }
   /// Returns true if `keyTransparencyData` has been explicitly set.
-  public var hasKeyTransparencyData: Bool {return _storage._keyTransparencyData != nil}
+  public var hasKeyTransparencyData: Bool {_storage._keyTransparencyData != nil}
   /// Clears the value of `keyTransparencyData`. Subsequent reads from it will return its default value.
   public mutating func clearKeyTransparencyData() {_uniqueStorage()._keyTransparencyData = nil}
 
@@ -715,177 +715,177 @@ public struct BackupProto_AccountData: @unchecked Sendable {
     // methods supported on all messages.
 
     public var readReceipts: Bool {
-      get {return _storage._readReceipts}
+      get {_storage._readReceipts}
       set {_uniqueStorage()._readReceipts = newValue}
     }
 
     public var sealedSenderIndicators: Bool {
-      get {return _storage._sealedSenderIndicators}
+      get {_storage._sealedSenderIndicators}
       set {_uniqueStorage()._sealedSenderIndicators = newValue}
     }
 
     public var typingIndicators: Bool {
-      get {return _storage._typingIndicators}
+      get {_storage._typingIndicators}
       set {_uniqueStorage()._typingIndicators = newValue}
     }
 
     public var linkPreviews: Bool {
-      get {return _storage._linkPreviews}
+      get {_storage._linkPreviews}
       set {_uniqueStorage()._linkPreviews = newValue}
     }
 
     public var notDiscoverableByPhoneNumber: Bool {
-      get {return _storage._notDiscoverableByPhoneNumber}
+      get {_storage._notDiscoverableByPhoneNumber}
       set {_uniqueStorage()._notDiscoverableByPhoneNumber = newValue}
     }
 
     public var preferContactAvatars: Bool {
-      get {return _storage._preferContactAvatars}
+      get {_storage._preferContactAvatars}
       set {_uniqueStorage()._preferContactAvatars = newValue}
     }
 
     /// 0 means no universal expire timer.
     public var universalExpireTimerSeconds: UInt32 {
-      get {return _storage._universalExpireTimerSeconds}
+      get {_storage._universalExpireTimerSeconds}
       set {_uniqueStorage()._universalExpireTimerSeconds = newValue}
     }
 
     public var preferredReactionEmoji: [String] {
-      get {return _storage._preferredReactionEmoji}
+      get {_storage._preferredReactionEmoji}
       set {_uniqueStorage()._preferredReactionEmoji = newValue}
     }
 
     public var displayBadgesOnProfile: Bool {
-      get {return _storage._displayBadgesOnProfile}
+      get {_storage._displayBadgesOnProfile}
       set {_uniqueStorage()._displayBadgesOnProfile = newValue}
     }
 
     public var keepMutedChatsArchived: Bool {
-      get {return _storage._keepMutedChatsArchived}
+      get {_storage._keepMutedChatsArchived}
       set {_uniqueStorage()._keepMutedChatsArchived = newValue}
     }
 
     public var hasSetMyStoriesPrivacy_p: Bool {
-      get {return _storage._hasSetMyStoriesPrivacy_p}
+      get {_storage._hasSetMyStoriesPrivacy_p}
       set {_uniqueStorage()._hasSetMyStoriesPrivacy_p = newValue}
     }
 
     public var hasViewedOnboardingStory_p: Bool {
-      get {return _storage._hasViewedOnboardingStory_p}
+      get {_storage._hasViewedOnboardingStory_p}
       set {_uniqueStorage()._hasViewedOnboardingStory_p = newValue}
     }
 
     public var storiesDisabled: Bool {
-      get {return _storage._storiesDisabled}
+      get {_storage._storiesDisabled}
       set {_uniqueStorage()._storiesDisabled = newValue}
     }
 
     public var storyViewReceiptsEnabled: Bool {
-      get {return _storage._storyViewReceiptsEnabled ?? false}
+      get {_storage._storyViewReceiptsEnabled ?? false}
       set {_uniqueStorage()._storyViewReceiptsEnabled = newValue}
     }
     /// Returns true if `storyViewReceiptsEnabled` has been explicitly set.
-    public var hasStoryViewReceiptsEnabled: Bool {return _storage._storyViewReceiptsEnabled != nil}
+    public var hasStoryViewReceiptsEnabled: Bool {_storage._storyViewReceiptsEnabled != nil}
     /// Clears the value of `storyViewReceiptsEnabled`. Subsequent reads from it will return its default value.
     public mutating func clearStoryViewReceiptsEnabled() {_uniqueStorage()._storyViewReceiptsEnabled = nil}
 
     public var hasSeenGroupStoryEducationSheet_p: Bool {
-      get {return _storage._hasSeenGroupStoryEducationSheet_p}
+      get {_storage._hasSeenGroupStoryEducationSheet_p}
       set {_uniqueStorage()._hasSeenGroupStoryEducationSheet_p = newValue}
     }
 
     public var hasCompletedUsernameOnboarding_p: Bool {
-      get {return _storage._hasCompletedUsernameOnboarding_p}
+      get {_storage._hasCompletedUsernameOnboarding_p}
       set {_uniqueStorage()._hasCompletedUsernameOnboarding_p = newValue}
     }
 
     public var phoneNumberSharingMode: BackupProto_AccountData.PhoneNumberSharingMode {
-      get {return _storage._phoneNumberSharingMode}
+      get {_storage._phoneNumberSharingMode}
       set {_uniqueStorage()._phoneNumberSharingMode = newValue}
     }
 
     public var defaultChatStyle: BackupProto_ChatStyle {
-      get {return _storage._defaultChatStyle ?? BackupProto_ChatStyle()}
+      get {_storage._defaultChatStyle ?? BackupProto_ChatStyle()}
       set {_uniqueStorage()._defaultChatStyle = newValue}
     }
     /// Returns true if `defaultChatStyle` has been explicitly set.
-    public var hasDefaultChatStyle: Bool {return _storage._defaultChatStyle != nil}
+    public var hasDefaultChatStyle: Bool {_storage._defaultChatStyle != nil}
     /// Clears the value of `defaultChatStyle`. Subsequent reads from it will return its default value.
     public mutating func clearDefaultChatStyle() {_uniqueStorage()._defaultChatStyle = nil}
 
     public var customChatColors: [BackupProto_ChatStyle.CustomChatColor] {
-      get {return _storage._customChatColors}
+      get {_storage._customChatColors}
       set {_uniqueStorage()._customChatColors = newValue}
     }
 
     public var optimizeOnDeviceStorage: Bool {
-      get {return _storage._optimizeOnDeviceStorage}
+      get {_storage._optimizeOnDeviceStorage}
       set {_uniqueStorage()._optimizeOnDeviceStorage = newValue}
     }
 
     /// See zkgroup for integer particular values. Unset if backups are not enabled.
     public var backupTier: UInt64 {
-      get {return _storage._backupTier ?? 0}
+      get {_storage._backupTier ?? 0}
       set {_uniqueStorage()._backupTier = newValue}
     }
     /// Returns true if `backupTier` has been explicitly set.
-    public var hasBackupTier: Bool {return _storage._backupTier != nil}
+    public var hasBackupTier: Bool {_storage._backupTier != nil}
     /// Clears the value of `backupTier`. Subsequent reads from it will return its default value.
     public mutating func clearBackupTier() {_uniqueStorage()._backupTier = nil}
 
     public var defaultSentMediaQuality: BackupProto_AccountData.SentMediaQuality {
-      get {return _storage._defaultSentMediaQuality}
+      get {_storage._defaultSentMediaQuality}
       set {_uniqueStorage()._defaultSentMediaQuality = newValue}
     }
 
     public var autoDownloadSettings: BackupProto_AccountData.AutoDownloadSettings {
-      get {return _storage._autoDownloadSettings ?? BackupProto_AccountData.AutoDownloadSettings()}
+      get {_storage._autoDownloadSettings ?? BackupProto_AccountData.AutoDownloadSettings()}
       set {_uniqueStorage()._autoDownloadSettings = newValue}
     }
     /// Returns true if `autoDownloadSettings` has been explicitly set.
-    public var hasAutoDownloadSettings: Bool {return _storage._autoDownloadSettings != nil}
+    public var hasAutoDownloadSettings: Bool {_storage._autoDownloadSettings != nil}
     /// Clears the value of `autoDownloadSettings`. Subsequent reads from it will return its default value.
     public mutating func clearAutoDownloadSettings() {_uniqueStorage()._autoDownloadSettings = nil}
 
     /// If unset, consider screen lock to be disabled.
     public var screenLockTimeoutMinutes: UInt32 {
-      get {return _storage._screenLockTimeoutMinutes ?? 0}
+      get {_storage._screenLockTimeoutMinutes ?? 0}
       set {_uniqueStorage()._screenLockTimeoutMinutes = newValue}
     }
     /// Returns true if `screenLockTimeoutMinutes` has been explicitly set.
-    public var hasScreenLockTimeoutMinutes: Bool {return _storage._screenLockTimeoutMinutes != nil}
+    public var hasScreenLockTimeoutMinutes: Bool {_storage._screenLockTimeoutMinutes != nil}
     /// Clears the value of `screenLockTimeoutMinutes`. Subsequent reads from it will return its default value.
     public mutating func clearScreenLockTimeoutMinutes() {_uniqueStorage()._screenLockTimeoutMinutes = nil}
 
     /// If unset, consider pin reminders to be enabled.
     public var pinReminders: Bool {
-      get {return _storage._pinReminders ?? false}
+      get {_storage._pinReminders ?? false}
       set {_uniqueStorage()._pinReminders = newValue}
     }
     /// Returns true if `pinReminders` has been explicitly set.
-    public var hasPinReminders: Bool {return _storage._pinReminders != nil}
+    public var hasPinReminders: Bool {_storage._pinReminders != nil}
     /// Clears the value of `pinReminders`. Subsequent reads from it will return its default value.
     public mutating func clearPinReminders() {_uniqueStorage()._pinReminders = nil}
 
     /// If unset, treat the same as "Unknown" case
     public var appTheme: BackupProto_AccountData.AppTheme {
-      get {return _storage._appTheme}
+      get {_storage._appTheme}
       set {_uniqueStorage()._appTheme = newValue}
     }
 
     /// If unset, treat the same as "Unknown" case
     public var callsUseLessDataSetting: BackupProto_AccountData.CallsUseLessDataSetting {
-      get {return _storage._callsUseLessDataSetting}
+      get {_storage._callsUseLessDataSetting}
       set {_uniqueStorage()._callsUseLessDataSetting = newValue}
     }
 
     public var allowSealedSenderFromAnyone: Bool {
-      get {return _storage._allowSealedSenderFromAnyone}
+      get {_storage._allowSealedSenderFromAnyone}
       set {_uniqueStorage()._allowSealedSenderFromAnyone = newValue}
     }
 
     public var allowAutomaticKeyVerification: Bool {
-      get {return _storage._allowAutomaticKeyVerification}
+      get {_storage._allowAutomaticKeyVerification}
       set {_uniqueStorage()._allowAutomaticKeyVerification = newValue}
     }
 
@@ -1098,49 +1098,49 @@ public struct BackupProto_Contact: @unchecked Sendable {
 
   /// should be 16 bytes
   public var aci: Data {
-    get {return _storage._aci ?? Data()}
+    get {_storage._aci ?? Data()}
     set {_uniqueStorage()._aci = newValue}
   }
   /// Returns true if `aci` has been explicitly set.
-  public var hasAci: Bool {return _storage._aci != nil}
+  public var hasAci: Bool {_storage._aci != nil}
   /// Clears the value of `aci`. Subsequent reads from it will return its default value.
   public mutating func clearAci() {_uniqueStorage()._aci = nil}
 
   /// should be 16 bytes
   public var pni: Data {
-    get {return _storage._pni ?? Data()}
+    get {_storage._pni ?? Data()}
     set {_uniqueStorage()._pni = newValue}
   }
   /// Returns true if `pni` has been explicitly set.
-  public var hasPni: Bool {return _storage._pni != nil}
+  public var hasPni: Bool {_storage._pni != nil}
   /// Clears the value of `pni`. Subsequent reads from it will return its default value.
   public mutating func clearPni() {_uniqueStorage()._pni = nil}
 
   public var username: String {
-    get {return _storage._username ?? String()}
+    get {_storage._username ?? String()}
     set {_uniqueStorage()._username = newValue}
   }
   /// Returns true if `username` has been explicitly set.
-  public var hasUsername: Bool {return _storage._username != nil}
+  public var hasUsername: Bool {_storage._username != nil}
   /// Clears the value of `username`. Subsequent reads from it will return its default value.
   public mutating func clearUsername() {_uniqueStorage()._username = nil}
 
   public var e164: UInt64 {
-    get {return _storage._e164 ?? 0}
+    get {_storage._e164 ?? 0}
     set {_uniqueStorage()._e164 = newValue}
   }
   /// Returns true if `e164` has been explicitly set.
-  public var hasE164: Bool {return _storage._e164 != nil}
+  public var hasE164: Bool {_storage._e164 != nil}
   /// Clears the value of `e164`. Subsequent reads from it will return its default value.
   public mutating func clearE164() {_uniqueStorage()._e164 = nil}
 
   public var blocked: Bool {
-    get {return _storage._blocked}
+    get {_storage._blocked}
     set {_uniqueStorage()._blocked = newValue}
   }
 
   public var visibility: BackupProto_Contact.Visibility {
-    get {return _storage._visibility}
+    get {_storage._visibility}
     set {_uniqueStorage()._visibility = newValue}
   }
 
@@ -1167,102 +1167,102 @@ public struct BackupProto_Contact: @unchecked Sendable {
   }
 
   public var profileKey: Data {
-    get {return _storage._profileKey ?? Data()}
+    get {_storage._profileKey ?? Data()}
     set {_uniqueStorage()._profileKey = newValue}
   }
   /// Returns true if `profileKey` has been explicitly set.
-  public var hasProfileKey: Bool {return _storage._profileKey != nil}
+  public var hasProfileKey: Bool {_storage._profileKey != nil}
   /// Clears the value of `profileKey`. Subsequent reads from it will return its default value.
   public mutating func clearProfileKey() {_uniqueStorage()._profileKey = nil}
 
   public var profileSharing: Bool {
-    get {return _storage._profileSharing}
+    get {_storage._profileSharing}
     set {_uniqueStorage()._profileSharing = newValue}
   }
 
   public var profileGivenName: String {
-    get {return _storage._profileGivenName ?? String()}
+    get {_storage._profileGivenName ?? String()}
     set {_uniqueStorage()._profileGivenName = newValue}
   }
   /// Returns true if `profileGivenName` has been explicitly set.
-  public var hasProfileGivenName: Bool {return _storage._profileGivenName != nil}
+  public var hasProfileGivenName: Bool {_storage._profileGivenName != nil}
   /// Clears the value of `profileGivenName`. Subsequent reads from it will return its default value.
   public mutating func clearProfileGivenName() {_uniqueStorage()._profileGivenName = nil}
 
   public var profileFamilyName: String {
-    get {return _storage._profileFamilyName ?? String()}
+    get {_storage._profileFamilyName ?? String()}
     set {_uniqueStorage()._profileFamilyName = newValue}
   }
   /// Returns true if `profileFamilyName` has been explicitly set.
-  public var hasProfileFamilyName: Bool {return _storage._profileFamilyName != nil}
+  public var hasProfileFamilyName: Bool {_storage._profileFamilyName != nil}
   /// Clears the value of `profileFamilyName`. Subsequent reads from it will return its default value.
   public mutating func clearProfileFamilyName() {_uniqueStorage()._profileFamilyName = nil}
 
   public var hideStory: Bool {
-    get {return _storage._hideStory}
+    get {_storage._hideStory}
     set {_uniqueStorage()._hideStory = newValue}
   }
 
   public var identityKey: Data {
-    get {return _storage._identityKey ?? Data()}
+    get {_storage._identityKey ?? Data()}
     set {_uniqueStorage()._identityKey = newValue}
   }
   /// Returns true if `identityKey` has been explicitly set.
-  public var hasIdentityKey: Bool {return _storage._identityKey != nil}
+  public var hasIdentityKey: Bool {_storage._identityKey != nil}
   /// Clears the value of `identityKey`. Subsequent reads from it will return its default value.
   public mutating func clearIdentityKey() {_uniqueStorage()._identityKey = nil}
 
   public var identityState: BackupProto_Contact.IdentityState {
-    get {return _storage._identityState}
+    get {_storage._identityState}
     set {_uniqueStorage()._identityState = newValue}
   }
 
   /// absent iff both `given` and `family` are empty
   public var nickname: BackupProto_Contact.Name {
-    get {return _storage._nickname ?? BackupProto_Contact.Name()}
+    get {_storage._nickname ?? BackupProto_Contact.Name()}
     set {_uniqueStorage()._nickname = newValue}
   }
   /// Returns true if `nickname` has been explicitly set.
-  public var hasNickname: Bool {return _storage._nickname != nil}
+  public var hasNickname: Bool {_storage._nickname != nil}
   /// Clears the value of `nickname`. Subsequent reads from it will return its default value.
   public mutating func clearNickname() {_uniqueStorage()._nickname = nil}
 
   public var note: String {
-    get {return _storage._note}
+    get {_storage._note}
     set {_uniqueStorage()._note = newValue}
   }
 
   public var systemGivenName: String {
-    get {return _storage._systemGivenName}
+    get {_storage._systemGivenName}
     set {_uniqueStorage()._systemGivenName = newValue}
   }
 
   public var systemFamilyName: String {
-    get {return _storage._systemFamilyName}
+    get {_storage._systemFamilyName}
     set {_uniqueStorage()._systemFamilyName = newValue}
   }
 
   public var systemNickname: String {
-    get {return _storage._systemNickname}
+    get {_storage._systemNickname}
     set {_uniqueStorage()._systemNickname = newValue}
   }
 
   public var avatarColor: BackupProto_AvatarColor {
-    get {return _storage._avatarColor ?? .a100}
+    get {_storage._avatarColor ?? .a100}
     set {_uniqueStorage()._avatarColor = newValue}
   }
   /// Returns true if `avatarColor` has been explicitly set.
-  public var hasAvatarColor: Bool {return _storage._avatarColor != nil}
+  public var hasAvatarColor: Bool {_storage._avatarColor != nil}
   /// Clears the value of `avatarColor`. Subsequent reads from it will return its default value.
   public mutating func clearAvatarColor() {_uniqueStorage()._avatarColor = nil}
 
   /// Opaque blob containing key transparency data for the contact
   public var keyTransparencyData: Data {
-    get {return _storage._keyTransparencyData ?? Data()}
+    get {_storage._keyTransparencyData ?? Data()}
     set {_uniqueStorage()._keyTransparencyData = newValue}
   }
   /// Returns true if `keyTransparencyData` has been explicitly set.
-  public var hasKeyTransparencyData: Bool {return _storage._keyTransparencyData != nil}
+  public var hasKeyTransparencyData: Bool {_storage._keyTransparencyData != nil}
   /// Clears the value of `keyTransparencyData`. Subsequent reads from it will return its default value.
   public mutating func clearKeyTransparencyData() {_uniqueStorage()._keyTransparencyData = nil}
 
@@ -1404,45 +1404,45 @@ public struct BackupProto_Group: @unchecked Sendable {
   // methods supported on all messages.
 
   public var masterKey: Data {
-    get {return _storage._masterKey}
+    get {_storage._masterKey}
     set {_uniqueStorage()._masterKey = newValue}
   }
 
   public var whitelisted: Bool {
-    get {return _storage._whitelisted}
+    get {_storage._whitelisted}
     set {_uniqueStorage()._whitelisted = newValue}
   }
 
   public var hideStory: Bool {
-    get {return _storage._hideStory}
+    get {_storage._hideStory}
     set {_uniqueStorage()._hideStory = newValue}
   }
 
   public var storySendMode: BackupProto_Group.StorySendMode {
-    get {return _storage._storySendMode}
+    get {_storage._storySendMode}
     set {_uniqueStorage()._storySendMode = newValue}
   }
 
   public var snapshot: BackupProto_Group.GroupSnapshot {
-    get {return _storage._snapshot ?? BackupProto_Group.GroupSnapshot()}
+    get {_storage._snapshot ?? BackupProto_Group.GroupSnapshot()}
     set {_uniqueStorage()._snapshot = newValue}
   }
   /// Returns true if `snapshot` has been explicitly set.
-  public var hasSnapshot: Bool {return _storage._snapshot != nil}
+  public var hasSnapshot: Bool {_storage._snapshot != nil}
   /// Clears the value of `snapshot`. Subsequent reads from it will return its default value.
   public mutating func clearSnapshot() {_uniqueStorage()._snapshot = nil}
 
   public var blocked: Bool {
-    get {return _storage._blocked}
+    get {_storage._blocked}
     set {_uniqueStorage()._blocked = newValue}
   }
 
   public var avatarColor: BackupProto_AvatarColor {
-    get {return _storage._avatarColor ?? .a100}
+    get {_storage._avatarColor ?? .a100}
     set {_uniqueStorage()._avatarColor = newValue}
   }
   /// Returns true if `avatarColor` has been explicitly set.
-  public var hasAvatarColor: Bool {return _storage._avatarColor != nil}
+  public var hasAvatarColor: Bool {_storage._avatarColor != nil}
   /// Clears the value of `avatarColor`. Subsequent reads from it will return its default value.
   public mutating func clearAvatarColor() {_uniqueStorage()._avatarColor = nil}
 
@@ -1499,40 +1499,40 @@ public struct BackupProto_Group: @unchecked Sendable {
     // methods supported on all messages.
 
     public var title: BackupProto_Group.GroupAttributeBlob {
-      get {return _title ?? BackupProto_Group.GroupAttributeBlob()}
+      get {_title ?? BackupProto_Group.GroupAttributeBlob()}
       set {_title = newValue}
     }
     /// Returns true if `title` has been explicitly set.
-    public var hasTitle: Bool {return self._title != nil}
+    public var hasTitle: Bool {self._title != nil}
     /// Clears the value of `title`. Subsequent reads from it will return its default value.
     public mutating func clearTitle() {self._title = nil}
 
     public var description_p: BackupProto_Group.GroupAttributeBlob {
-      get {return _description_p ?? BackupProto_Group.GroupAttributeBlob()}
+      get {_description_p ?? BackupProto_Group.GroupAttributeBlob()}
       set {_description_p = newValue}
     }
     /// Returns true if `description_p` has been explicitly set.
-    public var hasDescription_p: Bool {return self._description_p != nil}
+    public var hasDescription_p: Bool {self._description_p != nil}
     /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
     public mutating func clearDescription_p() {self._description_p = nil}
 
     public var avatarURL: String = String()
 
     public var disappearingMessagesTimer: BackupProto_Group.GroupAttributeBlob {
-      get {return _disappearingMessagesTimer ?? BackupProto_Group.GroupAttributeBlob()}
+      get {_disappearingMessagesTimer ?? BackupProto_Group.GroupAttributeBlob()}
       set {_disappearingMessagesTimer = newValue}
     }
     /// Returns true if `disappearingMessagesTimer` has been explicitly set.
-    public var hasDisappearingMessagesTimer: Bool {return self._disappearingMessagesTimer != nil}
+    public var hasDisappearingMessagesTimer: Bool {self._disappearingMessagesTimer != nil}
     /// Clears the value of `disappearingMessagesTimer`. Subsequent reads from it will return its default value.
     public mutating func clearDisappearingMessagesTimer() {self._disappearingMessagesTimer = nil}
 
     public var accessControl: BackupProto_Group.AccessControl {
-      get {return _accessControl ?? BackupProto_Group.AccessControl()}
+      get {_accessControl ?? BackupProto_Group.AccessControl()}
       set {_accessControl = newValue}
     }
     /// Returns true if `accessControl` has been explicitly set.
-    public var hasAccessControl: Bool {return self._accessControl != nil}
+    public var hasAccessControl: Bool {self._accessControl != nil}
     /// Clears the value of `accessControl`. Subsequent reads from it will return its default value.
     public mutating func clearAccessControl() {self._accessControl = nil}
 
@@ -1680,11 +1680,11 @@ public struct BackupProto_Group: @unchecked Sendable {
     // methods supported on all messages.
 
     public var member: BackupProto_Group.Member {
-      get {return _member ?? BackupProto_Group.Member()}
+      get {_member ?? BackupProto_Group.Member()}
       set {_member = newValue}
     }
     /// Returns true if `member` has been explicitly set.
-    public var hasMember: Bool {return self._member != nil}
+    public var hasMember: Bool {self._member != nil}
     /// Clears the value of `member`. Subsequent reads from it will return its default value.
     public mutating func clearMember() {self._member = nil}
 
@@ -1802,11 +1802,11 @@ public struct BackupProto_Self: Sendable {
   // methods supported on all messages.
 
   public var avatarColor: BackupProto_AvatarColor {
-    get {return _avatarColor ?? .a100}
+    get {_avatarColor ?? .a100}
     set {_avatarColor = newValue}
   }
   /// Returns true if `avatarColor` has been explicitly set.
-  public var hasAvatarColor: Bool {return self._avatarColor != nil}
+  public var hasAvatarColor: Bool {self._avatarColor != nil}
   /// Clears the value of `avatarColor`. Subsequent reads from it will return its default value.
   public mutating func clearAvatarColor() {self._avatarColor = nil}
 
@@ -1841,30 +1841,30 @@ public struct BackupProto_Chat: Sendable {
 
   /// will be displayed in ascending order
   public var pinnedOrder: UInt32 {
-    get {return _pinnedOrder ?? 0}
+    get {_pinnedOrder ?? 0}
     set {_pinnedOrder = newValue}
   }
   /// Returns true if `pinnedOrder` has been explicitly set.
-  public var hasPinnedOrder: Bool {return self._pinnedOrder != nil}
+  public var hasPinnedOrder: Bool {self._pinnedOrder != nil}
   /// Clears the value of `pinnedOrder`. Subsequent reads from it will return its default value.
   public mutating func clearPinnedOrder() {self._pinnedOrder = nil}
 
   public var expirationTimerMs: UInt64 {
-    get {return _expirationTimerMs ?? 0}
+    get {_expirationTimerMs ?? 0}
     set {_expirationTimerMs = newValue}
   }
   /// Returns true if `expirationTimerMs` has been explicitly set.
-  public var hasExpirationTimerMs: Bool {return self._expirationTimerMs != nil}
+  public var hasExpirationTimerMs: Bool {self._expirationTimerMs != nil}
   /// Clears the value of `expirationTimerMs`. Subsequent reads from it will return its default value.
   public mutating func clearExpirationTimerMs() {self._expirationTimerMs = nil}
 
   /// INT64_MAX (2^63 - 1) = "always muted".
   public var muteUntilMs: UInt64 {
-    get {return _muteUntilMs ?? 0}
+    get {_muteUntilMs ?? 0}
     set {_muteUntilMs = newValue}
   }
   /// Returns true if `muteUntilMs` has been explicitly set.
-  public var hasMuteUntilMs: Bool {return self._muteUntilMs != nil}
+  public var hasMuteUntilMs: Bool {self._muteUntilMs != nil}
   /// Clears the value of `muteUntilMs`. Subsequent reads from it will return its default value.
   public mutating func clearMuteUntilMs() {self._muteUntilMs = nil}
 
@@ -1873,11 +1873,11 @@ public struct BackupProto_Chat: Sendable {
   public var dontNotifyForMentionsIfMuted: Bool = false
 
   public var style: BackupProto_ChatStyle {
-    get {return _style ?? BackupProto_ChatStyle()}
+    get {_style ?? BackupProto_ChatStyle()}
     set {_style = newValue}
   }
   /// Returns true if `style` has been explicitly set.
-  public var hasStyle: Bool {return self._style != nil}
+  public var hasStyle: Bool {self._style != nil}
   /// Clears the value of `style`. Subsequent reads from it will return its default value.
   public mutating func clearStyle() {self._style = nil}
 
@@ -1909,11 +1909,11 @@ public struct BackupProto_CallLink: Sendable {
 
   /// Only present if the user is an admin
   public var adminKey: Data {
-    get {return _adminKey ?? Data()}
+    get {_adminKey ?? Data()}
     set {_adminKey = newValue}
   }
   /// Returns true if `adminKey` has been explicitly set.
-  public var hasAdminKey: Bool {return self._adminKey != nil}
+  public var hasAdminKey: Bool {self._adminKey != nil}
   /// Clears the value of `adminKey`. Subsequent reads from it will return its default value.
   public mutating func clearAdminKey() {self._adminKey = nil}
 
@@ -2135,49 +2135,49 @@ public struct BackupProto_ChatItem: @unchecked Sendable {
 
   /// conversation id
   public var chatID: UInt64 {
-    get {return _storage._chatID}
+    get {_storage._chatID}
     set {_uniqueStorage()._chatID = newValue}
   }
 
   /// recipient id
   public var authorID: UInt64 {
-    get {return _storage._authorID}
+    get {_storage._authorID}
     set {_uniqueStorage()._authorID = newValue}
   }
 
   public var dateSent: UInt64 {
-    get {return _storage._dateSent}
+    get {_storage._dateSent}
     set {_uniqueStorage()._dateSent = newValue}
   }
 
   /// timestamp of when expiration timer started ticking down
   public var expireStartDate: UInt64 {
-    get {return _storage._expireStartDate ?? 0}
+    get {_storage._expireStartDate ?? 0}
     set {_uniqueStorage()._expireStartDate = newValue}
   }
   /// Returns true if `expireStartDate` has been explicitly set.
-  public var hasExpireStartDate: Bool {return _storage._expireStartDate != nil}
+  public var hasExpireStartDate: Bool {_storage._expireStartDate != nil}
   /// Clears the value of `expireStartDate`. Subsequent reads from it will return its default value.
   public mutating func clearExpireStartDate() {_uniqueStorage()._expireStartDate = nil}
 
   /// how long timer of message is (ms)
   public var expiresInMs: UInt64 {
-    get {return _storage._expiresInMs ?? 0}
+    get {_storage._expiresInMs ?? 0}
     set {_uniqueStorage()._expiresInMs = newValue}
   }
   /// Returns true if `expiresInMs` has been explicitly set.
-  public var hasExpiresInMs: Bool {return _storage._expiresInMs != nil}
+  public var hasExpiresInMs: Bool {_storage._expiresInMs != nil}
   /// Clears the value of `expiresInMs`. Subsequent reads from it will return its default value.
   public mutating func clearExpiresInMs() {_uniqueStorage()._expiresInMs = nil}
 
   /// ordered from oldest to newest
   public var revisions: [BackupProto_ChatItem] {
-    get {return _storage._revisions}
+    get {_storage._revisions}
     set {_uniqueStorage()._revisions = newValue}
   }
 
   public var sms: Bool {
-    get {return _storage._sms}
+    get {_storage._sms}
     set {_uniqueStorage()._sms = newValue}
   }
 
@@ -2300,11 +2300,11 @@ public struct BackupProto_ChatItem: @unchecked Sendable {
 
   /// only set if message is pinned
   public var pinDetails: BackupProto_ChatItem.PinDetails {
-    get {return _storage._pinDetails ?? BackupProto_ChatItem.PinDetails()}
+    get {_storage._pinDetails ?? BackupProto_ChatItem.PinDetails()}
     set {_uniqueStorage()._pinDetails = newValue}
   }
   /// Returns true if `pinDetails` has been explicitly set.
-  public var hasPinDetails: Bool {return _storage._pinDetails != nil}
+  public var hasPinDetails: Bool {_storage._pinDetails != nil}
   /// Clears the value of `pinDetails`. Subsequent reads from it will return its default value.
   public mutating func clearPinDetails() {_uniqueStorage()._pinDetails = nil}
 
@@ -2342,11 +2342,11 @@ public struct BackupProto_ChatItem: @unchecked Sendable {
     public var dateReceived: UInt64 = 0
 
     public var dateServerSent: UInt64 {
-      get {return _dateServerSent ?? 0}
+      get {_dateServerSent ?? 0}
       set {_dateServerSent = newValue}
     }
     /// Returns true if `dateServerSent` has been explicitly set.
-    public var hasDateServerSent: Bool {return self._dateServerSent != nil}
+    public var hasDateServerSent: Bool {self._dateServerSent != nil}
     /// Clears the value of `dateServerSent`. Subsequent reads from it will return its default value.
     public mutating func clearDateServerSent() {self._dateServerSent = nil}
 
@@ -2656,44 +2656,44 @@ public struct BackupProto_StandardMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   public var quote: BackupProto_Quote {
-    get {return _storage._quote ?? BackupProto_Quote()}
+    get {_storage._quote ?? BackupProto_Quote()}
     set {_uniqueStorage()._quote = newValue}
   }
   /// Returns true if `quote` has been explicitly set.
-  public var hasQuote: Bool {return _storage._quote != nil}
+  public var hasQuote: Bool {_storage._quote != nil}
   /// Clears the value of `quote`. Subsequent reads from it will return its default value.
   public mutating func clearQuote() {_uniqueStorage()._quote = nil}
 
   public var text: BackupProto_Text {
-    get {return _storage._text ?? BackupProto_Text()}
+    get {_storage._text ?? BackupProto_Text()}
     set {_uniqueStorage()._text = newValue}
   }
   /// Returns true if `text` has been explicitly set.
-  public var hasText: Bool {return _storage._text != nil}
+  public var hasText: Bool {_storage._text != nil}
   /// Clears the value of `text`. Subsequent reads from it will return its default value.
   public mutating func clearText() {_uniqueStorage()._text = nil}
 
   public var attachments: [BackupProto_MessageAttachment] {
-    get {return _storage._attachments}
+    get {_storage._attachments}
     set {_uniqueStorage()._attachments = newValue}
   }
 
   public var linkPreview: [BackupProto_LinkPreview] {
-    get {return _storage._linkPreview}
+    get {_storage._linkPreview}
     set {_uniqueStorage()._linkPreview = newValue}
   }
 
   public var longText: BackupProto_FilePointer {
-    get {return _storage._longText ?? BackupProto_FilePointer()}
+    get {_storage._longText ?? BackupProto_FilePointer()}
     set {_uniqueStorage()._longText = newValue}
   }
   /// Returns true if `longText` has been explicitly set.
-  public var hasLongText: Bool {return _storage._longText != nil}
+  public var hasLongText: Bool {_storage._longText != nil}
   /// Clears the value of `longText`. Subsequent reads from it will return its default value.
   public mutating func clearLongText() {_uniqueStorage()._longText = nil}
 
   public var reactions: [BackupProto_Reaction] {
-    get {return _storage._reactions}
+    get {_storage._reactions}
     set {_uniqueStorage()._reactions = newValue}
   }
 
@@ -2710,11 +2710,11 @@ public struct BackupProto_ContactMessage: Sendable {
   // methods supported on all messages.
 
   public var contact: BackupProto_ContactAttachment {
-    get {return _contact ?? BackupProto_ContactAttachment()}
+    get {_contact ?? BackupProto_ContactAttachment()}
     set {_contact = newValue}
   }
   /// Returns true if `contact` has been explicitly set.
-  public var hasContact: Bool {return self._contact != nil}
+  public var hasContact: Bool {self._contact != nil}
   /// Clears the value of `contact`. Subsequent reads from it will return its default value.
   public mutating func clearContact() {self._contact = nil}
 
@@ -2768,20 +2768,20 @@ public struct BackupProto_DirectStoryReplyMessage: Sendable {
     // methods supported on all messages.
 
     public var text: BackupProto_Text {
-      get {return _storage._text ?? BackupProto_Text()}
+      get {_storage._text ?? BackupProto_Text()}
       set {_uniqueStorage()._text = newValue}
     }
     /// Returns true if `text` has been explicitly set.
-    public var hasText: Bool {return _storage._text != nil}
+    public var hasText: Bool {_storage._text != nil}
     /// Clears the value of `text`. Subsequent reads from it will return its default value.
     public mutating func clearText() {_uniqueStorage()._text = nil}
 
     public var longText: BackupProto_FilePointer {
-      get {return _storage._longText ?? BackupProto_FilePointer()}
+      get {_storage._longText ?? BackupProto_FilePointer()}
       set {_uniqueStorage()._longText = newValue}
     }
     /// Returns true if `longText` has been explicitly set.
-    public var hasLongText: Bool {return _storage._longText != nil}
+    public var hasLongText: Bool {_storage._longText != nil}
     /// Clears the value of `longText`. Subsequent reads from it will return its default value.
     public mutating func clearLongText() {_uniqueStorage()._longText = nil}
 
@@ -2802,39 +2802,39 @@ public struct BackupProto_PaymentNotification: Sendable {
 
   /// stored as a decimal string, e.g. 1.00001
   public var amountMob: String {
-    get {return _amountMob ?? String()}
+    get {_amountMob ?? String()}
     set {_amountMob = newValue}
   }
   /// Returns true if `amountMob` has been explicitly set.
-  public var hasAmountMob: Bool {return self._amountMob != nil}
+  public var hasAmountMob: Bool {self._amountMob != nil}
   /// Clears the value of `amountMob`. Subsequent reads from it will return its default value.
   public mutating func clearAmountMob() {self._amountMob = nil}
 
   /// stored as a decimal string, e.g. 1.00001
   public var feeMob: String {
-    get {return _feeMob ?? String()}
+    get {_feeMob ?? String()}
     set {_feeMob = newValue}
   }
   /// Returns true if `feeMob` has been explicitly set.
-  public var hasFeeMob: Bool {return self._feeMob != nil}
+  public var hasFeeMob: Bool {self._feeMob != nil}
   /// Clears the value of `feeMob`. Subsequent reads from it will return its default value.
   public mutating func clearFeeMob() {self._feeMob = nil}
 
   public var note: String {
-    get {return _note ?? String()}
+    get {_note ?? String()}
     set {_note = newValue}
   }
   /// Returns true if `note` has been explicitly set.
-  public var hasNote: Bool {return self._note != nil}
+  public var hasNote: Bool {self._note != nil}
   /// Clears the value of `note`. Subsequent reads from it will return its default value.
   public mutating func clearNote() {self._note = nil}
 
   public var transactionDetails: BackupProto_PaymentNotification.TransactionDetails {
-    get {return _transactionDetails ?? BackupProto_PaymentNotification.TransactionDetails()}
+    get {_transactionDetails ?? BackupProto_PaymentNotification.TransactionDetails()}
     set {_transactionDetails = newValue}
   }
   /// Returns true if `transactionDetails` has been explicitly set.
-  public var hasTransactionDetails: Bool {return self._transactionDetails != nil}
+  public var hasTransactionDetails: Bool {self._transactionDetails != nil}
   /// Clears the value of `transactionDetails`. Subsequent reads from it will return its default value.
   public mutating func clearTransactionDetails() {self._transactionDetails = nil}
 
@@ -2954,58 +2954,58 @@ public struct BackupProto_PaymentNotification: Sendable {
       /// and is likely required otherwise we may have issues reconciling with
       /// the ledger
       public var mobileCoinIdentification: BackupProto_PaymentNotification.TransactionDetails.MobileCoinTxoIdentification {
-        get {return _mobileCoinIdentification ?? BackupProto_PaymentNotification.TransactionDetails.MobileCoinTxoIdentification()}
+        get {_mobileCoinIdentification ?? BackupProto_PaymentNotification.TransactionDetails.MobileCoinTxoIdentification()}
         set {_mobileCoinIdentification = newValue}
       }
       /// Returns true if `mobileCoinIdentification` has been explicitly set.
-      public var hasMobileCoinIdentification: Bool {return self._mobileCoinIdentification != nil}
+      public var hasMobileCoinIdentification: Bool {self._mobileCoinIdentification != nil}
       /// Clears the value of `mobileCoinIdentification`. Subsequent reads from it will return its default value.
       public mutating func clearMobileCoinIdentification() {self._mobileCoinIdentification = nil}
 
       public var timestamp: UInt64 {
-        get {return _timestamp ?? 0}
+        get {_timestamp ?? 0}
         set {_timestamp = newValue}
       }
       /// Returns true if `timestamp` has been explicitly set.
-      public var hasTimestamp: Bool {return self._timestamp != nil}
+      public var hasTimestamp: Bool {self._timestamp != nil}
       /// Clears the value of `timestamp`. Subsequent reads from it will return its default value.
       public mutating func clearTimestamp() {self._timestamp = nil}
 
       public var blockIndex: UInt64 {
-        get {return _blockIndex ?? 0}
+        get {_blockIndex ?? 0}
         set {_blockIndex = newValue}
       }
       /// Returns true if `blockIndex` has been explicitly set.
-      public var hasBlockIndex: Bool {return self._blockIndex != nil}
+      public var hasBlockIndex: Bool {self._blockIndex != nil}
       /// Clears the value of `blockIndex`. Subsequent reads from it will return its default value.
       public mutating func clearBlockIndex() {self._blockIndex = nil}
 
       public var blockTimestamp: UInt64 {
-        get {return _blockTimestamp ?? 0}
+        get {_blockTimestamp ?? 0}
         set {_blockTimestamp = newValue}
       }
       /// Returns true if `blockTimestamp` has been explicitly set.
-      public var hasBlockTimestamp: Bool {return self._blockTimestamp != nil}
+      public var hasBlockTimestamp: Bool {self._blockTimestamp != nil}
       /// Clears the value of `blockTimestamp`. Subsequent reads from it will return its default value.
       public mutating func clearBlockTimestamp() {self._blockTimestamp = nil}
 
       /// mobile coin blobs
       public var transaction: Data {
-        get {return _transaction ?? Data()}
+        get {_transaction ?? Data()}
         set {_transaction = newValue}
       }
       /// Returns true if `transaction` has been explicitly set.
-      public var hasTransaction: Bool {return self._transaction != nil}
+      public var hasTransaction: Bool {self._transaction != nil}
       /// Clears the value of `transaction`. Subsequent reads from it will return its default value.
       public mutating func clearTransaction() {self._transaction = nil}
 
       /// mobile coin blobs
       public var receipt: Data {
-        get {return _receipt ?? Data()}
+        get {_receipt ?? Data()}
         set {_receipt = newValue}
       }
       /// Returns true if `receipt` has been explicitly set.
-      public var hasReceipt: Bool {return self._receipt != nil}
+      public var hasReceipt: Bool {self._receipt != nil}
       /// Clears the value of `receipt`. Subsequent reads from it will return its default value.
       public mutating func clearReceipt() {self._receipt = nil}
 
@@ -3137,11 +3137,11 @@ public struct BackupProto_ViewOnceMessage: Sendable {
 
   /// Will be null for viewed messages
   public var attachment: BackupProto_MessageAttachment {
-    get {return _attachment ?? BackupProto_MessageAttachment()}
+    get {_attachment ?? BackupProto_MessageAttachment()}
     set {_attachment = newValue}
   }
   /// Returns true if `attachment` has been explicitly set.
-  public var hasAttachment: Bool {return self._attachment != nil}
+  public var hasAttachment: Bool {self._attachment != nil}
   /// Clears the value of `attachment`. Subsequent reads from it will return its default value.
   public mutating func clearAttachment() {self._attachment = nil}
 
@@ -3160,40 +3160,40 @@ public struct BackupProto_ContactAttachment: @unchecked Sendable {
   // methods supported on all messages.
 
   public var name: BackupProto_ContactAttachment.Name {
-    get {return _storage._name ?? BackupProto_ContactAttachment.Name()}
+    get {_storage._name ?? BackupProto_ContactAttachment.Name()}
     set {_uniqueStorage()._name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  public var hasName: Bool {return _storage._name != nil}
+  public var hasName: Bool {_storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
   public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var number: [BackupProto_ContactAttachment.Phone] {
-    get {return _storage._number}
+    get {_storage._number}
     set {_uniqueStorage()._number = newValue}
   }
 
   public var email: [BackupProto_ContactAttachment.Email] {
-    get {return _storage._email}
+    get {_storage._email}
     set {_uniqueStorage()._email = newValue}
   }
 
   public var address: [BackupProto_ContactAttachment.PostalAddress] {
-    get {return _storage._address}
+    get {_storage._address}
     set {_uniqueStorage()._address = newValue}
   }
 
   public var avatar: BackupProto_FilePointer {
-    get {return _storage._avatar ?? BackupProto_FilePointer()}
+    get {_storage._avatar ?? BackupProto_FilePointer()}
     set {_uniqueStorage()._avatar = newValue}
   }
   /// Returns true if `avatar` has been explicitly set.
-  public var hasAvatar: Bool {return _storage._avatar != nil}
+  public var hasAvatar: Bool {_storage._avatar != nil}
   /// Clears the value of `avatar`. Subsequent reads from it will return its default value.
   public mutating func clearAvatar() {_uniqueStorage()._avatar = nil}
 
   public var organization: String {
-    get {return _storage._organization}
+    get {_storage._organization}
     set {_uniqueStorage()._organization = newValue}
   }
 
@@ -3432,11 +3432,11 @@ public struct BackupProto_StickerMessage: Sendable {
   // methods supported on all messages.
 
   public var sticker: BackupProto_Sticker {
-    get {return _sticker ?? BackupProto_Sticker()}
+    get {_sticker ?? BackupProto_Sticker()}
     set {_sticker = newValue}
   }
   /// Returns true if `sticker` has been explicitly set.
-  public var hasSticker: Bool {return self._sticker != nil}
+  public var hasSticker: Bool {self._sticker != nil}
   /// Clears the value of `sticker`. Subsequent reads from it will return its default value.
   public mutating func clearSticker() {self._sticker = nil}
 
@@ -3466,26 +3466,26 @@ public struct BackupProto_Sticker: @unchecked Sendable {
   // methods supported on all messages.
 
   public var packID: Data {
-    get {return _storage._packID}
+    get {_storage._packID}
     set {_uniqueStorage()._packID = newValue}
   }
 
   public var packKey: Data {
-    get {return _storage._packKey}
+    get {_storage._packKey}
     set {_uniqueStorage()._packKey = newValue}
   }
 
   public var stickerID: UInt32 {
-    get {return _storage._stickerID}
+    get {_storage._stickerID}
     set {_uniqueStorage()._stickerID = newValue}
   }
 
   public var emoji: String {
-    get {return _storage._emoji ?? String()}
+    get {_storage._emoji ?? String()}
     set {_uniqueStorage()._emoji = newValue}
   }
   /// Returns true if `emoji` has been explicitly set.
-  public var hasEmoji: Bool {return _storage._emoji != nil}
+  public var hasEmoji: Bool {_storage._emoji != nil}
   /// Clears the value of `emoji`. Subsequent reads from it will return its default value.
   public mutating func clearEmoji() {_uniqueStorage()._emoji = nil}
 
@@ -3494,11 +3494,11 @@ public struct BackupProto_Sticker: @unchecked Sendable {
   /// DO NOT treat this as the definitive source of a sticker in
   /// an installed StickerPack that shares the same packId.
   public var data: BackupProto_FilePointer {
-    get {return _storage._data ?? BackupProto_FilePointer()}
+    get {_storage._data ?? BackupProto_FilePointer()}
     set {_uniqueStorage()._data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return _storage._data != nil}
+  public var hasData: Bool {_storage._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
   public mutating func clearData() {_uniqueStorage()._data = nil}
 
@@ -3515,43 +3515,43 @@ public struct BackupProto_LinkPreview: @unchecked Sendable {
   // methods supported on all messages.
 
   public var url: String {
-    get {return _storage._url}
+    get {_storage._url}
     set {_uniqueStorage()._url = newValue}
   }
 
   public var title: String {
-    get {return _storage._title ?? String()}
+    get {_storage._title ?? String()}
     set {_uniqueStorage()._title = newValue}
   }
   /// Returns true if `title` has been explicitly set.
-  public var hasTitle: Bool {return _storage._title != nil}
+  public var hasTitle: Bool {_storage._title != nil}
   /// Clears the value of `title`. Subsequent reads from it will return its default value.
   public mutating func clearTitle() {_uniqueStorage()._title = nil}
 
   public var image: BackupProto_FilePointer {
-    get {return _storage._image ?? BackupProto_FilePointer()}
+    get {_storage._image ?? BackupProto_FilePointer()}
     set {_uniqueStorage()._image = newValue}
   }
   /// Returns true if `image` has been explicitly set.
-  public var hasImage: Bool {return _storage._image != nil}
+  public var hasImage: Bool {_storage._image != nil}
   /// Clears the value of `image`. Subsequent reads from it will return its default value.
   public mutating func clearImage() {_uniqueStorage()._image = nil}
 
   public var description_p: String {
-    get {return _storage._description_p ?? String()}
+    get {_storage._description_p ?? String()}
     set {_uniqueStorage()._description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  public var hasDescription_p: Bool {return _storage._description_p != nil}
+  public var hasDescription_p: Bool {_storage._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
   public mutating func clearDescription_p() {_uniqueStorage()._description_p = nil}
 
   public var date: UInt64 {
-    get {return _storage._date ?? 0}
+    get {_storage._date ?? 0}
     set {_uniqueStorage()._date = newValue}
   }
   /// Returns true if `date` has been explicitly set.
-  public var hasDate: Bool {return _storage._date != nil}
+  public var hasDate: Bool {_storage._date != nil}
   /// Clears the value of `date`. Subsequent reads from it will return its default value.
   public mutating func clearDate() {_uniqueStorage()._date = nil}
 
@@ -3570,32 +3570,32 @@ public struct BackupProto_MessageAttachment: @unchecked Sendable {
   // methods supported on all messages.
 
   public var pointer: BackupProto_FilePointer {
-    get {return _storage._pointer ?? BackupProto_FilePointer()}
+    get {_storage._pointer ?? BackupProto_FilePointer()}
     set {_uniqueStorage()._pointer = newValue}
   }
   /// Returns true if `pointer` has been explicitly set.
-  public var hasPointer: Bool {return _storage._pointer != nil}
+  public var hasPointer: Bool {_storage._pointer != nil}
   /// Clears the value of `pointer`. Subsequent reads from it will return its default value.
   public mutating func clearPointer() {_uniqueStorage()._pointer = nil}
 
   public var flag: BackupProto_MessageAttachment.Flag {
-    get {return _storage._flag}
+    get {_storage._flag}
     set {_uniqueStorage()._flag = newValue}
   }
 
   public var wasDownloaded: Bool {
-    get {return _storage._wasDownloaded}
+    get {_storage._wasDownloaded}
     set {_uniqueStorage()._wasDownloaded = newValue}
   }
 
   /// Cross-client identifier for this attachment among all attachments on the
   /// owning message. See: SignalService.AttachmentPointer.clientUuid.
   public var clientUuid: Data {
-    get {return _storage._clientUuid ?? Data()}
+    get {_storage._clientUuid ?? Data()}
     set {_uniqueStorage()._clientUuid = newValue}
   }
   /// Returns true if `clientUuid` has been explicitly set.
-  public var hasClientUuid: Bool {return _storage._clientUuid != nil}
+  public var hasClientUuid: Bool {_storage._clientUuid != nil}
   /// Clears the value of `clientUuid`. Subsequent reads from it will return its default value.
   public mutating func clearClientUuid() {_uniqueStorage()._clientUuid = nil}
 
@@ -3659,83 +3659,83 @@ public struct BackupProto_FilePointer: Sendable {
   // methods supported on all messages.
 
   public var contentType: String {
-    get {return _contentType ?? String()}
+    get {_contentType ?? String()}
     set {_contentType = newValue}
   }
   /// Returns true if `contentType` has been explicitly set.
-  public var hasContentType: Bool {return self._contentType != nil}
+  public var hasContentType: Bool {self._contentType != nil}
   /// Clears the value of `contentType`. Subsequent reads from it will return its default value.
   public mutating func clearContentType() {self._contentType = nil}
 
   public var incrementalMac: Data {
-    get {return _incrementalMac ?? Data()}
+    get {_incrementalMac ?? Data()}
     set {_incrementalMac = newValue}
   }
   /// Returns true if `incrementalMac` has been explicitly set.
-  public var hasIncrementalMac: Bool {return self._incrementalMac != nil}
+  public var hasIncrementalMac: Bool {self._incrementalMac != nil}
   /// Clears the value of `incrementalMac`. Subsequent reads from it will return its default value.
   public mutating func clearIncrementalMac() {self._incrementalMac = nil}
 
   public var incrementalMacChunkSize: UInt32 {
-    get {return _incrementalMacChunkSize ?? 0}
+    get {_incrementalMacChunkSize ?? 0}
     set {_incrementalMacChunkSize = newValue}
   }
   /// Returns true if `incrementalMacChunkSize` has been explicitly set.
-  public var hasIncrementalMacChunkSize: Bool {return self._incrementalMacChunkSize != nil}
+  public var hasIncrementalMacChunkSize: Bool {self._incrementalMacChunkSize != nil}
   /// Clears the value of `incrementalMacChunkSize`. Subsequent reads from it will return its default value.
   public mutating func clearIncrementalMacChunkSize() {self._incrementalMacChunkSize = nil}
 
   public var fileName: String {
-    get {return _fileName ?? String()}
+    get {_fileName ?? String()}
     set {_fileName = newValue}
   }
   /// Returns true if `fileName` has been explicitly set.
-  public var hasFileName: Bool {return self._fileName != nil}
+  public var hasFileName: Bool {self._fileName != nil}
   /// Clears the value of `fileName`. Subsequent reads from it will return its default value.
   public mutating func clearFileName() {self._fileName = nil}
 
   public var width: UInt32 {
-    get {return _width ?? 0}
+    get {_width ?? 0}
     set {_width = newValue}
   }
   /// Returns true if `width` has been explicitly set.
-  public var hasWidth: Bool {return self._width != nil}
+  public var hasWidth: Bool {self._width != nil}
   /// Clears the value of `width`. Subsequent reads from it will return its default value.
   public mutating func clearWidth() {self._width = nil}
 
   public var height: UInt32 {
-    get {return _height ?? 0}
+    get {_height ?? 0}
     set {_height = newValue}
   }
   /// Returns true if `height` has been explicitly set.
-  public var hasHeight: Bool {return self._height != nil}
+  public var hasHeight: Bool {self._height != nil}
   /// Clears the value of `height`. Subsequent reads from it will return its default value.
   public mutating func clearHeight() {self._height = nil}
 
   public var caption: String {
-    get {return _caption ?? String()}
+    get {_caption ?? String()}
     set {_caption = newValue}
   }
   /// Returns true if `caption` has been explicitly set.
-  public var hasCaption: Bool {return self._caption != nil}
+  public var hasCaption: Bool {self._caption != nil}
   /// Clears the value of `caption`. Subsequent reads from it will return its default value.
   public mutating func clearCaption() {self._caption = nil}
 
   public var blurHash: String {
-    get {return _blurHash ?? String()}
+    get {_blurHash ?? String()}
     set {_blurHash = newValue}
   }
   /// Returns true if `blurHash` has been explicitly set.
-  public var hasBlurHash: Bool {return self._blurHash != nil}
+  public var hasBlurHash: Bool {self._blurHash != nil}
   /// Clears the value of `blurHash`. Subsequent reads from it will return its default value.
   public mutating func clearBlurHash() {self._blurHash = nil}
 
   public var locatorInfo: BackupProto_FilePointer.LocatorInfo {
-    get {return _locatorInfo ?? BackupProto_FilePointer.LocatorInfo()}
+    get {_locatorInfo ?? BackupProto_FilePointer.LocatorInfo()}
     set {_locatorInfo = newValue}
   }
   /// Returns true if `locatorInfo` has been explicitly set.
-  public var hasLocatorInfo: Bool {return self._locatorInfo != nil}
+  public var hasLocatorInfo: Bool {self._locatorInfo != nil}
   /// Clears the value of `locatorInfo`. Subsequent reads from it will return its default value.
   public mutating func clearLocatorInfo() {self._locatorInfo = nil}
 
@@ -3778,29 +3778,29 @@ public struct BackupProto_FilePointer: Sendable {
     /// Either both transit cdn key and number are set or neither should be set.
     /// Upload timestamp is optional but should only be set if key/number are set.
     public var transitCdnKey: String {
-      get {return _transitCdnKey ?? String()}
+      get {_transitCdnKey ?? String()}
       set {_transitCdnKey = newValue}
     }
     /// Returns true if `transitCdnKey` has been explicitly set.
-    public var hasTransitCdnKey: Bool {return self._transitCdnKey != nil}
+    public var hasTransitCdnKey: Bool {self._transitCdnKey != nil}
     /// Clears the value of `transitCdnKey`. Subsequent reads from it will return its default value.
     public mutating func clearTransitCdnKey() {self._transitCdnKey = nil}
 
     public var transitCdnNumber: UInt32 {
-      get {return _transitCdnNumber ?? 0}
+      get {_transitCdnNumber ?? 0}
       set {_transitCdnNumber = newValue}
     }
     /// Returns true if `transitCdnNumber` has been explicitly set.
-    public var hasTransitCdnNumber: Bool {return self._transitCdnNumber != nil}
+    public var hasTransitCdnNumber: Bool {self._transitCdnNumber != nil}
     /// Clears the value of `transitCdnNumber`. Subsequent reads from it will return its default value.
     public mutating func clearTransitCdnNumber() {self._transitCdnNumber = nil}
 
     public var transitTierUploadTimestamp: UInt64 {
-      get {return _transitTierUploadTimestamp ?? 0}
+      get {_transitTierUploadTimestamp ?? 0}
       set {_transitTierUploadTimestamp = newValue}
     }
     /// Returns true if `transitTierUploadTimestamp` has been explicitly set.
-    public var hasTransitTierUploadTimestamp: Bool {return self._transitTierUploadTimestamp != nil}
+    public var hasTransitTierUploadTimestamp: Bool {self._transitTierUploadTimestamp != nil}
     /// Clears the value of `transitTierUploadTimestamp`. Subsequent reads from it will return its default value.
     public mutating func clearTransitTierUploadTimestamp() {self._transitTierUploadTimestamp = nil}
 
@@ -3810,11 +3810,11 @@ public struct BackupProto_FilePointer: Sendable {
     /// Exporting clients should set this as long as their subscription
     /// has not rotated since last upload; even if currently free tier.
     public var mediaTierCdnNumber: UInt32 {
-      get {return _mediaTierCdnNumber ?? 0}
+      get {_mediaTierCdnNumber ?? 0}
       set {_mediaTierCdnNumber = newValue}
     }
     /// Returns true if `mediaTierCdnNumber` has been explicitly set.
-    public var hasMediaTierCdnNumber: Bool {return self._mediaTierCdnNumber != nil}
+    public var hasMediaTierCdnNumber: Bool {self._mediaTierCdnNumber != nil}
     /// Clears the value of `mediaTierCdnNumber`. Subsequent reads from it will return its default value.
     public mutating func clearMediaTierCdnNumber() {self._mediaTierCdnNumber = nil}
 
@@ -3824,11 +3824,11 @@ public struct BackupProto_FilePointer: Sendable {
     /// when the backup was generated, but remote backup or transit
     /// info was available.
     public var localKey: Data {
-      get {return _localKey ?? Data()}
+      get {_localKey ?? Data()}
       set {_localKey = newValue}
     }
     /// Returns true if `localKey` has been explicitly set.
-    public var hasLocalKey: Bool {return self._localKey != nil}
+    public var hasLocalKey: Bool {self._localKey != nil}
     /// Clears the value of `localKey`. Subsequent reads from it will return its default value.
     public mutating func clearLocalKey() {self._localKey = nil}
 
@@ -3872,22 +3872,22 @@ public struct BackupProto_Quote: Sendable {
 
   /// null if the target message could not be found at time of quote insert
   public var targetSentTimestamp: UInt64 {
-    get {return _targetSentTimestamp ?? 0}
+    get {_targetSentTimestamp ?? 0}
     set {_targetSentTimestamp = newValue}
   }
   /// Returns true if `targetSentTimestamp` has been explicitly set.
-  public var hasTargetSentTimestamp: Bool {return self._targetSentTimestamp != nil}
+  public var hasTargetSentTimestamp: Bool {self._targetSentTimestamp != nil}
   /// Clears the value of `targetSentTimestamp`. Subsequent reads from it will return its default value.
   public mutating func clearTargetSentTimestamp() {self._targetSentTimestamp = nil}
 
   public var authorID: UInt64 = 0
 
   public var text: BackupProto_Text {
-    get {return _text ?? BackupProto_Text()}
+    get {_text ?? BackupProto_Text()}
     set {_text = newValue}
   }
   /// Returns true if `text` has been explicitly set.
-  public var hasText: Bool {return self._text != nil}
+  public var hasText: Bool {self._text != nil}
   /// Clears the value of `text`. Subsequent reads from it will return its default value.
   public mutating func clearText() {self._text = nil}
 
@@ -3951,29 +3951,29 @@ public struct BackupProto_Quote: Sendable {
     // methods supported on all messages.
 
     public var contentType: String {
-      get {return _contentType ?? String()}
+      get {_contentType ?? String()}
       set {_contentType = newValue}
     }
     /// Returns true if `contentType` has been explicitly set.
-    public var hasContentType: Bool {return self._contentType != nil}
+    public var hasContentType: Bool {self._contentType != nil}
     /// Clears the value of `contentType`. Subsequent reads from it will return its default value.
     public mutating func clearContentType() {self._contentType = nil}
 
     public var fileName: String {
-      get {return _fileName ?? String()}
+      get {_fileName ?? String()}
       set {_fileName = newValue}
     }
     /// Returns true if `fileName` has been explicitly set.
-    public var hasFileName: Bool {return self._fileName != nil}
+    public var hasFileName: Bool {self._fileName != nil}
     /// Clears the value of `fileName`. Subsequent reads from it will return its default value.
     public mutating func clearFileName() {self._fileName = nil}
 
     public var thumbnail: BackupProto_MessageAttachment {
-      get {return _thumbnail ?? BackupProto_MessageAttachment()}
+      get {_thumbnail ?? BackupProto_MessageAttachment()}
       set {_thumbnail = newValue}
     }
     /// Returns true if `thumbnail` has been explicitly set.
-    public var hasThumbnail: Bool {return self._thumbnail != nil}
+    public var hasThumbnail: Bool {self._thumbnail != nil}
     /// Clears the value of `thumbnail`. Subsequent reads from it will return its default value.
     public mutating func clearThumbnail() {self._thumbnail = nil}
 
@@ -4282,11 +4282,11 @@ public struct BackupProto_IndividualCall: Sendable {
   // methods supported on all messages.
 
   public var callID: UInt64 {
-    get {return _callID ?? 0}
+    get {_callID ?? 0}
     set {_callID = newValue}
   }
   /// Returns true if `callID` has been explicitly set.
-  public var hasCallID: Bool {return self._callID != nil}
+  public var hasCallID: Bool {self._callID != nil}
   /// Clears the value of `callID`. Subsequent reads from it will return its default value.
   public mutating func clearCallID() {self._callID = nil}
 
@@ -4447,31 +4447,31 @@ public struct BackupProto_GroupCall: Sendable {
   // methods supported on all messages.
 
   public var callID: UInt64 {
-    get {return _callID ?? 0}
+    get {_callID ?? 0}
     set {_callID = newValue}
   }
   /// Returns true if `callID` has been explicitly set.
-  public var hasCallID: Bool {return self._callID != nil}
+  public var hasCallID: Bool {self._callID != nil}
   /// Clears the value of `callID`. Subsequent reads from it will return its default value.
   public mutating func clearCallID() {self._callID = nil}
 
   public var state: BackupProto_GroupCall.State = .unknownState
 
   public var ringerRecipientID: UInt64 {
-    get {return _ringerRecipientID ?? 0}
+    get {_ringerRecipientID ?? 0}
     set {_ringerRecipientID = newValue}
   }
   /// Returns true if `ringerRecipientID` has been explicitly set.
-  public var hasRingerRecipientID: Bool {return self._ringerRecipientID != nil}
+  public var hasRingerRecipientID: Bool {self._ringerRecipientID != nil}
   /// Clears the value of `ringerRecipientID`. Subsequent reads from it will return its default value.
   public mutating func clearRingerRecipientID() {self._ringerRecipientID = nil}
 
   public var startedCallRecipientID: UInt64 {
-    get {return _startedCallRecipientID ?? 0}
+    get {_startedCallRecipientID ?? 0}
     set {_startedCallRecipientID = newValue}
   }
   /// Returns true if `startedCallRecipientID` has been explicitly set.
-  public var hasStartedCallRecipientID: Bool {return self._startedCallRecipientID != nil}
+  public var hasStartedCallRecipientID: Bool {self._startedCallRecipientID != nil}
   /// Clears the value of `startedCallRecipientID`. Subsequent reads from it will return its default value.
   public mutating func clearStartedCallRecipientID() {self._startedCallRecipientID = nil}
 
@@ -4479,11 +4479,11 @@ public struct BackupProto_GroupCall: Sendable {
 
   /// The time the call ended.
   public var endedCallTimestamp: UInt64 {
-    get {return _endedCallTimestamp ?? 0}
+    get {_endedCallTimestamp ?? 0}
     set {_endedCallTimestamp = newValue}
   }
   /// Returns true if `endedCallTimestamp` has been explicitly set.
-  public var hasEndedCallTimestamp: Bool {return self._endedCallTimestamp != nil}
+  public var hasEndedCallTimestamp: Bool {self._endedCallTimestamp != nil}
   /// Clears the value of `endedCallTimestamp`. Subsequent reads from it will return its default value.
   public mutating func clearEndedCallTimestamp() {self._endedCallTimestamp = nil}
 
@@ -5123,11 +5123,11 @@ public struct BackupProto_GenericGroupUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5144,11 +5144,11 @@ public struct BackupProto_GroupCreationUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5165,21 +5165,21 @@ public struct BackupProto_GroupNameUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
   /// Null value means the group name was removed.
   public var newGroupName: String {
-    get {return _newGroupName ?? String()}
+    get {_newGroupName ?? String()}
     set {_newGroupName = newValue}
   }
   /// Returns true if `newGroupName` has been explicitly set.
-  public var hasNewGroupName: Bool {return self._newGroupName != nil}
+  public var hasNewGroupName: Bool {self._newGroupName != nil}
   /// Clears the value of `newGroupName`. Subsequent reads from it will return its default value.
   public mutating func clearNewGroupName() {self._newGroupName = nil}
 
@@ -5197,11 +5197,11 @@ public struct BackupProto_GroupAvatarUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5220,21 +5220,21 @@ public struct BackupProto_GroupDescriptionUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
   /// Null value means the group description was removed.
   public var newDescription: String {
-    get {return _newDescription ?? String()}
+    get {_newDescription ?? String()}
     set {_newDescription = newValue}
   }
   /// Returns true if `newDescription` has been explicitly set.
-  public var hasNewDescription: Bool {return self._newDescription != nil}
+  public var hasNewDescription: Bool {self._newDescription != nil}
   /// Clears the value of `newDescription`. Subsequent reads from it will return its default value.
   public mutating func clearNewDescription() {self._newDescription = nil}
 
@@ -5252,11 +5252,11 @@ public struct BackupProto_GroupMembershipAccessLevelChangeUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5275,11 +5275,11 @@ public struct BackupProto_GroupAttributesAccessLevelChangeUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5298,11 +5298,11 @@ public struct BackupProto_GroupAnnouncementOnlyChangeUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5321,11 +5321,11 @@ public struct BackupProto_GroupAdminStatusUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5359,11 +5359,11 @@ public struct BackupProto_GroupMemberRemovedUpdate: Sendable {
   // methods supported on all messages.
 
   public var removerAci: Data {
-    get {return _removerAci ?? Data()}
+    get {_removerAci ?? Data()}
     set {_removerAci = newValue}
   }
   /// Returns true if `removerAci` has been explicitly set.
-  public var hasRemoverAci: Bool {return self._removerAci != nil}
+  public var hasRemoverAci: Bool {self._removerAci != nil}
   /// Clears the value of `removerAci`. Subsequent reads from it will return its default value.
   public mutating func clearRemoverAci() {self._removerAci = nil}
 
@@ -5382,11 +5382,11 @@ public struct BackupProto_SelfInvitedToGroupUpdate: Sendable {
   // methods supported on all messages.
 
   public var inviterAci: Data {
-    get {return _inviterAci ?? Data()}
+    get {_inviterAci ?? Data()}
     set {_inviterAci = newValue}
   }
   /// Returns true if `inviterAci` has been explicitly set.
-  public var hasInviterAci: Bool {return self._inviterAci != nil}
+  public var hasInviterAci: Bool {self._inviterAci != nil}
   /// Clears the value of `inviterAci`. Subsequent reads from it will return its default value.
   public mutating func clearInviterAci() {self._inviterAci = nil}
 
@@ -5417,11 +5417,11 @@ public struct BackupProto_GroupUnknownInviteeUpdate: Sendable {
 
   /// Can be the self user.
   public var inviterAci: Data {
-    get {return _inviterAci ?? Data()}
+    get {_inviterAci ?? Data()}
     set {_inviterAci = newValue}
   }
   /// Returns true if `inviterAci` has been explicitly set.
-  public var hasInviterAci: Bool {return self._inviterAci != nil}
+  public var hasInviterAci: Bool {self._inviterAci != nil}
   /// Clears the value of `inviterAci`. Subsequent reads from it will return its default value.
   public mutating func clearInviterAci() {self._inviterAci = nil}
 
@@ -5440,11 +5440,11 @@ public struct BackupProto_GroupInvitationAcceptedUpdate: Sendable {
   // methods supported on all messages.
 
   public var inviterAci: Data {
-    get {return _inviterAci ?? Data()}
+    get {_inviterAci ?? Data()}
     set {_inviterAci = newValue}
   }
   /// Returns true if `inviterAci` has been explicitly set.
-  public var hasInviterAci: Bool {return self._inviterAci != nil}
+  public var hasInviterAci: Bool {self._inviterAci != nil}
   /// Clears the value of `inviterAci`. Subsequent reads from it will return its default value.
   public mutating func clearInviterAci() {self._inviterAci = nil}
 
@@ -5463,21 +5463,21 @@ public struct BackupProto_GroupInvitationDeclinedUpdate: Sendable {
   // methods supported on all messages.
 
   public var inviterAci: Data {
-    get {return _inviterAci ?? Data()}
+    get {_inviterAci ?? Data()}
     set {_inviterAci = newValue}
   }
   /// Returns true if `inviterAci` has been explicitly set.
-  public var hasInviterAci: Bool {return self._inviterAci != nil}
+  public var hasInviterAci: Bool {self._inviterAci != nil}
   /// Clears the value of `inviterAci`. Subsequent reads from it will return its default value.
   public mutating func clearInviterAci() {self._inviterAci = nil}
 
   /// Note: if invited by pni, just set inviteeAci to nil.
   public var inviteeAci: Data {
-    get {return _inviteeAci ?? Data()}
+    get {_inviteeAci ?? Data()}
     set {_inviteeAci = newValue}
   }
   /// Returns true if `inviteeAci` has been explicitly set.
-  public var hasInviteeAci: Bool {return self._inviteeAci != nil}
+  public var hasInviteeAci: Bool {self._inviteeAci != nil}
   /// Clears the value of `inviteeAci`. Subsequent reads from it will return its default value.
   public mutating func clearInviteeAci() {self._inviteeAci = nil}
 
@@ -5507,11 +5507,11 @@ public struct BackupProto_GroupMemberAddedUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5521,11 +5521,11 @@ public struct BackupProto_GroupMemberAddedUpdate: Sendable {
 
   /// If hadOpenInvitation is true, optionally include aci of the inviter.
   public var inviterAci: Data {
-    get {return _inviterAci ?? Data()}
+    get {_inviterAci ?? Data()}
     set {_inviterAci = newValue}
   }
   /// Returns true if `inviterAci` has been explicitly set.
-  public var hasInviterAci: Bool {return self._inviterAci != nil}
+  public var hasInviterAci: Bool {self._inviterAci != nil}
   /// Clears the value of `inviterAci`. Subsequent reads from it will return its default value.
   public mutating func clearInviterAci() {self._inviterAci = nil}
 
@@ -5544,11 +5544,11 @@ public struct BackupProto_GroupSelfInvitationRevokedUpdate: Sendable {
   // methods supported on all messages.
 
   public var revokerAci: Data {
-    get {return _revokerAci ?? Data()}
+    get {_revokerAci ?? Data()}
     set {_revokerAci = newValue}
   }
   /// Returns true if `revokerAci` has been explicitly set.
-  public var hasRevokerAci: Bool {return self._revokerAci != nil}
+  public var hasRevokerAci: Bool {self._revokerAci != nil}
   /// Clears the value of `revokerAci`. Subsequent reads from it will return its default value.
   public mutating func clearRevokerAci() {self._revokerAci = nil}
 
@@ -5571,11 +5571,11 @@ public struct BackupProto_GroupInvitationRevokedUpdate: Sendable {
   /// Assumed to be an admin (at the time, may no longer be an
   /// admin or even a member).
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5589,31 +5589,31 @@ public struct BackupProto_GroupInvitationRevokedUpdate: Sendable {
     // methods supported on all messages.
 
     public var inviterAci: Data {
-      get {return _inviterAci ?? Data()}
+      get {_inviterAci ?? Data()}
       set {_inviterAci = newValue}
     }
     /// Returns true if `inviterAci` has been explicitly set.
-    public var hasInviterAci: Bool {return self._inviterAci != nil}
+    public var hasInviterAci: Bool {self._inviterAci != nil}
     /// Clears the value of `inviterAci`. Subsequent reads from it will return its default value.
     public mutating func clearInviterAci() {self._inviterAci = nil}
 
     /// Prefer to use aci over pni. No need to set
     /// pni if aci is set. Both can be missing.
     public var inviteeAci: Data {
-      get {return _inviteeAci ?? Data()}
+      get {_inviteeAci ?? Data()}
       set {_inviteeAci = newValue}
     }
     /// Returns true if `inviteeAci` has been explicitly set.
-    public var hasInviteeAci: Bool {return self._inviteeAci != nil}
+    public var hasInviteeAci: Bool {self._inviteeAci != nil}
     /// Clears the value of `inviteeAci`. Subsequent reads from it will return its default value.
     public mutating func clearInviteeAci() {self._inviteeAci = nil}
 
     public var inviteePni: Data {
-      get {return _inviteePni ?? Data()}
+      get {_inviteePni ?? Data()}
       set {_inviteePni = newValue}
     }
     /// Returns true if `inviteePni` has been explicitly set.
-    public var hasInviteePni: Bool {return self._inviteePni != nil}
+    public var hasInviteePni: Bool {self._inviteePni != nil}
     /// Clears the value of `inviteePni`. Subsequent reads from it will return its default value.
     public mutating func clearInviteePni() {self._inviteePni = nil}
 
@@ -5652,11 +5652,11 @@ public struct BackupProto_GroupJoinRequestApprovalUpdate: Sendable {
 
   /// The aci that approved or rejected the request.
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5707,11 +5707,11 @@ public struct BackupProto_GroupInviteLinkResetUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5728,11 +5728,11 @@ public struct BackupProto_GroupInviteLinkEnabledUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5751,11 +5751,11 @@ public struct BackupProto_GroupInviteLinkAdminApprovalUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5774,11 +5774,11 @@ public struct BackupProto_GroupInviteLinkDisabledUpdate: Sendable {
   // methods supported on all messages.
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5864,11 +5864,11 @@ public struct BackupProto_GroupExpirationTimerUpdate: Sendable {
   public var expiresInMs: UInt64 = 0
 
   public var updaterAci: Data {
-    get {return _updaterAci ?? Data()}
+    get {_updaterAci ?? Data()}
     set {_updaterAci = newValue}
   }
   /// Returns true if `updaterAci` has been explicitly set.
-  public var hasUpdaterAci: Bool {return self._updaterAci != nil}
+  public var hasUpdaterAci: Bool {self._updaterAci != nil}
   /// Clears the value of `updaterAci`. Subsequent reads from it will return its default value.
   public mutating func clearUpdaterAci() {self._updaterAci = nil}
 
@@ -5986,7 +5986,7 @@ public struct BackupProto_ChatStyle: @unchecked Sendable {
   }
 
   public var dimWallpaperInDarkMode: Bool {
-    get {return _storage._dimWallpaperInDarkMode}
+    get {_storage._dimWallpaperInDarkMode}
     set {_uniqueStorage()._dimWallpaperInDarkMode = newValue}
   }
 
@@ -6330,11 +6330,11 @@ public struct BackupProto_NotificationProfile: Sendable {
   public var name: String = String()
 
   public var emoji: String {
-    get {return _emoji ?? String()}
+    get {_emoji ?? String()}
     set {_emoji = newValue}
   }
   /// Returns true if `emoji` has been explicitly set.
-  public var hasEmoji: Bool {return self._emoji != nil}
+  public var hasEmoji: Bool {self._emoji != nil}
   /// Clears the value of `emoji`. Subsequent reads from it will return its default value.
   public mutating func clearEmoji() {self._emoji = nil}
 
@@ -8529,7 +8529,7 @@ extension BackupProto_Chat: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 
 extension BackupProto_CallLink: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CallLink"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rootKey\0\u{1}adminKey\0\u{1}name\0\u{1}restrictions\0\u{1}expirationMs\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rootKey\0\u{1}adminKey\0\u{1}name\0\u{1}restrictions\0\u{1}expirationMs\0\u{c}\u{6}\u{1}")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

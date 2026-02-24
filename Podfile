@@ -9,7 +9,7 @@ use_frameworks!
 source 'https://cdn.cocoapods.org/'
 
 pod 'blurhash', podspec: './ThirdParty/blurhash.podspec'
-pod 'SwiftProtobuf', "1.31.1"
+pod 'SwiftProtobuf', "1.35.1"
 
 ENV['LIBSIGNAL_FFI_PREBUILD_CHECKSUM'] = 'd817524119923c3811a6e9bd529c39bfd161990691facac6b0ac9fdfb08dcc1a'
 pod 'LibSignalClient', git: 'https://github.com/signalapp/libsignal.git', tag: 'v0.87.4', testspecs: ["Tests"]

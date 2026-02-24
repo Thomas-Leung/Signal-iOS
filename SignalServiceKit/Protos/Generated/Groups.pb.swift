@@ -139,11 +139,11 @@ struct GroupsProtos_PendingMember: Sendable {
 
   /// The invited member.
   var member: GroupsProtos_Member {
-    get {return _member ?? GroupsProtos_Member()}
+    get {_member ?? GroupsProtos_Member()}
     set {_member = newValue}
   }
   /// Returns true if `member` has been explicitly set.
-  var hasMember: Bool {return self._member != nil}
+  var hasMember: Bool {self._member != nil}
   /// Clears the value of `member`. Subsequent reads from it will return its default value.
   mutating func clearMember() {self._member = nil}
 
@@ -296,11 +296,11 @@ struct GroupsProtos_Group: Sendable {
   var descriptionBytes: Data = Data()
 
   var accessControl: GroupsProtos_AccessControl {
-    get {return _accessControl ?? GroupsProtos_AccessControl()}
+    get {_accessControl ?? GroupsProtos_AccessControl()}
     set {_accessControl = newValue}
   }
   /// Returns true if `accessControl` has been explicitly set.
-  var hasAccessControl: Bool {return self._accessControl != nil}
+  var hasAccessControl: Bool {self._accessControl != nil}
   /// Clears the value of `accessControl`. Subsequent reads from it will return its default value.
   mutating func clearAccessControl() {self._accessControl = nil}
 
@@ -465,194 +465,194 @@ struct GroupsProtos_GroupChange: Sendable {
 
     /// Encrypted ServiceId for who made the change
     var sourceUserID: Data {
-      get {return _storage._sourceUserID}
+      get {_storage._sourceUserID}
       set {_uniqueStorage()._sourceUserID = newValue}
     }
 
     /// clients should not provide this value; the server will provide it in the response buffer to ensure the signature is binding to a particular group
     /// if clients set it during a request the server will respond with 400.
     var groupID: Data {
-      get {return _storage._groupID}
+      get {_storage._groupID}
       set {_uniqueStorage()._groupID = newValue}
     }
 
     /// The change revision number
     var revision: UInt32 {
-      get {return _storage._revision}
+      get {_storage._revision}
       set {_uniqueStorage()._revision = newValue}
     }
 
     /// Members added
     var addMembers: [GroupsProtos_GroupChange.Actions.AddMemberAction] {
-      get {return _storage._addMembers}
+      get {_storage._addMembers}
       set {_uniqueStorage()._addMembers = newValue}
     }
 
     /// Members deleted
     var deleteMembers: [GroupsProtos_GroupChange.Actions.DeleteMemberAction] {
-      get {return _storage._deleteMembers}
+      get {_storage._deleteMembers}
       set {_uniqueStorage()._deleteMembers = newValue}
     }
 
     /// Modified member roles
     var modifyMemberRoles: [GroupsProtos_GroupChange.Actions.ModifyMemberRoleAction] {
-      get {return _storage._modifyMemberRoles}
+      get {_storage._modifyMemberRoles}
       set {_uniqueStorage()._modifyMemberRoles = newValue}
     }
 
     /// Modified member profile keys
     var modifyMemberProfileKeys: [GroupsProtos_GroupChange.Actions.ModifyMemberProfileKeyAction] {
-      get {return _storage._modifyMemberProfileKeys}
+      get {_storage._modifyMemberProfileKeys}
       set {_uniqueStorage()._modifyMemberProfileKeys = newValue}
     }
 
     /// Pending members added
     var addPendingMembers: [GroupsProtos_GroupChange.Actions.AddPendingMemberAction] {
-      get {return _storage._addPendingMembers}
+      get {_storage._addPendingMembers}
       set {_uniqueStorage()._addPendingMembers = newValue}
     }
 
     /// Pending members deleted
     var deletePendingMembers: [GroupsProtos_GroupChange.Actions.DeletePendingMemberAction] {
-      get {return _storage._deletePendingMembers}
+      get {_storage._deletePendingMembers}
       set {_uniqueStorage()._deletePendingMembers = newValue}
     }
 
     /// Pending invitations accepted
     var promotePendingMembers: [GroupsProtos_GroupChange.Actions.PromotePendingMemberAction] {
-      get {return _storage._promotePendingMembers}
+      get {_storage._promotePendingMembers}
       set {_uniqueStorage()._promotePendingMembers = newValue}
     }
 
     /// Changed title
     var modifyTitle: GroupsProtos_GroupChange.Actions.ModifyTitleAction {
-      get {return _storage._modifyTitle ?? GroupsProtos_GroupChange.Actions.ModifyTitleAction()}
+      get {_storage._modifyTitle ?? GroupsProtos_GroupChange.Actions.ModifyTitleAction()}
       set {_uniqueStorage()._modifyTitle = newValue}
     }
     /// Returns true if `modifyTitle` has been explicitly set.
-    var hasModifyTitle: Bool {return _storage._modifyTitle != nil}
+    var hasModifyTitle: Bool {_storage._modifyTitle != nil}
     /// Clears the value of `modifyTitle`. Subsequent reads from it will return its default value.
     mutating func clearModifyTitle() {_uniqueStorage()._modifyTitle = nil}
 
     /// Changed avatar
     var modifyAvatar: GroupsProtos_GroupChange.Actions.ModifyAvatarAction {
-      get {return _storage._modifyAvatar ?? GroupsProtos_GroupChange.Actions.ModifyAvatarAction()}
+      get {_storage._modifyAvatar ?? GroupsProtos_GroupChange.Actions.ModifyAvatarAction()}
       set {_uniqueStorage()._modifyAvatar = newValue}
     }
     /// Returns true if `modifyAvatar` has been explicitly set.
-    var hasModifyAvatar: Bool {return _storage._modifyAvatar != nil}
+    var hasModifyAvatar: Bool {_storage._modifyAvatar != nil}
     /// Clears the value of `modifyAvatar`. Subsequent reads from it will return its default value.
     mutating func clearModifyAvatar() {_uniqueStorage()._modifyAvatar = nil}
 
     /// Changed timer
     var modifyDisappearingMessagesTimer: GroupsProtos_GroupChange.Actions.ModifyDisappearingMessagesTimerAction {
-      get {return _storage._modifyDisappearingMessagesTimer ?? GroupsProtos_GroupChange.Actions.ModifyDisappearingMessagesTimerAction()}
+      get {_storage._modifyDisappearingMessagesTimer ?? GroupsProtos_GroupChange.Actions.ModifyDisappearingMessagesTimerAction()}
       set {_uniqueStorage()._modifyDisappearingMessagesTimer = newValue}
     }
     /// Returns true if `modifyDisappearingMessagesTimer` has been explicitly set.
-    var hasModifyDisappearingMessagesTimer: Bool {return _storage._modifyDisappearingMessagesTimer != nil}
+    var hasModifyDisappearingMessagesTimer: Bool {_storage._modifyDisappearingMessagesTimer != nil}
     /// Clears the value of `modifyDisappearingMessagesTimer`. Subsequent reads from it will return its default value.
     mutating func clearModifyDisappearingMessagesTimer() {_uniqueStorage()._modifyDisappearingMessagesTimer = nil}
 
     /// Changed attributes access control
     var modifyAttributesAccess: GroupsProtos_GroupChange.Actions.ModifyAttributesAccessControlAction {
-      get {return _storage._modifyAttributesAccess ?? GroupsProtos_GroupChange.Actions.ModifyAttributesAccessControlAction()}
+      get {_storage._modifyAttributesAccess ?? GroupsProtos_GroupChange.Actions.ModifyAttributesAccessControlAction()}
       set {_uniqueStorage()._modifyAttributesAccess = newValue}
     }
     /// Returns true if `modifyAttributesAccess` has been explicitly set.
-    var hasModifyAttributesAccess: Bool {return _storage._modifyAttributesAccess != nil}
+    var hasModifyAttributesAccess: Bool {_storage._modifyAttributesAccess != nil}
     /// Clears the value of `modifyAttributesAccess`. Subsequent reads from it will return its default value.
     mutating func clearModifyAttributesAccess() {_uniqueStorage()._modifyAttributesAccess = nil}
 
     /// Changed membership access control
     var modifyMemberAccess: GroupsProtos_GroupChange.Actions.ModifyMembersAccessControlAction {
-      get {return _storage._modifyMemberAccess ?? GroupsProtos_GroupChange.Actions.ModifyMembersAccessControlAction()}
+      get {_storage._modifyMemberAccess ?? GroupsProtos_GroupChange.Actions.ModifyMembersAccessControlAction()}
       set {_uniqueStorage()._modifyMemberAccess = newValue}
     }
     /// Returns true if `modifyMemberAccess` has been explicitly set.
-    var hasModifyMemberAccess: Bool {return _storage._modifyMemberAccess != nil}
+    var hasModifyMemberAccess: Bool {_storage._modifyMemberAccess != nil}
     /// Clears the value of `modifyMemberAccess`. Subsequent reads from it will return its default value.
     mutating func clearModifyMemberAccess() {_uniqueStorage()._modifyMemberAccess = nil}
 
     /// change epoch = 1
     var modifyAddFromInviteLinkAccess: GroupsProtos_GroupChange.Actions.ModifyAddFromInviteLinkAccessControlAction {
-      get {return _storage._modifyAddFromInviteLinkAccess ?? GroupsProtos_GroupChange.Actions.ModifyAddFromInviteLinkAccessControlAction()}
+      get {_storage._modifyAddFromInviteLinkAccess ?? GroupsProtos_GroupChange.Actions.ModifyAddFromInviteLinkAccessControlAction()}
       set {_uniqueStorage()._modifyAddFromInviteLinkAccess = newValue}
     }
     /// Returns true if `modifyAddFromInviteLinkAccess` has been explicitly set.
-    var hasModifyAddFromInviteLinkAccess: Bool {return _storage._modifyAddFromInviteLinkAccess != nil}
+    var hasModifyAddFromInviteLinkAccess: Bool {_storage._modifyAddFromInviteLinkAccess != nil}
     /// Clears the value of `modifyAddFromInviteLinkAccess`. Subsequent reads from it will return its default value.
     mutating func clearModifyAddFromInviteLinkAccess() {_uniqueStorage()._modifyAddFromInviteLinkAccess = nil}
 
     /// change epoch = 1
     var addRequestingMembers: [GroupsProtos_GroupChange.Actions.AddRequestingMemberAction] {
-      get {return _storage._addRequestingMembers}
+      get {_storage._addRequestingMembers}
       set {_uniqueStorage()._addRequestingMembers = newValue}
     }
 
     /// change epoch = 1
     var deleteRequestingMembers: [GroupsProtos_GroupChange.Actions.DeleteRequestingMemberAction] {
-      get {return _storage._deleteRequestingMembers}
+      get {_storage._deleteRequestingMembers}
       set {_uniqueStorage()._deleteRequestingMembers = newValue}
     }
 
     /// change epoch = 1
     var promoteRequestingMembers: [GroupsProtos_GroupChange.Actions.PromoteRequestingMemberAction] {
-      get {return _storage._promoteRequestingMembers}
+      get {_storage._promoteRequestingMembers}
       set {_uniqueStorage()._promoteRequestingMembers = newValue}
     }
 
     /// change epoch = 1
     var modifyInviteLinkPassword: GroupsProtos_GroupChange.Actions.ModifyInviteLinkPasswordAction {
-      get {return _storage._modifyInviteLinkPassword ?? GroupsProtos_GroupChange.Actions.ModifyInviteLinkPasswordAction()}
+      get {_storage._modifyInviteLinkPassword ?? GroupsProtos_GroupChange.Actions.ModifyInviteLinkPasswordAction()}
       set {_uniqueStorage()._modifyInviteLinkPassword = newValue}
     }
     /// Returns true if `modifyInviteLinkPassword` has been explicitly set.
-    var hasModifyInviteLinkPassword: Bool {return _storage._modifyInviteLinkPassword != nil}
+    var hasModifyInviteLinkPassword: Bool {_storage._modifyInviteLinkPassword != nil}
     /// Clears the value of `modifyInviteLinkPassword`. Subsequent reads from it will return its default value.
     mutating func clearModifyInviteLinkPassword() {_uniqueStorage()._modifyInviteLinkPassword = nil}
 
     /// change epoch = 2
     var modifyDescription: GroupsProtos_GroupChange.Actions.ModifyDescriptionAction {
-      get {return _storage._modifyDescription ?? GroupsProtos_GroupChange.Actions.ModifyDescriptionAction()}
+      get {_storage._modifyDescription ?? GroupsProtos_GroupChange.Actions.ModifyDescriptionAction()}
       set {_uniqueStorage()._modifyDescription = newValue}
     }
     /// Returns true if `modifyDescription` has been explicitly set.
-    var hasModifyDescription: Bool {return _storage._modifyDescription != nil}
+    var hasModifyDescription: Bool {_storage._modifyDescription != nil}
     /// Clears the value of `modifyDescription`. Subsequent reads from it will return its default value.
     mutating func clearModifyDescription() {_uniqueStorage()._modifyDescription = nil}
 
     /// change epoch = 3
     var modifyAnnouncementsOnly: GroupsProtos_GroupChange.Actions.ModifyAnnouncementsOnlyAction {
-      get {return _storage._modifyAnnouncementsOnly ?? GroupsProtos_GroupChange.Actions.ModifyAnnouncementsOnlyAction()}
+      get {_storage._modifyAnnouncementsOnly ?? GroupsProtos_GroupChange.Actions.ModifyAnnouncementsOnlyAction()}
       set {_uniqueStorage()._modifyAnnouncementsOnly = newValue}
     }
     /// Returns true if `modifyAnnouncementsOnly` has been explicitly set.
-    var hasModifyAnnouncementsOnly: Bool {return _storage._modifyAnnouncementsOnly != nil}
+    var hasModifyAnnouncementsOnly: Bool {_storage._modifyAnnouncementsOnly != nil}
     /// Clears the value of `modifyAnnouncementsOnly`. Subsequent reads from it will return its default value.
     mutating func clearModifyAnnouncementsOnly() {_uniqueStorage()._modifyAnnouncementsOnly = nil}
 
     /// change epoch = 4
     var addBannedMembers: [GroupsProtos_GroupChange.Actions.AddBannedMemberAction] {
-      get {return _storage._addBannedMembers}
+      get {_storage._addBannedMembers}
       set {_uniqueStorage()._addBannedMembers = newValue}
     }
 
     /// change epoch = 4
     var deleteBannedMembers: [GroupsProtos_GroupChange.Actions.DeleteBannedMemberAction] {
-      get {return _storage._deleteBannedMembers}
+      get {_storage._deleteBannedMembers}
       set {_uniqueStorage()._deleteBannedMembers = newValue}
     }
 
     /// change epoch = 5
     var promotePniPendingMembers: [GroupsProtos_GroupChange.Actions.PromoteMemberPendingPniAciProfileKeyAction] {
-      get {return _storage._promotePniPendingMembers}
+      get {_storage._promotePniPendingMembers}
       set {_uniqueStorage()._promotePniPendingMembers = newValue}
     }
 
     /// change epoch = 6;
     var modifyMemberLabel: [GroupsProtos_GroupChange.Actions.ModifyMemberLabelAction] {
-      get {return _storage._modifyMemberLabel}
+      get {_storage._modifyMemberLabel}
       set {_uniqueStorage()._modifyMemberLabel = newValue}
     }
 
@@ -664,11 +664,11 @@ struct GroupsProtos_GroupChange: Sendable {
       // methods supported on all messages.
 
       var added: GroupsProtos_Member {
-        get {return _added ?? GroupsProtos_Member()}
+        get {_added ?? GroupsProtos_Member()}
         set {_added = newValue}
       }
       /// Returns true if `added` has been explicitly set.
-      var hasAdded: Bool {return self._added != nil}
+      var hasAdded: Bool {self._added != nil}
       /// Clears the value of `added`. Subsequent reads from it will return its default value.
       mutating func clearAdded() {self._added = nil}
 
@@ -746,11 +746,11 @@ struct GroupsProtos_GroupChange: Sendable {
       // methods supported on all messages.
 
       var added: GroupsProtos_PendingMember {
-        get {return _added ?? GroupsProtos_PendingMember()}
+        get {_added ?? GroupsProtos_PendingMember()}
         set {_added = newValue}
       }
       /// Returns true if `added` has been explicitly set.
-      var hasAdded: Bool {return self._added != nil}
+      var hasAdded: Bool {self._added != nil}
       /// Clears the value of `added`. Subsequent reads from it will return its default value.
       mutating func clearAdded() {self._added = nil}
 
@@ -818,11 +818,11 @@ struct GroupsProtos_GroupChange: Sendable {
       // methods supported on all messages.
 
       var added: GroupsProtos_RequestingMember {
-        get {return _added ?? GroupsProtos_RequestingMember()}
+        get {_added ?? GroupsProtos_RequestingMember()}
         set {_added = newValue}
       }
       /// Returns true if `added` has been explicitly set.
-      var hasAdded: Bool {return self._added != nil}
+      var hasAdded: Bool {self._added != nil}
       /// Clears the value of `added`. Subsequent reads from it will return its default value.
       mutating func clearAdded() {self._added = nil}
 
@@ -865,11 +865,11 @@ struct GroupsProtos_GroupChange: Sendable {
       // methods supported on all messages.
 
       var added: GroupsProtos_BannedMember {
-        get {return _added ?? GroupsProtos_BannedMember()}
+        get {_added ?? GroupsProtos_BannedMember()}
         set {_added = newValue}
       }
       /// Returns true if `added` has been explicitly set.
-      var hasAdded: Bool {return self._added != nil}
+      var hasAdded: Bool {self._added != nil}
       /// Clears the value of `added`. Subsequent reads from it will return its default value.
       mutating func clearAdded() {self._added = nil}
 
@@ -1043,11 +1043,11 @@ struct GroupsProtos_GroupResponse: Sendable {
   // methods supported on all messages.
 
   var group: GroupsProtos_Group {
-    get {return _group ?? GroupsProtos_Group()}
+    get {_group ?? GroupsProtos_Group()}
     set {_group = newValue}
   }
   /// Returns true if `group` has been explicitly set.
-  var hasGroup: Bool {return self._group != nil}
+  var hasGroup: Bool {self._group != nil}
   /// Clears the value of `group`. Subsequent reads from it will return its default value.
   mutating func clearGroup() {self._group = nil}
 
@@ -1077,20 +1077,20 @@ struct GroupsProtos_GroupChanges: Sendable {
     // methods supported on all messages.
 
     var groupChange: GroupsProtos_GroupChange {
-      get {return _storage._groupChange ?? GroupsProtos_GroupChange()}
+      get {_storage._groupChange ?? GroupsProtos_GroupChange()}
       set {_uniqueStorage()._groupChange = newValue}
     }
     /// Returns true if `groupChange` has been explicitly set.
-    var hasGroupChange: Bool {return _storage._groupChange != nil}
+    var hasGroupChange: Bool {_storage._groupChange != nil}
     /// Clears the value of `groupChange`. Subsequent reads from it will return its default value.
     mutating func clearGroupChange() {_uniqueStorage()._groupChange = nil}
 
     var groupState: GroupsProtos_Group {
-      get {return _storage._groupState ?? GroupsProtos_Group()}
+      get {_storage._groupState ?? GroupsProtos_Group()}
       set {_uniqueStorage()._groupState = newValue}
     }
     /// Returns true if `groupState` has been explicitly set.
-    var hasGroupState: Bool {return _storage._groupState != nil}
+    var hasGroupState: Bool {_storage._groupState != nil}
     /// Clears the value of `groupState`. Subsequent reads from it will return its default value.
     mutating func clearGroupState() {_uniqueStorage()._groupState = nil}
 
@@ -1110,11 +1110,11 @@ struct GroupsProtos_GroupChangeResponse: Sendable {
   // methods supported on all messages.
 
   var groupChange: GroupsProtos_GroupChange {
-    get {return _groupChange ?? GroupsProtos_GroupChange()}
+    get {_groupChange ?? GroupsProtos_GroupChange()}
     set {_groupChange = newValue}
   }
   /// Returns true if `groupChange` has been explicitly set.
-  var hasGroupChange: Bool {return self._groupChange != nil}
+  var hasGroupChange: Bool {self._groupChange != nil}
   /// Clears the value of `groupChange`. Subsequent reads from it will return its default value.
   mutating func clearGroupChange() {self._groupChange = nil}
 
