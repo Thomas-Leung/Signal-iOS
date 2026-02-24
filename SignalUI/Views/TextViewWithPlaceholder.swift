@@ -17,6 +17,10 @@ public protocol TextViewWithPlaceholderDelegate: AnyObject {
 
     /// A method invoked by the text field whenever the user tries to insert new text
     func textView(_ textView: TextViewWithPlaceholder, uiTextView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+
+    /// A method invoked by the text field whenever it begins editing, i.e.
+    /// in response to `becomeFirstResponder()`.
+    func textViewDidBeginEditing(_ textView: TextViewWithPlaceholder)
 }
 
 public extension TextViewWithPlaceholderDelegate {
@@ -25,11 +29,13 @@ public extension TextViewWithPlaceholderDelegate {
     func textView(_ textView: TextViewWithPlaceholder, uiTextView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return true
     }
+
+    func textViewDidBeginEditing(_ textView: TextViewWithPlaceholder) {}
 }
 
 // MARK: -
 
-public class TextViewWithPlaceholder: UIView {
+public class TextViewWithPlaceholder: UIView, UITextViewDelegate {
     // MARK: - Public Properties
 
     /// A delegate to receive callbacks on any data updates
@@ -267,11 +273,8 @@ public class TextViewWithPlaceholder: UIView {
     private func createWideRect(from rect: CGRect) -> CGRect {
         return CGRect(x: 0, y: rect.minY, width: width, height: rect.height)
     }
-}
 
-// MARK: - UITextViewDelegate
-
-extension TextViewWithPlaceholder: UITextViewDelegate {
+    // MARK: - UITextViewDelegate
 
     public func textViewDidChangeSelection(_ textView: UITextView) {
         delegate?.textViewDidUpdateSelection(self)
@@ -286,5 +289,9 @@ extension TextViewWithPlaceholder: UITextViewDelegate {
 
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         delegate?.textView(self, uiTextView: textView, shouldChangeTextIn: range, replacementText: text) ?? true
+    }
+
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        delegate?.textViewDidBeginEditing(self)
     }
 }

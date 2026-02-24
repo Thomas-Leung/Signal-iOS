@@ -540,7 +540,7 @@ extension ConversationViewController: ConversationInputToolbarDelegate {
 
         dismissKeyBoard()
 
-        let newPollViewController = NewPollViewController()
+        let newPollViewController = NewPollViewController2()
         newPollViewController.sendDelegate = self
         present(OWSNavigationController(rootViewController: newPollViewController), animated: true)
     }

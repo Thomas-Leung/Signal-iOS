@@ -92,7 +92,6 @@
 		04E66D402DFC825B0059DBAC /* RecoveryKeyReminderMegaphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E66D3E2DFC81BC0059DBAC /* RecoveryKeyReminderMegaphone.swift */; };
 		04E66D422DFF3A4B0059DBAC /* BackupRecoveryKeyReminderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E66D412DFF3A3E0059DBAC /* BackupRecoveryKeyReminderCoordinator.swift */; };
 		04E66D452E00AB6A0059DBAC /* BackupSettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E66D432E00AB3A0059DBAC /* BackupSettingsStoreTests.swift */; };
-		04FAAD0C2E7F067C00E4AAC3 /* NewPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAAD0B2E7F067300E4AAC3 /* NewPollViewController.swift */; };
 		04FAAD0E2E82EEAE00E4AAC3 /* CVComponentBottomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAAD0D2E82EEA900E4AAC3 /* CVComponentBottomLabel.swift */; };
 		04FE6C6B2F32789D00A2ACF4 /* MemberLabelHeroSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE6C6A2F32789800A2ACF4 /* MemberLabelHeroSheets.swift */; };
 		04FE6C6D2F3532A800A2ACF4 /* MemberLabelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE6C6C2F3532A300A2ACF4 /* MemberLabelCoordinator.swift */; };
@@ -2787,6 +2786,7 @@
 		D953427C2D8B71190087AD93 /* recipient_self_08.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D95342432D8B71190087AD93 /* recipient_self_08.txtproto */; };
 		D953427D2D8B71190087AD93 /* recipient_groups_11.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D95342312D8B71190087AD93 /* recipient_groups_11.txtproto */; };
 		D9538E412F3FF7FC002C887E /* UITableView+RowHeights.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9538E402F3FF7F3002C887E /* UITableView+RowHeights.swift */; };
+		D954276F2F49240E006F78FB /* NewPollViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D954276E2F4923FC006F78FB /* NewPollViewController2.swift */; };
 		D954A5AE2D7BA9B200F61C36 /* AttachmentSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762EBBCF2A2FB759002FD28F /* AttachmentSharing.swift */; };
 		D95787772C6D2A080051AC74 /* TSInfoMessage+GroupUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95787762C6D2A080051AC74 /* TSInfoMessage+GroupUpdates.swift */; };
 		D95787792C6D2ADE0051AC74 /* TSInfoMessage+Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95787782C6D2ADE0051AC74 /* TSInfoMessage+Payments.swift */; };
@@ -2867,6 +2867,7 @@
 		D972E2FF2C542BCD001D7337 /* Backup.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D972E2FE2C542BCD001D7337 /* Backup.pb.swift */; };
 		D97411BB28D277C900BB1865 /* GroupManager+GenericGroupUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97411BA28D277C900BB1865 /* GroupManager+GenericGroupUpdates.swift */; };
 		D977D2042F3DB151005FEFD8 /* OWSPercentFormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D977D2032F3DB151005FEFD8 /* OWSPercentFormatStyle.swift */; };
+		D978B6242F4A1EDF00ADE27C /* OWSTableViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978B6232F4A1EDF00ADE27C /* OWSTableViewDiffableDataSource.swift */; };
 		D9791BB92EAA84830016AA5A /* SheetDisplayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9791BB82EAA847E0016AA5A /* SheetDisplayableError.swift */; };
 		D9791BC42EAADF010016AA5A /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9791BC32EAADEFD0016AA5A /* HTTPResponse.swift */; };
 		D97992A12D9E55F20080A4F5 /* CurrencyFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97992A02D9E55E10080A4F5 /* CurrencyFormatterTest.swift */; };
@@ -4232,7 +4233,6 @@
 		04E66D3E2DFC81BC0059DBAC /* RecoveryKeyReminderMegaphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryKeyReminderMegaphone.swift; sourceTree = "<group>"; };
 		04E66D412DFF3A3E0059DBAC /* BackupRecoveryKeyReminderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRecoveryKeyReminderCoordinator.swift; sourceTree = "<group>"; };
 		04E66D432E00AB3A0059DBAC /* BackupSettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupSettingsStoreTests.swift; sourceTree = "<group>"; };
-		04FAAD0B2E7F067300E4AAC3 /* NewPollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewController.swift; sourceTree = "<group>"; };
 		04FAAD0D2E82EEA900E4AAC3 /* CVComponentBottomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVComponentBottomLabel.swift; sourceTree = "<group>"; };
 		04FE6C6A2F32789800A2ACF4 /* MemberLabelHeroSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberLabelHeroSheets.swift; sourceTree = "<group>"; };
 		04FE6C6C2F3532A300A2ACF4 /* MemberLabelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberLabelCoordinator.swift; sourceTree = "<group>"; };
@@ -7057,6 +7057,7 @@
 		D95342482D8B71190087AD93 /* recipient_self_11.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = recipient_self_11.binproto; sourceTree = "<group>"; };
 		D95342492D8B71190087AD93 /* recipient_self_11.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = recipient_self_11.txtproto; sourceTree = "<group>"; };
 		D9538E402F3FF7F3002C887E /* UITableView+RowHeights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+RowHeights.swift"; sourceTree = "<group>"; };
+		D954276E2F4923FC006F78FB /* NewPollViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewController2.swift; sourceTree = "<group>"; };
 		D954A5AC2D7BA7DA00F61C36 /* AttachmentSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentSaving.swift; sourceTree = "<group>"; };
 		D95777B92B46411300CFE3AE /* GroupCallPeekClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCallPeekClient.swift; sourceTree = "<group>"; };
 		D95787762C6D2A080051AC74 /* TSInfoMessage+GroupUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TSInfoMessage+GroupUpdates.swift"; sourceTree = "<group>"; };
@@ -7140,6 +7141,7 @@
 		D972E2FE2C542BCD001D7337 /* Backup.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backup.pb.swift; sourceTree = "<group>"; };
 		D97411BA28D277C900BB1865 /* GroupManager+GenericGroupUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupManager+GenericGroupUpdates.swift"; sourceTree = "<group>"; };
 		D977D2032F3DB151005FEFD8 /* OWSPercentFormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWSPercentFormatStyle.swift; sourceTree = "<group>"; };
+		D978B6232F4A1EDF00ADE27C /* OWSTableViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWSTableViewDiffableDataSource.swift; sourceTree = "<group>"; };
 		D9791BB82EAA847E0016AA5A /* SheetDisplayableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDisplayableError.swift; sourceTree = "<group>"; };
 		D9791BC32EAADEFD0016AA5A /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
 		D97992A02D9E55E10080A4F5 /* CurrencyFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTest.swift; sourceTree = "<group>"; };
@@ -8506,7 +8508,7 @@
 		04CF4FCC2E7245F3009D6669 /* Polls */ = {
 			isa = PBXGroup;
 			children = (
-				04FAAD0B2E7F067300E4AAC3 /* NewPollViewController.swift */,
+				D954276E2F4923FC006F78FB /* NewPollViewController2.swift */,
 				04CF4FCD2E7245FC009D6669 /* PollDetailsViewController.swift */,
 			);
 			path = Polls;
@@ -9049,6 +9051,7 @@
 		34A954E9271B4FB000B05242 /* UIKitExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				D978B6232F4A1EDF00ADE27C /* OWSTableViewDiffableDataSource.swift */,
 				05412B3D2C29C0A0007AC9C7 /* UIButton+DeprecationWorkaround.h */,
 				05412B3E2C29C0A0007AC9C7 /* UIButton+DeprecationWorkaround.m */,
 				F963F815292D1B5B007DBBBD /* UIButton+SignalUI.swift */,
@@ -17844,6 +17847,7 @@
 				765283B02A00D8CE004583A9 /* OWSTableSection.swift in Sources */,
 				8868A08C287F4F81000E74A5 /* OWSTableSheetViewController.swift in Sources */,
 				3402AA5A271D9DCD0084CBAE /* OWSTableViewController2.swift in Sources */,
+				D978B6242F4A1EDF00ADE27C /* OWSTableViewDiffableDataSource.swift in Sources */,
 				F9C8CFD0293580D00094469C /* OWSTextField.swift in Sources */,
 				7609818A2936EC8D008F8300 /* OWSTextView.swift in Sources */,
 				66F44B4B2909EEDA004CF66C /* OWSViewController.swift in Sources */,
@@ -18517,7 +18521,7 @@
 				34995F1B2411838D00C70546 /* NewGroupMembersViewController.swift in Sources */,
 				346594802434D49F00E5C510 /* NewGroupState.swift in Sources */,
 				B9B7BC652D41C61500C26E42 /* NewLinkedDeviceNotificationMegaphone.swift in Sources */,
-				04FAAD0C2E7F067C00E4AAC3 /* NewPollViewController.swift in Sources */,
+				D954276F2F49240E006F78FB /* NewPollViewController2.swift in Sources */,
 				B9D65E532BAE1DA70067322A /* NicknameEditorViewController.swift in Sources */,
 				88D23D1223CEBFB200B0E74B /* NotificationActionHandler.swift in Sources */,
 				8806EF19248DBD7200E764C7 /* NotificationPermissionReminderMegaphone.swift in Sources */,

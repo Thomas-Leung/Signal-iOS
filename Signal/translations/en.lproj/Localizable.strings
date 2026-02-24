@@ -6922,8 +6922,8 @@
 /* String to display when a poll has no votes */
 "POLL_NO_VOTES" = "No Votes";
 
-/* Placeholder text for an option row when creating a poll. This will have a number appended to it (Option 1, Option 2) */
-"POLL_OPTION_PLACEHOLDER_PREFIX" = "Option";
+/* Format text for the placeholder of an option row when creating a poll. Embeds {{ the number of this option in a list, as a pre-localized string }}, so it should look like , . */
+"POLL_OPTION_PLACEHOLDER_FORMAT" = "Option %1$@";
 
 /* Header for the poll options text boxes when making a new poll */
 "POLL_OPTIONS_LABEL" = "Options";
