@@ -152,7 +152,7 @@ class AudioMessageView: ManualStackView {
                     downloadState: downloadState,
                 ),
                 diameter: Constants.animationSize,
-                isDarkThemeEnabled: conversationStyle.isDarkThemeEnabled,
+                colorConfiguration: .init(conversationStyle: conversationStyle, isIncoming: isIncoming),
                 mediaCache: mediaCache,
             )
         }

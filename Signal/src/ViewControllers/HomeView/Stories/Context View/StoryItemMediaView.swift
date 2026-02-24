@@ -1037,7 +1037,7 @@ class StoryItemMediaView: UIView {
                 downloadState: downloadState,
             ),
             diameter: 56,
-            isDarkThemeEnabled: true,
+            colorConfiguration: .forMediaOverlay(),
             mediaCache: Self.mediaCache,
         )
 
