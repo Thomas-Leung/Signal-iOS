@@ -325,6 +325,16 @@ public extension TSMessage {
     }
 
     var canBeRemotelyDeletedByAdmin: Bool {
+        guard isIncoming || isOutgoing else { return false }
+
+        if let incomingMessage = self as? TSIncomingMessage {
+            guard !incomingMessage.wasRemotelyDeleted else { return false }
+        }
+
+        if let outgoingMessage = self as? TSOutgoingMessage {
+            guard !outgoingMessage.wasRemotelyDeleted else { return false }
+        }
+
         let (elapsedTime, isInFuture) = Date.ows_millisecondTimestamp().subtractingReportingOverflow(self.timestamp)
 
         // TODO: replace with global config
