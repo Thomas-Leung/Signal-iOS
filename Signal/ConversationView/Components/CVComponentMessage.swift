@@ -1540,7 +1540,7 @@ public class CVComponentMessage: CVComponentBase, CVRootComponent {
     /// For messages that are not a special case value from `ConversationStyle` will be returned.
     private var bubbleStroke: BubbleConfiguration.Stroke? {
         if !conversationStyle.hasWallpaper, wasRemotelyDeleted || isBorderlessViewOnceMessage {
-            return BubbleConfiguration.Stroke(color: UIColor.Signal.opaqueSeparator, width: 1)
+            return BubbleConfiguration.Stroke(color: UIColor.Signal.transparentSeparator, width: 1)
         }
         if isBubbleTransparent {
             return nil

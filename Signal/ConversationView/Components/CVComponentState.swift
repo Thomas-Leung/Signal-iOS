@@ -123,9 +123,13 @@ public struct CVComponentState: Equatable {
     }
 
     struct DeleteAuthor: Equatable {
+        enum AuthorType: Equatable {
+            case admin(aci: Aci, groupColor: UIColor)
+            case regular
+        }
+
         let displayName: String
-        let aci: Aci
-        let groupColor: UIColor
+        let authorType: AuthorType
     }
 
     let senderAvatar: SenderAvatar?
@@ -1194,38 +1198,56 @@ private extension CVComponentState.Builder {
         return FailedOrPendingDownloads(attachmentPointers: attachmentPointers)
     }
 
-    /// If the message was deleted remotely by an admin,  display the admin's name.
-    private func displayNameAndColorForDeleteMessage(message: TSMessage) -> CVComponentState.DeleteAuthor? {
+    /// If the message was deleted remotely, display the delete author's name.
+    private func displayNameForDeleteMessage(message: TSMessage) -> CVComponentState.DeleteAuthor? {
         let adminDeleteManager = DependenciesBridge.shared.adminDeleteManager
 
-        guard
-            let authorAci = adminDeleteManager.adminDeleteAuthor(
-                interactionId: interaction.sqliteRowId!,
-                tx: transaction,
-            )
-        else {
-            return nil
+        let adminAuthorAci = adminDeleteManager.adminDeleteAuthor(
+            interactionId: interaction.sqliteRowId!,
+            tx: transaction,
+        )
+
+        if let adminAuthorAci {
+            if adminAuthorAci == localAci, message.isOutgoing {
+                // Display usual self delete message for outgoing self-deletion.
+                return nil
+            } else if let incomingMessage = message as? TSIncomingMessage, incomingMessage.authorAddress.aci == adminAuthorAci {
+                // Display usual (non-admin) other user delete for incoming self-deletion.
+                let displayName = SSKEnvironment.shared.contactManagerRef.displayName(
+                    for: SignalServiceAddress(adminAuthorAci),
+                    tx: transaction,
+                ).resolvedValue()
+                return CVComponentState.DeleteAuthor(
+                    displayName: displayName,
+                    authorType: .regular,
+                )
+            } else {
+                // Only display admin name if non self-delete.
+                let displayName = SSKEnvironment.shared.contactManagerRef.displayName(
+                    for: SignalServiceAddress(adminAuthorAci),
+                    tx: transaction,
+                ).resolvedValue()
+                let groupNameColor = GroupNameColors.forThread(thread).color(for: adminAuthorAci)
+                return CVComponentState.DeleteAuthor(
+                    displayName: displayName,
+                    authorType: .admin(aci: adminAuthorAci, groupColor: groupNameColor),
+                )
+            }
         }
 
-        if authorAci == localAci, message.isOutgoing {
-            // Display usual self delete message for outgoing self-deletion.
+        // Non-admin outgoing message shows no author.
+        guard let incomingMessage = message as? TSIncomingMessage else {
             return nil
-        } else if let incomingMessage = message as? TSIncomingMessage, incomingMessage.authorAddress.aci == authorAci {
-            // Display usual other user delete for incoming self-deletion.
-            return nil
-        } else {
-            // Only display admin name if non self-delete.
-            let displayName = SSKEnvironment.shared.contactManagerRef.displayName(
-                for: SignalServiceAddress(authorAci),
-                tx: transaction,
-            ).resolvedValue()
-            let groupNameColor = GroupNameColors.forThread(thread).color(for: authorAci)
-            return CVComponentState.DeleteAuthor(
-                displayName: displayName,
-                aci: authorAci,
-                groupColor: groupNameColor,
-            )
         }
+        let displayName = SSKEnvironment.shared.contactManagerRef.displayName(
+            for: incomingMessage.authorAddress,
+            tx: transaction,
+        ).resolvedValue()
+
+        return CVComponentState.DeleteAuthor(
+            displayName: displayName,
+            authorType: .regular,
+        )
     }
 
     mutating func populateAndBuild(
@@ -1236,7 +1258,7 @@ private extension CVComponentState.Builder {
         if message.wasRemotelyDeleted {
             // If the message has been remotely deleted, suppress everything else.
 
-            let remoteDeleteAuthor = displayNameAndColorForDeleteMessage(message: message)
+            let remoteDeleteAuthor = displayNameForDeleteMessage(message: message)
             self.bodyText = .remotelyDeleted(deleteAuthor: remoteDeleteAuthor)
             return build()
         }

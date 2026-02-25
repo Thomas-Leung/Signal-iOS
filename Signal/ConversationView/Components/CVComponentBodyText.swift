@@ -475,7 +475,7 @@ public class CVComponentBodyText: CVComponentBase, CVComponent {
         )
     }
 
-    private func buildAdminDeleteAttributedString(deleteAuthor: CVComponentState.DeleteAuthor) -> NSAttributedString {
+    private func buildAdminDeleteAttributedString(displayName: String, groupColor: UIColor) -> NSAttributedString {
         let format = OWSLocalizedString(
             "DELETED_BY_ADMIN",
             comment: "Text indicating the message was remotely deleted by an admin. Embeds {{admin display name}}",
@@ -485,8 +485,8 @@ public class CVComponentBodyText: CVComponentBase, CVComponent {
             fromFormat: format,
             attributedFormatArgs: [
                 .string(
-                    deleteAuthor.displayName,
-                    attributes: [.font: textMessageFont.bold(), .foregroundColor: deleteAuthor.groupColor],
+                    displayName,
+                    attributes: [.font: textMessageFont.bold(), .foregroundColor: groupColor],
                 ),
             ],
         )
@@ -527,21 +527,38 @@ public class CVComponentBodyText: CVComponentBase, CVComponent {
         switch bodyText {
         case .remotelyDeleted(let deleteAuthor):
             if let deleteAuthor {
-                let attributedString = buildAdminDeleteAttributedString(deleteAuthor: deleteAuthor)
-                text.append(attributedString)
-
-                if
-                    let tapItemRange = rangeOfFirstSubstring(
-                        in: text,
-                        withColor: deleteAuthor.groupColor,
+                switch deleteAuthor.authorType {
+                case .admin(let aci, let groupColor):
+                    let attributedString = buildAdminDeleteAttributedString(
+                        displayName: deleteAuthor.displayName,
+                        groupColor: groupColor,
                     )
-                {
-                    linkItems.append(.deleteAuthor(deleteAuthorItem: CVTextLabel.DeleteAuthorItem(
-                        deleteAuthorAci: deleteAuthor.aci,
-                        range: tapItemRange,
-                    )))
-                } else {
-                    owsFailDebug("Admin delete is missing tappable range")
+                    text.append(attributedString)
+
+                    if
+                        let tapItemRange = rangeOfFirstSubstring(
+                            in: text,
+                            withColor: groupColor,
+                        )
+                    {
+                        linkItems.append(.deleteAuthor(deleteAuthorItem: CVTextLabel.DeleteAuthorItem(
+                            deleteAuthorAci: aci,
+                            range: tapItemRange,
+                        )))
+                    } else {
+                        owsFailDebug("Admin delete is missing tappable range")
+                    }
+
+                case .regular:
+                    let format = OWSLocalizedString(
+                        "DELETED_THIS_MESSAGE",
+                        comment: "Text indicating the message was remotely deleted by its author. Embeds {{ author name }}",
+                    )
+                    text.append(
+                        NSAttributedString(
+                            string: String(format: format, deleteAuthor.displayName),
+                        ),
+                    )
                 }
             } else {
                 fallthrough
