@@ -564,7 +564,7 @@ public class CVComponentBodyText: CVComponentBase, CVComponent {
         return CVTextViewConfig(
             text: .attributedText(text),
             font: textMessageFont,
-            textColor: UIColor.Signal.secondaryLabel,
+            textColor: bodyTextColor,
             textAlignment: .natural,
             displayConfiguration: displayConfiguration,
             linkifyStyle: linkifyStyle,
