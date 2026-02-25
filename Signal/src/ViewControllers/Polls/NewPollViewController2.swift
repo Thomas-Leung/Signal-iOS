@@ -288,7 +288,7 @@ class NewPollViewController2: OWSViewController, UITableViewDelegate, OWSNavigat
             onTextDidChange: { [weak self] newText in
                 guard let self else { return }
 
-                updateOptionRowText(newText?.stripped ?? "", rowIndex: rowIndex)
+                updateOptionRowText(newText ?? "", rowIndex: rowIndex)
                 updateSendabilityState()
             },
             onReturnKeyPressed: { [weak self] in
@@ -473,8 +473,8 @@ class NewPollViewController2: OWSViewController, UITableViewDelegate, OWSNavigat
             )
         case .sendable:
             sendDelegate?.sendPoll(
-                question: questionText,
-                options: optionRows.filter { !$0.isBlank }.map { $0.text },
+                question: questionText.stripped,
+                options: optionRows.filter { !$0.isBlank }.map { $0.text.stripped },
                 allowMultipleVotes: allowMultipleVotes,
             )
             dismiss(animated: true)
@@ -649,6 +649,15 @@ private class TextViewTableViewCell: UITableViewCell, TextViewWithPlaceholderDel
 
     func textViewDidBeginEditing(_ textView: TextViewWithPlaceholder) {
         onDidBeginEditing?()
+    }
+
+    func textViewDidEndEditing(_ textView: TextViewWithPlaceholder) {
+        if
+            let strippedText = textView.text?.stripped,
+            strippedText != textView.text
+        {
+            textView.text = strippedText
+        }
     }
 
     // MARK: -

@@ -21,6 +21,10 @@ public protocol TextViewWithPlaceholderDelegate: AnyObject {
     /// A method invoked by the text field whenever it begins editing, i.e.
     /// in response to `becomeFirstResponder()`.
     func textViewDidBeginEditing(_ textView: TextViewWithPlaceholder)
+
+    /// A method invoked by the text field whenever it ends editing, i.e. in
+    /// response to `resignFirstResponder()`.
+    func textViewDidEndEditing(_ textView: TextViewWithPlaceholder)
 }
 
 public extension TextViewWithPlaceholderDelegate {
@@ -29,8 +33,8 @@ public extension TextViewWithPlaceholderDelegate {
     func textView(_ textView: TextViewWithPlaceholder, uiTextView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return true
     }
-
     func textViewDidBeginEditing(_ textView: TextViewWithPlaceholder) {}
+    func textViewDidEndEditing(_ textView: TextViewWithPlaceholder) {}
 }
 
 // MARK: -
@@ -293,5 +297,9 @@ public class TextViewWithPlaceholder: UIView, UITextViewDelegate {
 
     public func textViewDidBeginEditing(_ textView: UITextView) {
         delegate?.textViewDidBeginEditing(self)
+    }
+
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        delegate?.textViewDidEndEditing(self)
     }
 }
