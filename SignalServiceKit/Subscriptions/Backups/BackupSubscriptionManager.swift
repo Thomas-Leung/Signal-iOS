@@ -194,7 +194,19 @@ final class BackupSubscriptionManagerImpl: BackupSubscriptionManager {
     private func doStartupLogging() async {
         let latestTransaction = await self.latestTransaction(onlyEntitling: false)
         let latestEntitlingTransaction = await self.latestTransaction(onlyEntitling: true)
-        let localIAPSubscriberData = db.read { store.getIAPSubscriberData(tx: $0) }
+        let localIAPSubscriberData: IAPSubscriberData?
+        let localBackupPlan: BackupPlan
+        (
+            localIAPSubscriberData,
+            localBackupPlan,
+        ) = db.read {
+            (
+                store.getIAPSubscriberData(tx: $0),
+                backupPlanManager.backupPlan(tx: $0),
+            )
+        }
+
+        let logger = logger.suffixed(with: "BackupPlan: \(localBackupPlan)")
 
         if let latestEntitlingTransaction {
             if let localIAPSubscriberData, localIAPSubscriberData.matches(storeKitTransaction: latestEntitlingTransaction) {
