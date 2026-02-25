@@ -11,7 +11,8 @@ import SignalUI
 private struct ThreadContextualAction {
     let style: UIContextualAction.Style
     let color: UIColor
-    let image: UIImage
+    let imageFilled: UIImage
+    let imageStroked: UIImage
     let title: String
     let action: () -> Void
 }
@@ -56,7 +57,7 @@ extension ThreadContextualActionProvider where Self: UIViewController {
         return ContextualActionBuilder.makeContextualAction(
             style: action.style,
             color: action.color,
-            image: action.image,
+            image: action.imageFilled,
             title: action.title,
             handler: { completion in
                 action.action()
@@ -94,7 +95,7 @@ extension ThreadContextualActionProvider where Self: UIViewController {
 
         return UIAction(
             title: action.title,
-            image: action.image,
+            image: action.imageStroked,
             attributes: attributes,
             handler: { _ in
                 action.action()
@@ -109,7 +110,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: UIColor(rgbHex: 0xff990a),
-                image: .pinSlashFill,
+                imageFilled: .pinSlashFill,
+                imageStroked: .pinSlash,
                 title: CommonStrings.unpinAction,
             ) { [weak self] in
                 self?.unpinThread(threadViewModel: threadViewModel)
@@ -118,7 +120,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: UIColor(rgbHex: 0xff990a),
-                image: .pinFill,
+                imageFilled: .pinFill,
+                imageStroked: .pin,
                 title: CommonStrings.pinAction,
             ) { [weak self] in
                 self?.pinThread(threadViewModel: threadViewModel)
@@ -131,7 +134,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: UIColor.Signal.ultramarine,
-                image: .chatCheckFill,
+                imageFilled: .chatCheckFill,
+                imageStroked: .chatCheck,
                 title: CommonStrings.readAction,
             ) { [weak self] in
                 self?.markThreadAsRead(threadViewModel: threadViewModel)
@@ -140,7 +144,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: UIColor.Signal.ultramarine,
-                image: .chatBadgeFill,
+                imageFilled: .chatBadgeFill,
+                imageStroked: .chatBadge,
                 title: CommonStrings.unreadAction,
             ) { [weak self] in
                 self?.markThreadAsUnread(threadViewModel: threadViewModel)
@@ -153,7 +158,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: UIColor.Signal.indigo,
-                image: .bellFill,
+                imageFilled: .bellFill,
+                imageStroked: .bell,
                 title: CommonStrings.unmuteButton,
                 action: { [weak self] in
                     self?.unmuteThread(threadViewModel: threadViewModel)
@@ -163,7 +169,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: UIColor.Signal.indigo,
-                image: .bellSlashFill,
+                imageFilled: .bellSlashFill,
+                imageStroked: .bellSlash,
                 title: CommonStrings.muteButton,
                 action: { [weak self] in
                     self?.muteThreadWithSelection(threadViewModel: threadViewModel)
@@ -176,7 +183,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
         return ThreadContextualAction(
             style: .destructive,
             color: UIColor.Signal.red,
-            image: .trashFill,
+            imageFilled: .trashFill,
+            imageStroked: .trash,
             title: CommonStrings.deleteButton,
         ) { [weak self] in
             self?.deleteThreadWithConfirmation(threadViewModel: threadViewModel)
@@ -188,7 +196,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: Theme.isDarkThemeEnabled ? .ows_gray45 : .ows_gray25,
-                image: .archiveUpFill,
+                imageFilled: .archiveUpFill,
+                imageStroked: .archiveUp,
                 title: CommonStrings.unarchiveAction,
                 action: { [weak self] in
                     self?.toggleThreadIsArchived(threadViewModel: threadViewModel)
@@ -198,7 +207,8 @@ extension ThreadContextualActionProvider where Self: UIViewController {
             return ThreadContextualAction(
                 style: .normal,
                 color: Theme.isDarkThemeEnabled ? .ows_gray45 : .ows_gray25,
-                image: .archiveFill,
+                imageFilled: .archiveFill,
+                imageStroked: .archive,
                 title: CommonStrings.archiveAction,
                 action: { [weak self] in
                     self?.toggleThreadIsArchived(threadViewModel: threadViewModel)
