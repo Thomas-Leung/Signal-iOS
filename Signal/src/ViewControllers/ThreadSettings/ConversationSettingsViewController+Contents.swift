@@ -750,6 +750,22 @@ extension ConversationSettingsViewController {
             }
 
             let isLocalUser = memberAddress.isLocalAddress
+
+            var memberLabel: MemberLabelForRendering?
+            if
+                let memberAci = memberAddress.aci,
+                let memberLabelString = groupModel.groupMembership.memberLabel(for: memberAci)?.labelForRendering()
+            {
+                memberLabel = MemberLabelForRendering(
+                    label: memberLabelString,
+                    groupNameColor: groupNameColors.color(
+                        for: memberAddress.aci,
+                    ),
+                )
+            }
+
+            let showAddMemberLabel = BuildFlags.MemberLabel.send && isLocalUser && memberLabel == nil && self.groupViewHelper.canEditConversationAttributes
+
             section.add(OWSTableItem(customCellBlock: { [weak self] in
                 guard let self else {
                     owsFailDebug("Missing self")
@@ -787,29 +803,11 @@ extension ConversationSettingsViewController {
                         cell.selectionStyle = .default
                     }
 
-                    var memberLabel: MemberLabelForRendering?
-                    if
-                        let memberAci = memberAddress.aci,
-                        let memberLabelString = groupModel.groupMembership.memberLabel(for: memberAci)?.labelForRendering()
-                    {
-                        memberLabel = MemberLabelForRendering(
-                            label: memberLabelString,
-                            groupNameColor: groupNameColors.color(
-                                for: memberAddress.aci,
-                            ),
-                        )
-                    }
-
                     if BuildFlags.MemberLabel.display, let memberLabel {
                         configuration.memberLabel = memberLabel
                     }
 
-                    if
-                        BuildFlags.MemberLabel.send,
-                        isLocalUser,
-                        memberLabel == nil,
-                        self.groupViewHelper.canEditConversationAttributes
-                    {
+                    if showAddMemberLabel {
                         configuration.attributedSubtitle = NSAttributedString(
                             string: OWSLocalizedString(
                                 "MEMBER_LABEL_ADD_CSVC",
@@ -841,7 +839,12 @@ extension ConversationSettingsViewController {
 
                 return cell
             }, actionBlock: { [weak self] in
-                self?.didSelectGroupMember(memberAddress)
+                if showAddMemberLabel {
+                    self?.memberLabelCoordinator?.presenter = self
+                    self?.memberLabelCoordinator?.present()
+                } else {
+                    self?.didSelectGroupMember(memberAddress)
+                }
             }))
         }
 

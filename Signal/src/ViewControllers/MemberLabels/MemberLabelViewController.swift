@@ -419,8 +419,6 @@ class MemberLabelViewController: OWSViewController, UITextFieldDelegate {
             comment: "Section header for a list of group member labels",
         )
         sectionLabel.font = .dynamicTypeBodyClamped.semibold()
-        stackView.addArrangedSubview(sectionLabel)
-        stackView.setCustomSpacing(8, after: sectionLabel)
 
         let contactListStackView = UIStackView()
         contactListStackView.spacing = 5
@@ -462,13 +460,17 @@ class MemberLabelViewController: OWSViewController, UITextFieldDelegate {
             }
         }
 
-        contactListStackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(contactListStackView)
-        NSLayoutConstraint.activate([
-            contactListStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            contactListStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-        ])
+        if cellCount > 0 {
+            stackView.addArrangedSubview(sectionLabel)
+            stackView.setCustomSpacing(8, after: sectionLabel)
 
+            contactListStackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.addArrangedSubview(contactListStackView)
+            NSLayoutConstraint.activate([
+                contactListStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+                contactListStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            ])
+        }
     }
 }
 
