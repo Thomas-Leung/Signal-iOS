@@ -68,7 +68,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         clearAppropriateNotificationsAndRestoreBadgeCount()
 
         // On every activation, clear old temp directories.
-        ClearOldTemporaryDirectories()
+        OWSFileSystem.clearOldTemporaryDirectories()
 
         // Ensure that all windows have the correct frame.
         AppEnvironment.shared.windowManagerRef.updateWindowFrames()

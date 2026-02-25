@@ -128,12 +128,6 @@ public struct PreviewableAttachment {
         )
     }
 
-    private static var videoTempPath: URL {
-        let videoDir = URL(fileURLWithPath: OWSTemporaryDirectory()).appendingPathComponent("video")
-        OWSFileSystem.ensureDirectoryExists(videoDir.path)
-        return videoDir
-    }
-
     @MainActor
     public static func compressVideoAsMp4(
         dataSource: DataSourcePath,
@@ -168,7 +162,7 @@ public struct PreviewableAttachment {
             sessionCallback(exportSession)
         }
 
-        let exportURL = videoTempPath.appendingPathComponent(UUID().uuidString).appendingPathExtension("mp4")
+        let exportURL = OWSFileSystem.temporaryFileUrl(fileExtension: "mp4", isAvailableWhileDeviceLocked: false)
 
         try await exportSession.exportAsync(to: exportURL, as: .mp4)
 

@@ -257,15 +257,12 @@ class RequestAccountDataReportViewController: OWSTableViewController2 {
         // In practice, this doesn't work when sharing back into Signal. We don't understand why
         // but suspect a platform bug (or, at best, an error message that didn't help us figure out
         // the source of the problem).
-        let temporaryDirUrl = URL(
-            fileURLWithPath: OWSTemporaryDirectory(),
-        ).appendingPathComponent(UUID().uuidString)
-        let temporaryFileUrl = temporaryDirUrl.appendingPathComponent(
+        let temporaryFileUrl = OWSFileSystem.temporaryFileUrl(
             // This isn't localized because the report is *also* not localized.
-            "account-data.\(fileExtension)",
-            isDirectory: false,
+            fileName: "account-data",
+            fileExtension: fileExtension,
+            isAvailableWhileDeviceLocked: false,
         )
-        OWSFileSystem.ensureDirectoryExists(temporaryDirUrl.path)
 
         let activityItem: Any
         let cleanup: () -> Void
@@ -275,7 +272,7 @@ class RequestAccountDataReportViewController: OWSTableViewController2 {
             activityItem = temporaryFileUrl
             cleanup = {
                 do {
-                    try OWSFileSystem.deleteFile(url: temporaryDirUrl)
+                    try OWSFileSystem.deleteFile(url: temporaryFileUrl)
                 } catch {
                     owsFailBeta("Failed to delete temporary account data report file")
                 }
